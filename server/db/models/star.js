@@ -1,45 +1,38 @@
+const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class Place extends Model {
+  class Star extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate({ Road, Star }) {
-      Place.belongsTo(Road, { foreignKey: 'roadId' });
-      Place.hasMany(Star, { foreignKey: 'placeId' });
+    static associate({ User, Place }) {
+      Star.belongsTo(User, { foreignKey: 'userId' });
+      Star.belongsTo(Place, { foreignKey: 'placeId' });
     }
   }
-  Place.init({
+  Star.init({
     id: {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
       type: DataTypes.INTEGER,
     },
-    roadId: {
+    mark: {
+      allowNull: false,
+      type: DataTypes.INTEGER,
+    },
+    userId: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'Roads',
+        model: 'Users'
       }
     },
-    title: {
-      type: DataTypes.TEXT,
-    },
-    info: {
-      type: DataTypes.TEXT,
-    },
-    img: {
-      type: DataTypes.TEXT,
-    },
-    positionOnMap: {
-      type: DataTypes.TEXT,
-    },
-    category: {
-      type: DataTypes.TEXT,
-    },
-    adress: {
-      type: DataTypes.TEXT,
+    placeId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'Places'
+      }
     },
     createdAt: {
       allowNull: false,
@@ -51,8 +44,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {
     sequelize,
-    modelName: 'Place',
-    tableName: 'Places',
+    modelName: 'Star',
+    tableName: 'Stars'
   });
-  return Place;
+  return Star;
 };
