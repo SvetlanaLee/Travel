@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-const Login = () => {
+export default function UserSignup() {
   const classes = useStyles();
 
   const inputs = useSelector(store => store.signUpInputs);
@@ -35,6 +35,8 @@ const Login = () => {
   const navigate = useNavigate();
   const submitHandler = async (e) => {
     e.preventDefault();
+
+    console.log(inputs)
   
     const userRequest = await fetch('http://localhost:3001/reg', {
       method: 'POST',
@@ -66,7 +68,7 @@ const Login = () => {
       fullWidth
       autoFocus
        
-     id="outlined-basic"
+     id="outlined-basic1"
      label="E-mail"
      variant="outlined"
      type="email" 
@@ -79,9 +81,8 @@ const Login = () => {
       required
       fullWidth
       autoFocus
-     
-    
-      id="outlined-basic"
+      
+      id="outlined-basic2"
       label="Password"
       variant="outlined"
       type="password"
@@ -94,7 +95,7 @@ const Login = () => {
       required
       fullWidth
       autoFocus
-      id="outlined-basic" 
+      id="outlined-basic3" 
       label="Name" 
       variant="outlined" 
       type="text" 
@@ -114,4 +115,4 @@ const Login = () => {
   )
 }
 
-export default Login;
+

@@ -6,7 +6,7 @@ const router = express.Router();
 const { User } = require('../db/models');
 
 router.post('/reg', async (req, res) => {
-  console.log(req.body);
+  console.log('req.body=====================', req.body);
   const { name, email } = req.body;
   const newUser = await User.create({ name, email, password: sha256(req.body.password) });
   req.session.user = {
@@ -29,7 +29,7 @@ router.post('/login', async (req, res) => {
       };
       res.json(req.session.user);
     } else {
-      res.send({ error: `invalid pass, valid is ${user.password}` }); 
+      res.send({ error: `invalid pass, valid is ${user.password}`}); 
     }
   } else {
     res.send({ error: 'no way' });
