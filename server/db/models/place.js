@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       references: {
         model: 'Roads',
-      }
+      },
     },
     title: {
       type: DataTypes.TEXT,
@@ -49,7 +49,7 @@ module.exports = (sequelize, DataTypes) => {
     updatedAt: {
       allowNull: false,
       type: DataTypes.DATE,
-    }
+    },
   }, {
     sequelize,
     modelName: 'Place',

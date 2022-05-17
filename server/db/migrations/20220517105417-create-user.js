@@ -18,7 +18,6 @@ module.exports = {
       password: {
         allowNull: false,
         type: Sequelize.TEXT
-      },     
     });
   },
   async down(queryInterface) {
