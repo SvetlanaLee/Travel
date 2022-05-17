@@ -16,7 +16,7 @@ module.exports = {
         userId: 1,
         from: 'Санкт-Петербург',
         where: 'Кижи',
-        mapImg: '/img/mospit.png',
+        mapImg: '/img/piters.png',
         discription: 'Прекрасная Карелия',
         transportType: 'авто',
         distance: '438 км',
