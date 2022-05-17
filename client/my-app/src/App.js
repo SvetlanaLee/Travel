@@ -1,24 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useEffect } from 'react'
+import { Routes, Route } from 'react-router-dom';
+import PageHome from './pages/PageHome';
+import axios from 'axios';
+import { useDispatch } from 'react-redux';
+
 
 function App() {
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    axios.get('http://localhost:3001')
+      .then((infoFromServer) => {
+        console.log('----> Все вопросы из базы:', infoFromServer)
+        if (infoFromServer.data.allInfoFromDB.length) {
+          dispatch({ type: 'ALL_QUESTIONS', payload: infoFromServer.data.allInfoFromDB })
+        }
+      })
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route index element={<PageHome />} />
+    </Routes>
   );
 }
 
