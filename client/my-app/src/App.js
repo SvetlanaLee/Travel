@@ -4,6 +4,8 @@ import './App.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import UserSignup from './components/UserSignup/UserSignup';
+import UserSignin from './components/UserLogin/UserLogin'
+
 
 function App() {
   return (
@@ -12,6 +14,7 @@ function App() {
         <Navigation/>
         <Routes>
         <Route path='/reg' element={<UserSignup/>}/>
+        <Route path='/login' element={<UserSignin/>}/>
           {/* <Route path="/test" element={<PageTest />} /> */}
         </Routes>
       {/* </header> */}
