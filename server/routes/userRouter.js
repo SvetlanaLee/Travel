@@ -6,6 +6,7 @@ const router = express.Router();
 const { User } = require('../db/models');
 
 router.post('/reg', async (req, res) => {
+
   console.log('req.body=====================', req.body);
 
   const { email } = req.body;
@@ -24,6 +25,16 @@ router.post('/reg', async (req, res) => {
     };
     res.json(req.session.user);
   }
+
+  const { name, email } = req.body;
+  const newUser = await User.create({ name, email, password: sha256(req.body.password) });
+  req.session.user = {
+    userId: newUser.id,
+    userEmail: newUser.email,
+    userName: newUser.name,
+  };
+  res.json(req.session.user);
+
 });
 
 router.post('/login', async (req, res) => {
@@ -50,18 +61,17 @@ router.post('/login', async (req, res) => {
 //   res.json(me);
 // });
 
-// router.get('/logout', (req, res) => {
-//   req.session.destroy();
-//   res.clearCookie('authorisation');
-//   res.status(200).end();
-// });
+router.get('/logout', (req, res) => {
+  req.session.destroy();
+  res.clearCookie('authorisation');
+  res.status(200).end();
+});
 
-// router.get('/session', (req, res) => {
-//   // console.log(req.session.user);
-//   if (!req.session.user) {
-//     req.session.user = {};
-//   }
-//   res.json(req.session.user);
-// });
+router.get('/session', (req, res) => {
+  if (!req.session.user) {
+    req.session.user = {};
+  }
+  res.json(req.session.user);
+});
 
 module.exports = router;
