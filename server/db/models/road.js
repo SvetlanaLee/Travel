@@ -1,4 +1,5 @@
 const { Model } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   class Road extends Model {
     /**
@@ -6,7 +7,9 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate({ User, Like, Place, Star }) {
+    static associate({
+      User, Like, Place, Star,
+    }) {
       Road.belongsTo(User, { foreignKey: 'userId' });
       Road.hasMany(Like, { foreignKey: 'roadId' });
       Road.hasMany(Place, { foreignKey: 'roadId' });
@@ -18,50 +21,50 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
-      type: DataTypes.INTEGER
+      type: DataTypes.INTEGER,
     },
     userId: {
       type: DataTypes.INTEGER,
       references: {
         model: 'Users',
-      }
+      },
     },
     from: {
       allowNull: false,
-      type: DataTypes.TEXT
+      type: DataTypes.TEXT,
     },
     destination: {
       allowNull: false,
-      type: DataTypes.TEXT
+      type: DataTypes.TEXT,
     },
     mapImg: {
       allowNull: false,
-      type: DataTypes.TEXT
+      type: DataTypes.TEXT,
     },
     discription: {
       allowNull: false,
-      type: DataTypes.TEXT
+      type: DataTypes.TEXT,
     },
     transportType: {
       allowNull: false,
-      type: DataTypes.TEXT
+      type: DataTypes.TEXT,
     },
     distance: {
       allowNull: false,
-      type: DataTypes.TEXT
+      type: DataTypes.TEXT,
     },
     createdAt: {
       allowNull: false,
-      type: DataTypes.DATE
+      type: DataTypes.DATE,
     },
     updatedAt: {
       allowNull: false,
-      type: DataTypes.DATE
-    }
+      type: DataTypes.DATE,
+    },
   }, {
     sequelize,
     modelName: 'Road',
-    tableName: 'Roads'
+    tableName: 'Roads',
   });
   return Road;
 };
