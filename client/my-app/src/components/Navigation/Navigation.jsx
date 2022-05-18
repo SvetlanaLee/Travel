@@ -10,9 +10,13 @@ import { Link } from 'react-router-dom';
 const options = [
   'Главная',
   'Маршруты',
-  'Личный кабинет',
   'Регистрация',
   'Авторизация',
+];
+const optionsAuth = [
+  'Главная',
+  'Маршруты',
+  'Личный кабинет',
   'Выйти',
 ];
 
@@ -95,19 +99,33 @@ export default function Navigation() {
           },
         }}
       >
-        {options.map((option) => (
-          <MenuItem key={option} selected={option === 'Pyxis'} onClick={handleClose}>
-            {option === 'Выйти' ? (
-                <IconButton type='submit' onClick={logout}>
-                  <LogoutIcon />
-                </IconButton>
-            ): (
-                <Typography component={Link} to={setPagePath(option)} sx={{ color: 'rgb(88, 82, 82)', textDecoration: 'none' }}>
-                  {option}
-                </Typography>
-            )}
-          </MenuItem>
-        ))}
+        {!user.userId ? (
+          <>
+          {options.map((option) => (
+            <MenuItem key={option} selected={option === 'Pyxis'} onClick={handleClose}>
+                  <Typography component={Link} to={setPagePath(option)} sx={{ color: 'rgb(88, 82, 82)', textDecoration: 'none' }}>
+                    {option}
+                  </Typography>
+            </MenuItem>
+          ))}
+          </>
+        ): (
+          <>
+          {optionsAuth.map((option) => (
+            <MenuItem key={option} selected={option === 'Pyxis'} onClick={handleClose}>
+              {option === 'Выйти' ? (
+                  <IconButton type='submit' onClick={logout}>
+                    <LogoutIcon />
+                  </IconButton>
+              ): (
+                  <Typography component={Link} to={setPagePath(option)} sx={{ color: 'rgb(88, 82, 82)', textDecoration: 'none' }}>
+                    {option}
+                  </Typography>
+              )}
+            </MenuItem>
+          ))}
+          </>
+        )}
       </Menu>
     </div>
   )
