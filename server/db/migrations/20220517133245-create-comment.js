@@ -15,15 +15,15 @@ module.exports = {
         allowNull: false,
         type: Sequelize.INTEGER,
         references: {
-          model: 'Users'
-        }
+          model: 'Users',
+        },
       },
       placeId: {
         allowNull: false,
         type: Sequelize.INTEGER,
         references: {
-          model: 'Places'
-        }
+          model: 'Places',
+        },
       },
       createdAt: {
         allowNull: false,
@@ -32,10 +32,10 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE,
-      }
+      },
     });
   },
   async down(queryInterface) {
     await queryInterface.dropTable('Comments');
-  }
+  },
 };

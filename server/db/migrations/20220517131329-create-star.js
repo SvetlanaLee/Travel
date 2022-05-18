@@ -14,14 +14,14 @@ module.exports = {
       userId: {
         type: Sequelize.INTEGER,
         references: {
-          model: 'Users'
-        }
+          model: 'Users',
+        },
       },
       placeId: {
         type: Sequelize.INTEGER,
         references: {
-          model: 'Places'
-        }
+          model: 'Places',
+        },
       },
       createdAt: {
         allowNull: false,
@@ -30,10 +30,10 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE,
-      }
+      },
     });
   },
   async down(queryInterface) {
     await queryInterface.dropTable('Stars');
-  }
+  },
 };

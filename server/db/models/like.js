@@ -1,4 +1,5 @@
 const { Model } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   class Like extends Model {
     /**
@@ -23,14 +24,14 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       references: {
         model: 'Roads',
-      }
+      },
     },
     userId: {
       allowNull: false,
       type: DataTypes.INTEGER,
       references: {
         model: 'Users',
-      }
+      },
     },
     createdAt: {
       allowNull: false,
@@ -39,11 +40,11 @@ module.exports = (sequelize, DataTypes) => {
     updatedAt: {
       allowNull: false,
       type: DataTypes.DATE,
-    }
+    },
   }, {
     sequelize,
     modelName: 'Like',
-    tableName: 'Likes'
+    tableName: 'Likes',
   });
   return Like;
 };
