@@ -26,14 +26,12 @@ router.post('/reg', async (req, res) => {
     res.json(req.session.user);
   }
 
-  const { name, email } = req.body;
-  const newUser = await User.create({ name, email, password: sha256(req.body.password) });
-  req.session.user = {
-    userId: newUser.id,
-    userEmail: newUser.email,
-    userName: newUser.name,
-  };
-  res.json(req.session.user);
+   
+   
+   
+   
+  
+ 
 
 });
 

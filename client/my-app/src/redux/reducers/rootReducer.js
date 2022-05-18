@@ -14,9 +14,9 @@ export const rootReducer = combineReducers({
   user: userReducer,
 
   logInInputs: signinFormReducer, 
-  error: errorReducer
+  error: errorReducer,
 
-  logInInputs: signinFormReducer,
+ 
   roads: roadsReducer,
 
 });
