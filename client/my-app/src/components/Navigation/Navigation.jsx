@@ -1,4 +1,5 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { IconButton, Typography } from '@mui/material';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
@@ -18,6 +19,8 @@ const options = [
 const ITEM_HEIGHT = 48;
 
 export default function Navigation() {
+  const user = useSelector(store => store.user)
+  const dispatch = useDispatch();
   
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
@@ -32,11 +35,9 @@ export default function Navigation() {
     let pagePath = '/';
 
     switch (option) {
-      // case 'Главная':
-        // pagePath = '/'
-        // break;
+      
       case 'Главная':
-        <Link to="/" className="btn btn-light">Home</Link>
+        pagePath = '/'
         break;
       case 'Маршруты':
         pagePath = '/roads'
@@ -56,6 +57,15 @@ export default function Navigation() {
     }
 
     return pagePath;
+  }
+
+  const logout = async () => {
+    const response = await fetch('http://localhost:3001/logout', { credentials: 'include' });
+    console.log('user', user)
+    console.log(response);
+    if (response.status === 200) {
+      dispatch({type: 'USER_LOGOUT', payload: {}})
+    }
   }
 
   return (
@@ -88,7 +98,7 @@ export default function Navigation() {
         {options.map((option) => (
           <MenuItem key={option} selected={option === 'Pyxis'} onClick={handleClose}>
             {option === 'Выйти' ? (
-                <IconButton>
+                <IconButton type='submit' onClick={logout}>
                   <LogoutIcon />
                 </IconButton>
             ): (
