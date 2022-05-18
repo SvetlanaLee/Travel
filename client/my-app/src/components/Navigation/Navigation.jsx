@@ -32,8 +32,11 @@ export default function Navigation() {
     let pagePath = '/';
 
     switch (option) {
+      // case 'Главная':
+        // pagePath = '/'
+        // break;
       case 'Главная':
-        pagePath = '/'
+        <Link to="/" className="btn btn-light">Home</Link>
         break;
       case 'Маршруты':
         pagePath = '/roads'
