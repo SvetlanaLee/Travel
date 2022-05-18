@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Road from '../Road/Road'
+import './Roads.css'
 
 export default function Roads() {
   const roads = useSelector(store => store.roads);
@@ -18,7 +19,7 @@ export default function Roads() {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className='roadsContainer'>
       {loading ? (
         'Loading...') :
         ( roads.map((road) => <Road road={ road } key={road.id}/> ) )
