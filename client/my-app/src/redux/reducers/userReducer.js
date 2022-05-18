@@ -6,6 +6,8 @@ export const userReducer = (state = initState, action)=>{
   switch (type) {
     case 'SET_USER':
       return payload;
+    case 'USER_LOGOUT':
+      return payload;
   
     default:
       return state;
