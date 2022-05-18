@@ -46,12 +46,11 @@ router.get('/logout', (req, res) => {
   res.status(200).end();
 });
 
-// router.get('/session', (req, res) => {
-//   // console.log(req.session.user);
-//   if (!req.session.user) {
-//     req.session.user = {};
-//   }
-//   res.json(req.session.user);
-// });
+router.get('/session', (req, res) => {
+  if (!req.session.user) {
+    req.session.user = {};
+  }
+  res.json(req.session.user);
+});
 
 module.exports = router;
