@@ -25,14 +25,6 @@ router.post('/reg', async (req, res) => {
     };
     res.json(req.session.user);
   }
-
-   
-   
-   
-   
-  
- 
-
 });
 
 router.post('/login', async (req, res) => {

@@ -31,7 +31,7 @@ export default function UserSignin() {
   const classes = useStyles();
 
   const inputs = useSelector(store => store.logInInputs);
-  const error = useSelector(store => store.error);
+  const errorLogin = useSelector(store => store.errorLogin);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const submitHandler = async (e) => {
@@ -57,7 +57,7 @@ export default function UserSignin() {
     } else {
       //alert('Неправильные данные для входа. Пожалуйста, попробуйте снова.')
      // navigate('/login');
-     dispatch({type: 'SET_ERROR', payload: userFromBack});
+     dispatch({type: 'SET_ERROR_LOGIN', payload: userFromBack});
     
     }
     
@@ -69,7 +69,7 @@ export default function UserSignin() {
         
      <form className={classes.form} onSubmit={submitHandler}>
      <div  style={{ color: 'red' }}>
-     <div>{error.error}</div>
+     <div>{errorLogin.error}</div>
      </div>
              
     <TextField 
