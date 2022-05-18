@@ -30,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       type: DataTypes.TEXT
     },
-    where: {
+    destination: {
       allowNull: false,
       type: DataTypes.TEXT
     },
