@@ -1,10 +1,9 @@
 import React from 'react';
-import IconButton from '@mui/material/IconButton';
+import { IconButton, Typography } from '@mui/material';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import LogoutIcon from '@mui/icons-material/Logout'
-import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
 
 const options = [
@@ -93,9 +92,9 @@ export default function Navigation() {
                   <LogoutIcon />
                 </IconButton>
             ): (
-                <Link to={setPagePath(option)}>
+                <Typography component={Link} to={setPagePath(option)} sx={{ color: 'rgb(88, 82, 82)', textDecoration: 'none' }}>
                   {option}
-                </Link>
+                </Typography>
             )}
           </MenuItem>
         ))}

@@ -1,3 +1,4 @@
+const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Road extends Model {
     /**
@@ -5,10 +6,11 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate({ User, Like, Place }) {
+    static associate({ User, Like, Place, Star }) {
       Road.belongsTo(User, { foreignKey: 'userId' });
       Road.hasMany(Like, { foreignKey: 'roadId' });
       Road.hasMany(Place, { foreignKey: 'roadId' });
+      Road.hasMany(Star, { foreignKey: 'roadId' });
     }
   }
   Road.init({
@@ -41,6 +43,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.TEXT
     },
     transportType: {
+      allowNull: false,
+      type: DataTypes.TEXT
+    },
+    distance: {
       allowNull: false,
       type: DataTypes.TEXT
     },
