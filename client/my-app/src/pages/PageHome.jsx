@@ -1,25 +1,18 @@
+import React from 'react';
+import Button from '@mui/material/Button';
+import style from '../pages/style.module.css';
 
-// import { Button } from '@mui/material'
-// import { useNavigate } from 'react-router-dom'
-// import React, { useState } from 'react'
-// import axios from 'axios'
-// import { useDispatch, useSelector } from 'react-redux';
-
-export default function HomePage() {
-
-
+export default function PageHome() {
   return (
-    <div className='home_page'>
-      <form>
-      <h1>Добро пожаловать в нашу игру</h1>
-      <h3>Введите своё имя чтобы начать</h3>
+    <form class={style.form}>
+      <div class={style.text}>
+        {/* <a style='background-image: url("https://static.tildacdn.com/tild6334-3231-4562-a334-663435616261/shutterstock_1869846.jpg")'></a> */}
+        Выбери свой маршрут вместе с Travel      
+      </div>
+      <Button variant="outlined" type="submit">Выбрать маршрут</Button>
+       {/* <div  style="height: 610px; background-attachment: scroll; transform: initial; background-image: url(&quot;https://thumb.tildacdn.com/tild6334-3231-4562-a334-663435616261/-/format/webp/shutterstock_1869846.jpg&quot;);"></div> */}
 
-        {/* <Button>
-          Играть
-        </Button> */}
-      </form>
-    </div>
+    </form>
   )
 }
-
 
