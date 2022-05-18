@@ -6,7 +6,7 @@ import {  signinFormReducer } from './SignInReducer';
 import { errorReducer } from './errorReducer';
 
 import { roadsReducer } from './roadsReducer';
-
+import { roadReducer } from './roadReducer';
 
 
 export const rootReducer = combineReducers({
@@ -18,5 +18,5 @@ export const rootReducer = combineReducers({
 
  
   roads: roadsReducer,
-
+  road: roadReducer,
 });

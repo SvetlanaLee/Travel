@@ -5,11 +5,10 @@ const { Road } = require('../db/models');
 
 router.get('/', async (req, res) => {
   const roads = await Road.findAll();
-  console.log(roads);
   res.json({ roads });
 });
 
-router.post('/roads', async (req, res) => {
+router.post('/', async (req, res) => {
   const road = await Road.create({
     from: req.body.from,
     destination: req.body.destination,
@@ -20,6 +19,11 @@ router.post('/roads', async (req, res) => {
     createdAt: req.body.createdAt,
     updatedAt: req.body.updatedAt,
   });
+  res.json({ road });
+});
+
+router.get('/:id', async (req, res) => {
+  const road = await Road.findByPk(req.params.id);
   res.json({ road });
 });
 
