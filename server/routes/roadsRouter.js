@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
   res.json({ roads });
 });
 
-router.post('/roads', async (req, res) => {
+router.post('/', async (req, res) => {
   const road = await Road.create({
     from: req.body.from,
     destination: req.body.destination,
@@ -17,6 +17,11 @@ router.post('/roads', async (req, res) => {
     transportType: req.body.transportType,
     distance: req.body.distance,
   });
+  res.json({ road });
+});
+
+router.get('/:id', async (req, res) => {
+  const road = await Road.findByPk(req.params.id);
   res.json({ road });
 });
 

@@ -9,6 +9,7 @@ import UserSignup from './components/UserSignup/UserSignup';
 
 import UserSignin from './components/UserLogin/UserLogin'
 import PageRoads from "./pages/PageRoads/PageRoads";
+import PageOneRoad from './pages/PageRoads/PageOneRoad';
 
 
 
@@ -25,18 +26,14 @@ function App() {
 
   return (
     <div className="App">
-      {/* <header className="App-header"> */}
         <Navigation/>
         <Routes>
           <Route path="/" element={<PageHome />} />
           <Route path="/roads" element={<PageRoads />} />
           <Route path='/reg' element={<UserSignup/>}/>
           <Route path='/login' element={<UserSignin/>}/>
-
-          {/* <Route path="/test" element={<PageTest />} /> */}
+          <Route path='/roads/:id' element={<PageOneRoad/>}/>
         </Routes>
-      {/* </header> */}
-
     </div>
 
   );
