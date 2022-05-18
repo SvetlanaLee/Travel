@@ -4,6 +4,6 @@ export const initState = {
   user: {},
   error: {},
   roads: [],
-  road: {}
-
+  road: {},
+  inputs: {}
 };
