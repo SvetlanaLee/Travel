@@ -12,3 +12,13 @@
   padding: 24px 0 24px 0;
   letter-spacing: 1px;
 }
+
+.mapCards {
+  width: 400px; 
+  height: 600px;
+}
+
+.map {
+  width: 400px; 
+  height: 600px;
+}
