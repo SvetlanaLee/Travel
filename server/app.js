@@ -6,6 +6,7 @@ const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 const path = require('path');
 const userRouter = require('./routes/userRouter');
+const roadsRouter = require('./routes/roadsRouter');
 const { cookieLogger } = require('./middleware/allMiddle');
 
 const app = express();
@@ -44,6 +45,7 @@ app.use(session({
 }));
 
 app.use('/', userRouter);
+app.use('/roads', roadsRouter);
 
 app.use(express.static(path.join(__dirname, 'public')));
 

@@ -1,4 +1,5 @@
 const { Model } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   class Comment extends Model {
     /**
@@ -26,15 +27,15 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       type: DataTypes.INTEGER,
       references: {
-        model: 'Users'
-      }
+        model: 'Users',
+      },
     },
     placeId: {
       allowNull: false,
       type: DataTypes.INTEGER,
       references: {
-        model: 'Places'
-      }
+        model: 'Places',
+      },
     },
     createdAt: {
       allowNull: false,
@@ -43,7 +44,7 @@ module.exports = (sequelize, DataTypes) => {
     updatedAt: {
       allowNull: false,
       type: DataTypes.DATE,
-    }
+    },
   }, {
     sequelize,
     modelName: 'Comment',

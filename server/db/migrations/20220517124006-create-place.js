@@ -11,7 +11,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: {
           model: 'Roads',
-        }
+        },
       },
       title: {
         type: Sequelize.TEXT,
@@ -38,10 +38,10 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE,
-      }
+      },
     });
   },
   async down(queryInterface) {
     await queryInterface.dropTable('Places');
-  }
+  },
 };
