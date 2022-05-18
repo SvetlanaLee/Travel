@@ -5,5 +5,6 @@ export const initState = {
   error: {},
   errorLogin: {},
   roads: [],
-  road: {}
+  road: {},
+  inputs: {}
 };

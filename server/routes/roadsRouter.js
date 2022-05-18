@@ -16,8 +16,6 @@ router.post('/', async (req, res) => {
     discription: req.body.discription,
     transportType: req.body.transportType,
     distance: req.body.distance,
-    createdAt: req.body.createdAt,
-    updatedAt: req.body.updatedAt,
   });
   res.json({ road });
 });

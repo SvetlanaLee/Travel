@@ -6,6 +6,7 @@ import { errorReducer } from './errorReducer';
 import { roadsReducer } from './roadsReducer';
 import { errorReducerLogin } from './errorReducerLogin';
 import { roadReducer } from './roadReducer';
+import { inputsReducer } from './inputsReducer';
 
 
 
@@ -14,6 +15,7 @@ export const rootReducer = combineReducers({
   user: userReducer,
   logInInputs: signinFormReducer, 
   error: errorReducer,
+  inputs: inputsReducer,
   errorLogin: errorReducerLogin,
   roads: roadsReducer,
   road: roadReducer,
