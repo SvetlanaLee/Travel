@@ -8,6 +8,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
   root: {
@@ -42,7 +43,7 @@ export default function Road({ road }) {
             <Typography variant="body2" color="textSecondary" component="p">
             Расстояние : { road.distance }
             </Typography>
-          <Button size="small" color="primary">
+          <Button size="small" color="primary" component={Link} to={`/roads/${road.id}`}>
             Подробнее
           </Button>
         </CardActions>
