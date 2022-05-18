@@ -31,12 +31,13 @@ export default function UserSignin() {
   const classes = useStyles();
 
   const inputs = useSelector(store => store.logInInputs);
+  const error = useSelector(store => store.error);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const submitHandler = async (e) => {
     e.preventDefault();
 
-    console.log(inputs)
+    // console.log(inputs)
   
     const userRequest = await fetch('http://localhost:3001/login', {
       method: 'POST',
@@ -48,10 +49,18 @@ export default function UserSignin() {
     });
 
     const userFromBack = await userRequest.json();
-    console.log(userFromBack);
+    console.log(userFromBack.userId);
+    if (userFromBack.userId) {
     dispatch({type: 'SET_USER', payload: userFromBack});
     dispatch({type: 'CLEAR_INPUTS', payload: {}})
-    // navigate('/');
+    navigate('/');
+    } else {
+      //alert('Неправильные данные для входа. Пожалуйста, попробуйте снова.')
+     // navigate('/login');
+     dispatch({type: 'SET_ERROR', payload: userFromBack});
+    
+    }
+    
   }
 
   return (
@@ -59,7 +68,9 @@ export default function UserSignin() {
    
         
      <form className={classes.form} onSubmit={submitHandler}>
-       
+     <div  style={{ color: 'red' }}>
+     <div>{error.error}</div>
+     </div>
              
     <TextField 
 

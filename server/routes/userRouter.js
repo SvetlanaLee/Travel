@@ -7,14 +7,23 @@ const { User } = require('../db/models');
 
 router.post('/reg', async (req, res) => {
   console.log('req.body=====================', req.body);
-  const { name, email } = req.body;
-  const newUser = await User.create({ name, email, password: sha256(req.body.password) });
-  req.session.user = {
-    userId: newUser.id,
-    userEmail: newUser.email,
-    userName: newUser.name,
-  };
-  res.json(req.session.user);
+
+  const { email } = req.body;
+  const userSearch = await User.findOne({ where: { email } });
+  if (userSearch) {
+    console.log('===========================email double');
+    res.send({ error: 'Пользователь с таким e-mail уже существует' });
+  } else {
+    console.log('===========================email OK');
+    const { name } = req.body;
+    const newUser = await User.create({ name, email, password: sha256(req.body.password) });
+    req.session.user = {
+      userId: newUser.id,
+      userEmail: newUser.email,
+      userName: newUser.name,
+    };
+    res.json(req.session.user);
+  }
 });
 
 router.post('/login', async (req, res) => {
@@ -29,10 +38,10 @@ router.post('/login', async (req, res) => {
       };
       res.json(req.session.user);
     } else {
-      res.send({ error: `invalid pass, valid is ${user.password}`}); 
+      res.send({ error: 'Неверный пароль' });
     }
   } else {
-    res.send({ error: 'no way' });
+    res.send({ error: 'Неверный e-mail или пароль' });
   }
 });
 
