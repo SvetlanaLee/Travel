@@ -12,14 +12,14 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: {
           model: 'Roads',
-        }
+        },
       },
       userId: {
         allowNull: false,
         type: Sequelize.INTEGER,
         references: {
           model: 'Users',
-        }
+        },
       },
       createdAt: {
         allowNull: false,
@@ -28,10 +28,10 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE,
-      }
+      },
     });
   },
   async down(queryInterface) {
     await queryInterface.dropTable('Likes');
-  }
+  },
 };
