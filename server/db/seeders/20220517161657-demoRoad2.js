@@ -4,7 +4,7 @@ module.exports = {
       {
         userId: 1,
         from: 'Москва',
-        where: 'Санкт-Петербург',
+        destination: 'Санкт-Петербург',
         mapImg: '/img/mospit.png',
         discription: 'Путешествие в северную столицу',
         transportType: 'авто',
@@ -15,7 +15,7 @@ module.exports = {
       {
         userId: 1,
         from: 'Санкт-Петербург',
-        where: 'Кижи',
+        destination: 'Кижи',
         mapImg: '/img/piters.png',
         discription: 'Прекрасная Карелия',
         transportType: 'авто',
@@ -26,7 +26,7 @@ module.exports = {
       {
         userId: 1,
         from: 'Казань',
-        where: 'Сочи',
+        destination: 'Сочи',
         mapImg: '/img/kazan-sochi.png',
         discription: 'Сбылась моя мечта - поездка на автомобиле на юга. Итак в наличии автомобиль ЛАДА ХРЕЙ выпуск декабрь 2017 г., три взбалмошные девушки  и огромный запас положительных эмоций.',
         transportType: 'авто',
@@ -37,7 +37,7 @@ module.exports = {
       {
         userId: 1,
         from: 'Санкт-петербург',
-        where: 'Хельсинки',
+        destination: 'Хельсинки',
         mapImg: '/img/St.Petersburg-Helsinki.png',
         discription: 'Трасса М10 "Скандинавия" Санкт-Петербург-Финляндия - Дорога в хорошем состоянии, а вот соседи по трассе попадаются разные.',
         transportType: 'авто',
