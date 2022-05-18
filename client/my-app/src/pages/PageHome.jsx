@@ -11,8 +11,8 @@ export default function PageHome() {
   };
 
   return (
-    <form class={style.form}>
-      <div class={style.text}>
+    <form className={style.form}>
+      <div className={style.text}>
         {/* <a style='background-image: url("https://static.tildacdn.com/tild6334-3231-4562-a334-663435616261/shutterstock_1869846.jpg")'></a> */}
         Выбери свой маршрут вместе с Travel      
       </div>
