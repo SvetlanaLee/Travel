@@ -11,10 +11,10 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 345,
+    maxWidth: 300,
   },
   media: {
-    height: 140,
+    height: 240,
   },
 });
 
@@ -22,18 +22,17 @@ export default function Road({ road }) {
   const classes = useStyles();
 
   return (
-    <Card className={classes.root}>
+    <Card className={classes.root} style={{margin: '15px'}}>
       <CardActionArea>
         <CardMedia
           className={classes.media}
           image={`http://localhost:3001/${ road.mapImg }`}
-          title="Contemplative Reptile"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
            { road.from } - { road.destination }
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
+          <Typography variant="body2" color="textSecondary" component="p" style={{overflow: 'hidden', textOverflow: 'ellipsis'}}>
            { road.discription }
           </Typography>
         </CardContent>
