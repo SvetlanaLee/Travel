@@ -56,7 +56,8 @@ export default function UserSignup() {
       navigate('/');
       } else {
         // alert('Регистрация не произошла. Пожалуйста, попробуйте снова.')
-        dispatch({type: 'SET_ERROR', payload: userFromBack});
+      dispatch({type: 'SET_ERROR', payload: userFromBack});
+      
       }
       
     }
