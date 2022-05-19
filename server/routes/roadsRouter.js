@@ -42,7 +42,7 @@ router.post('/', async (req, res) => {
     } else {
       const distanceRes = `${distance.match(/\d/g).join('')} км`;
 
-      const img = `/imgRoads/${Math.floor((Math.random() * 11) + 1)}.jpeg`;
+      const img = `/imgRoads/${Math.floor((Math.random() * 23) + 1)}.jpeg`;
 
       const road = await Road.create({
         from: cityRes(from),
