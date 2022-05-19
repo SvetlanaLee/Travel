@@ -60,20 +60,17 @@ export default function PageRoads() {
        style={{ margin: '67px 837px 28px', width: '175px' }}>Свой маршрут</Button>
       {show && 
       <div>
-<<<<<<< HEAD
-        <Box style={{ display: 'flex', justifyContent: 'center' }}
-=======
         <div  style={{ color: 'red' }}>
           <div>{error.error}</div>
         </div>
         <Box
->>>>>>> b2a82cea2f0f6a06b86b9c6a5ae5d595073dcbea
           component="form"
           sx={{
           '& > :not(style)': { m: 1, width: '25ch' },
           }}
           noValidate
           autoComplete="off"
+          style={{ display: 'flex', justifyContent: 'center' }}
           >
           <TextField 
           id="outlined-basic" 
