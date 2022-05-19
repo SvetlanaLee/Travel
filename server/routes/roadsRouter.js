@@ -9,14 +9,30 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
+  const { from, destination, discription, distance, userId } = req.body;
+
+  const distanceRes = `${distance.match(/\d/g).join('')} км`;
+
+  function cityRes(city) {
+    const lowerCase = city.toLowerCase();
+    const result = lowerCase.replace(/([а-я])/, (match, p1) => p1.toUpperCase());
+    const result2 = result.replace(/ ([а-я])/g, (match, p1) => ` ${p1.toUpperCase()}`);
+    const result3 = result2.replace(/( ?)-( ?)([а-я])/g, (match, p1, p2, p3) => `-${p3.toUpperCase()}`).replace(/( ?)-( ?)/g, '-');
+    return result3;
+  }
+
+  const img = `/imgRoads/${Math.floor((Math.random() * 11) + 1)}.jpeg`;
+
   const road = await Road.create({
-    from: req.body.from,
-    destination: req.body.destination,
-    mapImg: req.body.mapImg,
-    discription: req.body.discription,
-    transportType: req.body.transportType,
-    distance: req.body.distance,
+    from: cityRes(from),
+    destination: cityRes(destination),
+    mapImg: img,
+    discription,
+    transportType: 'авто',
+    distance: distanceRes,
+    userId,
   });
+
   res.json({ road });
 });
 
