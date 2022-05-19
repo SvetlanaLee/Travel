@@ -22,11 +22,12 @@ export default function PageRoads() {
 
   return (
     <>
-      <Roads />
-      <Button variant="outlined" type='submit' onClick={ handlerShow }>Свой маршрут</Button>
+      
+      <Button variant="outlined" type='submit' onClick={ handlerShow }
+       style={{ margin: '67px 837px 28px', width: '175px' }}>Свой маршрут</Button>
       {show && 
       <div>
-        <Box
+        <Box style={{ display: 'flex', justifyContent: 'center' }}
           component="form"
           sx={{
           '& > :not(style)': { m: 1, width: '25ch' },
@@ -82,6 +83,7 @@ export default function PageRoads() {
           <Button variant="text" sx={{height: '55px'}}>Зарегистрироваться</Button>
 </Box> 
       </div>}
+      <Roads />
     </>
   )
 }
