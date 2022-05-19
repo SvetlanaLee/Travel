@@ -1,13 +1,21 @@
 const express = require('express');
 
 const router = express.Router();
-const { Road } = require('../db/models');
+const { Road, Like } = require('../db/models');
 
 // роут для получения всех маршрутов из базы
 router.get('/', async (req, res) => {
-  const roads = await Road.findAll();
+  const roads = await Road.findAll({
+    include: {
+        model: Like,
+        },
+  });
+  // console.log(roads);
   res.json({ roads });
 });
+
+
+
 
 // добавление нового маршрута в базу
 router.post('/', async (req, res) => {
@@ -58,5 +66,7 @@ router.get('/:id', async (req, res) => {
   const road = await Road.findByPk(req.params.id);
   res.json({ road });
 });
+
+
 
 module.exports = router;

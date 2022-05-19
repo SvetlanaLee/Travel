@@ -52,28 +52,25 @@ export default function PageRoads() {
       }
   }
 
-
   return (
     <>
-      
+      <div className='myRoadBtn'>
       <Button variant="outlined" type='submit' onClick={ handlerShow }
-       style={{ margin: '67px 837px 28px', width: '175px' }}>Свой маршрут</Button>
+     >Свой маршрут</Button>
+      </div>
       {show && 
       <div>
-<<<<<<< HEAD
-        <Box style={{ display: 'flex', justifyContent: 'center' }}
-=======
-        <div  style={{ color: 'red' }}>
+        <div  style={{ color: 'red', marginBottom: '20px', textAlign: 'center' }}>
           <div>{error.error}</div>
         </div>
         <Box
->>>>>>> b2a82cea2f0f6a06b86b9c6a5ae5d595073dcbea
           component="form"
           sx={{
           '& > :not(style)': { m: 1, width: '25ch' },
           }}
           noValidate
           autoComplete="off"
+          style={{ display: 'flex', justifyContent: 'center' }}
           >
           <TextField 
           id="outlined-basic" 
@@ -111,7 +108,7 @@ export default function PageRoads() {
           value={inputs.distance?? ''}
           required
           />
-          <Button variant="text" sx={{height: '55px'}} onClick={createNewRoad}>Создать</Button>
+          <Button variant="outlined" sx={{height: '40px'}} onClick={createNewRoad}>Создать</Button>
         </Box> 
       </div>}
       <Roads />

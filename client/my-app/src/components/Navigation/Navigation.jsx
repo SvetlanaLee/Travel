@@ -57,6 +57,7 @@ export default function Navigation() {
               maxHeight: ITEM_HEIGHT * 4.5,
               width: '20ch',
               backgroundColor: '#ffffff45',
+              
             },
           }}
         >
