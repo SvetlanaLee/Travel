@@ -3,6 +3,7 @@ export const initState = {
   logInInputs: {},
   user: {},
   error: {},
+  errorLogin: {},
   roads: [],
   road: {},
   inputs: {}

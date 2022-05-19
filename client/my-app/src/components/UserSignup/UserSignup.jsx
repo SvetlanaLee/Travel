@@ -52,11 +52,13 @@ export default function UserSignup() {
     console.log(userFromBack.userId);
     if (userFromBack.userId) {
       dispatch({type: 'SET_USER', payload: userFromBack});
-      dispatch({type: 'CLEAR_INPUTS', payload: {}})
+      dispatch({type: 'CLEAR_INPUTS', payload: {}});
+      dispatch({type: 'SET_ERROR', payload: {}})
       navigate('/');
       } else {
         // alert('Регистрация не произошла. Пожалуйста, попробуйте снова.')
-        dispatch({type: 'SET_ERROR', payload: userFromBack});
+      dispatch({type: 'SET_ERROR', payload: userFromBack});
+      
       }
       
     }
