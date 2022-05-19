@@ -52,15 +52,15 @@ export default function PageRoads() {
       }
   }
 
-
   return (
     <>
-      
+      <div className='myRoadBtn'>
       <Button variant="outlined" type='submit' onClick={ handlerShow }
-       style={{ margin: '67px 837px 28px', width: '175px' }}>Свой маршрут</Button>
+     >Свой маршрут</Button>
+      </div>
       {show && 
       <div>
-        <div  style={{ color: 'red' }}>
+        <div  style={{ color: 'red', marginBottom: '20px', textAlign: 'center' }}>
           <div>{error.error}</div>
         </div>
         <Box
@@ -108,7 +108,7 @@ export default function PageRoads() {
           value={inputs.distance?? ''}
           required
           />
-          <Button variant="text" sx={{height: '55px'}} onClick={createNewRoad}>Создать</Button>
+          <Button variant="outlined" sx={{height: '40px'}} onClick={createNewRoad}>Создать</Button>
         </Box> 
       </div>}
       <Roads />

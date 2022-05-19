@@ -9,6 +9,10 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { Link } from 'react-router-dom';
+import { IconButton } from '@material-ui/core';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import {useDispatch, useSelector} from 'react-redux'
+
 
 const useStyles = makeStyles({
   root: {
@@ -21,6 +25,31 @@ const useStyles = makeStyles({
 
 export default function Road({ road }) {
   const classes = useStyles();
+
+  const user = useSelector(store => store.user);
+  const dispatch = useDispatch();
+
+  const addLike = async () => {
+    const dataLike = { roadId: road.id, userId: user.userId }
+    if(user.userId) {
+      console.log(dataLike);
+      const response = await fetch('http://localhost:3001/like', {
+        method: 'POST',
+        headers:{
+        'Content-type': 'application/json'
+        },
+        body: JSON.stringify(dataLike)
+        });
+        
+        const allRoads = await response.json(); 
+        console.log(allRoads.roads);
+        dispatch({type: 'GET_ROADS', payload: allRoads.roads})
+    } return
+  }
+
+
+
+  
 
   return (
     <Card className={classes.root} style={{margin: '15px'}}>
@@ -38,6 +67,12 @@ export default function Road({ road }) {
           </Typography>
         </CardContent>
       </CardActionArea>
+      <div>        
+      <IconButton type='submit' onClick={ addLike }> 
+        <FavoriteIcon />
+      </IconButton> 
+         {road.Likes.length}
+      </div>
       <div className='ourBtn'>
         <CardActions>
             <Typography variant="body2" color="textSecondary" component="p">
