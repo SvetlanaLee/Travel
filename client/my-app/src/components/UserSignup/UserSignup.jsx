@@ -31,6 +31,7 @@ export default function UserSignup() {
   const classes = useStyles();
 
   const inputs = useSelector(store => store.signUpInputs);
+  const error = useSelector(store => store.error);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const submitHandler = async (e) => {
@@ -48,18 +49,27 @@ export default function UserSignup() {
     });
 
     const userFromBack = await userRequest.json();
-    console.log(userFromBack);
-    dispatch({type: 'SET_USER', payload: userFromBack});
-    dispatch({type: 'CLEAR_INPUTS', payload: {}})
-    // navigate('/');
-  }
+    console.log(userFromBack.userId);
+    if (userFromBack.userId) {
+      dispatch({type: 'SET_USER', payload: userFromBack});
+      dispatch({type: 'CLEAR_INPUTS', payload: {}})
+      navigate('/');
+      } else {
+        // alert('Регистрация не произошла. Пожалуйста, попробуйте снова.')
+      dispatch({type: 'SET_ERROR', payload: userFromBack});
+      
+      }
+      
+    }
+   
 
   return (
     <>
    
         
      <form className={classes.form} onSubmit={submitHandler}>
-       
+   
+   
              
     <TextField 
 
@@ -75,7 +85,11 @@ export default function UserSignup() {
      name="email"
      value={inputs.email ?? ''}
      onChange={(e) => dispatch({ type: 'USER_TYPING', payload: { [e.target.name]: e.target.value } })}/>
-    
+
+     <div  style={{ color: 'red' }}>
+     <div>{error.error}</div>
+     </div>
+     
     <TextField 
       margin="normal"
       required

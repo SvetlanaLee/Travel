@@ -2,5 +2,9 @@ export const initState = {
   signUpInputs: {},
   logInInputs: {},
   user: {},
-  roads: []
+  error: {},
+  errorLogin: {},
+  roads: [],
+  road: {},
+  inputs: {}
 };
