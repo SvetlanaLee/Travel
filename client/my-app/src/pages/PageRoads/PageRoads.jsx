@@ -15,6 +15,7 @@ export default function PageRoads() {
 
   const inputs = useSelector(store => store.inputs);
   const user = useSelector(store => store.user);
+  const error = useSelector(store => store.error);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -23,7 +24,6 @@ export default function PageRoads() {
   }
 
   const createNewRoad = async (event) => {
-    if (user) {
       const data = {
         distance: inputs.distance,
         from: inputs.from,
@@ -39,13 +39,17 @@ export default function PageRoads() {
         },
         body: JSON.stringify(data)
       });
+
       const road = await response.json();
-      console.log(road.road.id);
-      dispatch({type: 'INPUTS_CLEAR', payload: {}});
-      navigate(`/roads/${road.road.id}`)
-    } else {
-      dispatch({type: 'INPUTS_CLEAR', payload: {}})
-    }
+
+      if(road.error) {
+        dispatch({type: 'SET_ERROR', payload: road});
+      } else {
+        console.log(road.road.id);
+        dispatch({type: 'INPUTS_CLEAR', payload: {}});
+        dispatch({type: 'SET_ERROR', payload: {}});
+        navigate(`/roads/${road.road.id}`);
+      }
   }
 
 
@@ -55,6 +59,9 @@ export default function PageRoads() {
       <Button variant="outlined" type='submit' onClick={ handlerShow }>Свой маршрут</Button>
       {show && 
       <div>
+        <div  style={{ color: 'red' }}>
+          <div>{error.error}</div>
+        </div>
         <Box
           component="form"
           sx={{
@@ -65,7 +72,7 @@ export default function PageRoads() {
           >
           <TextField 
           id="outlined-basic" 
-          label="Откуда" 
+          label="Город отправления" 
           variant="outlined" 
           name='from' 
           onChange={handleInputs} 
@@ -74,7 +81,7 @@ export default function PageRoads() {
           />
           <TextField 
           id="outlined-basic" 
-          label="Куда" 
+          label="Город прибытия" 
           variant="outlined" 
           name='destination' 
           onChange={handleInputs} 
