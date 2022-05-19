@@ -16,21 +16,31 @@ router.post('/', async (req, res) => {
       from, destination, discription, distance, userId,
     } = req.body;
 
+    const cityRes = (city) => {
+      const lowerCase = city.toLowerCase();
+      const result = lowerCase.replace(/([а-яa-z])/, (match, p1) => p1.toUpperCase());
+      const result2 = result.replace(/ ([а-яa-z])/g, (match, p1) => ` ${p1.toUpperCase()}`);
+      const result3 = result2.replace(/( ?)-( ?)([а-яa-z])/g, (match, p1, p2, p3) => `-${p3.toUpperCase()}`).replace(/( ?)-( ?)/g, '-');
+      return result3;
+    };
+
+    const repeatRoad = await Road.findOne({
+      where: {
+        from: cityRes(from),
+        destination: cityRes(destination),
+      },
+    });
+
     if (!from || !destination || !discription || !distance) {
       res.send({ error: 'Пожалуйста, заполните все поля' });
     } else if (!userId) {
       res.send({ error: 'Необходимо зарегистрироваться/авторизоваться' });
     } else if (!/[0-9]/.test(distance)) {
       res.send({ error: 'Расстояние необходимо указывать в цифровом формате' });
+    } else if (repeatRoad) {
+      res.send({ error: 'Данный маршрут уже существует' });
     } else {
       const distanceRes = `${distance.match(/\d/g).join('')} км`;
-      const cityRes = (city) => {
-        const lowerCase = city.toLowerCase();
-        const result = lowerCase.replace(/([а-яa-z])/, (match, p1) => p1.toUpperCase());
-        const result2 = result.replace(/ ([а-яa-z])/g, (match, p1) => ` ${p1.toUpperCase()}`);
-        const result3 = result2.replace(/( ?)-( ?)([а-яa-z])/g, (match, p1, p2, p3) => `-${p3.toUpperCase()}`).replace(/( ?)-( ?)/g, '-');
-        return result3;
-      };
 
       const img = `/imgRoads/${Math.floor((Math.random() * 11) + 1)}.jpeg`;
 
