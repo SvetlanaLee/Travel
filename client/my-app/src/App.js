@@ -12,10 +12,12 @@ import UserSignin from './components/UserLogin/UserLogin'
 import PageRoads from "./pages/PageRoads/PageRoads";
 import PageOneRoad from './pages/PageRoads/PageOneRoad';
 
+import Map1 from './yandexMap/Map';
 
 
 function App() {
   return (
+  <>
     <div className="App">
         <Navigation/>
         <Routes>
@@ -23,9 +25,13 @@ function App() {
           <Route path='/reg' element={<UserSignup/>}/>
           <Route path='/login' element={<UserSignin/>}/>
           <Route path='/roads/:id' element={<PageOneRoad/>}/>
+          <Route path="/roads" element={<PageRoads />}/>
         </Routes>
     </div>
-
+    <div>
+      <Map1 />
+    </div>
+  </>
   );
 }
 

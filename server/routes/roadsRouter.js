@@ -5,6 +5,7 @@ const { Road } = require('../db/models');
 
 router.get('/', async (req, res) => {
   const roads = await Road.findAll();
+  // console.log(roads);
   res.json({ roads });
 });
 

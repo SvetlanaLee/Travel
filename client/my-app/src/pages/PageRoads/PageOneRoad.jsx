@@ -38,6 +38,7 @@ export default function PageOneRoad() {
           <div class={style.map}>
         <YMaps>
             <Map defaultState={{ center: [55.75, 37.57], zoom: 9 }} />
+            {/* <Map referencePoints:[55.734876, 37.59308], /> */}
         </YMaps>
           </div>
         <Button variant="outlined" type="submit">Добавить метку</Button>
