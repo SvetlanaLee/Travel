@@ -26,11 +26,10 @@ function App() {
           <Route path='/reg' element={<UserSignup/>}/>
           <Route path='/login' element={<UserSignin/>}/>
           <Route path='/roads/:id' element={<PageOneRoad/>}/>
-          <Route path="/roads" element={<PageRoads />}/>
         </Routes>
     </div>
     <div>
-      <Map1 />
+      {/* <Map1 /> */}
     </div>
   </>
   );
