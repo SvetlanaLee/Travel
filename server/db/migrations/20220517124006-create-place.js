@@ -20,6 +20,9 @@ module.exports = {
       info: {
         type: Sequelize.TEXT
       },
+      categoria: {
+        type: Sequelize.TEXT
+      },
       img: {
         type: Sequelize.TEXT
       },

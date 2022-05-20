@@ -33,6 +33,9 @@ module.exports = (sequelize, DataTypes) => {
     info: {
       type: DataTypes.TEXT
     },
+    categoria: {
+      type: DataTypes.TEXT
+    },
     img: {
       type: DataTypes.TEXT
     },
