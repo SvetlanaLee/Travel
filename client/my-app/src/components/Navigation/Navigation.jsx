@@ -32,7 +32,7 @@ export default function Navigation() {
   }
 
   return (
-     <div>
+    <div>
       <IconButton
         aria-label="more"
         id="long-button"
@@ -44,7 +44,7 @@ export default function Navigation() {
         <MoreVertIcon />
       </IconButton>
       {user.userId ? (
-        <Menu
+        <Menu 
           id="long-menu"
           MenuListProps={{
             'aria-labelledby': 'long-button',
@@ -56,6 +56,8 @@ export default function Navigation() {
             style: {
               maxHeight: ITEM_HEIGHT * 4.5,
               width: '20ch',
+              backgroundColor: '#ffffff45',
+              
             },
           }}
         >
@@ -93,6 +95,7 @@ export default function Navigation() {
             style: {
               maxHeight: ITEM_HEIGHT * 4.5,
               width: '20ch',
+              backgroundColor: '#ffffff45',
             },
           }}
         >

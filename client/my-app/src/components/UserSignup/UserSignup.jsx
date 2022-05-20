@@ -54,7 +54,6 @@ export default function UserSignup() {
       dispatch({type: 'SET_USER', payload: userFromBack});
       dispatch({type: 'CLEAR_INPUTS', payload: {}})
       dispatch({type: 'SET_ERROR', payload: {}})
-     
       navigate('/');
       } else {
         // alert('Регистрация не произошла. Пожалуйста, попробуйте снова.')
@@ -64,7 +63,6 @@ export default function UserSignup() {
       
     }
    
-
   return (
     <>
    

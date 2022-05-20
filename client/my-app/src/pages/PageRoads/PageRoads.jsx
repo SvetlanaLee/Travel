@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Roads from '../../components/Roads/Roads'
 import {Box, TextField, Button} from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
-import { FormControl, InputLabel, MenuItem, Select } from '@material-ui/core';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function PageRoads() {
@@ -14,18 +14,55 @@ export default function PageRoads() {
   }
 
   const inputs = useSelector(store => store.inputs);
+  const user = useSelector(store => store.user);
+  const error = useSelector(store => store.error);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleInputs = (event) => {
     dispatch({type: 'INPUTS_TYPING', payload: {[event.target.name]: event.target.value}})
   }
 
+  const createNewRoad = async (event) => {
+      const data = {
+        distance: inputs.distance,
+        from: inputs.from,
+        destination: inputs.destination,
+        discription: inputs.discription,
+        userId: user.userId
+      };
+
+      const response = await fetch('http://localhost:3001/roads', {
+        method: 'POST',
+        headers:{
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+
+      const road = await response.json();
+
+      if(road.error) {
+        dispatch({type: 'SET_ERROR', payload: road});
+      } else {
+        console.log(road.road.id);
+        dispatch({type: 'INPUTS_CLEAR', payload: {}});
+        dispatch({type: 'SET_ERROR', payload: {}});
+        navigate(`/roads/${road.road.id}`);
+      }
+  }
+
   return (
     <>
-      <Roads />
-      <Button variant="outlined" type='submit' onClick={ handlerShow }>Свой маршрут</Button>
+      <div className='myRoadBtn'>
+      <Button variant="outlined" type='submit' onClick={ handlerShow }
+     >Свой маршрут</Button>
+      </div>
       {show && 
       <div>
+        <div  style={{ color: 'red', marginBottom: '20px', textAlign: 'center' }}>
+          <div>{error.error}</div>
+        </div>
         <Box
           component="form"
           sx={{
@@ -33,22 +70,25 @@ export default function PageRoads() {
           }}
           noValidate
           autoComplete="off"
+          style={{ display: 'flex', justifyContent: 'center' }}
           >
           <TextField 
           id="outlined-basic" 
-          label="Откуда" 
+          label="Город отправления" 
           variant="outlined" 
           name='from' 
           onChange={handleInputs} 
           value={inputs.from?? ''}
+          required
           />
           <TextField 
           id="outlined-basic" 
-          label="Куда" 
+          label="Город прибытия" 
           variant="outlined" 
           name='destination' 
           onChange={handleInputs} 
           value={inputs.destination?? ''}
+          required
           />
           <TextField 
           id="outlined-basic" 
@@ -57,31 +97,21 @@ export default function PageRoads() {
           name='discription' 
           onChange={handleInputs} 
           value={inputs.discription?? ''}
+          required
           />
           <TextField 
           id="outlined-basic" 
-          label="Расстояние" 
+          label="Расстояние (км)" 
           variant="outlined" 
           name='distance' 
           onChange={handleInputs} 
           value={inputs.distance?? ''}
+          required
           />
-          <FormControl fullWidth>
-          <InputLabel id="demo-simple-select-label">На чем</InputLabel>
-          <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            name='transportType' 
-            label="transportType"
-            onChange={handleInputs}
-          >
-            <MenuItem value={'авто'}>авто</MenuItem>
-            <MenuItem value={'велосипед'}>велосипед</MenuItem>
-          </Select>
-          </FormControl>
-          <Button variant="text" sx={{height: '55px'}}>Зарегистрироваться</Button>
-</Box> 
+          <Button variant="outlined" sx={{height: '40px'}} onClick={createNewRoad}>Создать</Button>
+        </Box> 
       </div>}
+      <Roads />
     </>
   )
 }
