@@ -10,4 +10,5 @@ const cookieLogger = (req, res, next) => {
   next();
 };
 
-module.exports = { checkAuthorisation, cookieLogger };
+module.exports = { checkAuthorisation, cookieLogger }
+

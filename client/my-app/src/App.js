@@ -1,17 +1,16 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { Routes, Route } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux';
+import './App.css';
 import Navigation from './components/Navigation/Navigation';
-
 import PageHome from "./pages/PageHome";
-// import PageOneRoad from "./pages/PageOneRoad";
-
 import './App.css';
 import ReactDOM from 'react-dom';
 import UserSignup from './components/UserSignup/UserSignup';
 import UserSignin from './components/UserLogin/UserLogin'
 import PageRoads from "./pages/PageRoads/PageRoads";
 import PageOneRoad from './pages/PageRoads/PageOneRoad';
+import Person from './components/Person/Person';
 
 function App() {
 
@@ -35,6 +34,11 @@ function App() {
           <Route path='/reg' element={<UserSignup/>}/>
           <Route path='/login' element={<UserSignin/>}/>
           <Route path='/roads/:id' element={<PageOneRoad/>}/>
+          <Route path='/profile' element={<Person/>}/>
+          <Route path='/upload' element={<Person/>}/>
+
+
+          
         </Routes>
     </div>
   </>

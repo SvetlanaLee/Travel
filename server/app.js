@@ -16,7 +16,7 @@ const app = express();
 // app.set('view engine', 'hbs');
 // app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+app.use(express.json({ extended: true }));
 app.use(cookieParser());
 
 app.use(cookieLogger);
@@ -45,11 +45,14 @@ app.use(session({
   name: 'authorisation',
 }));
 
+// app.use('/images', express.static(path.join(__dirname, 'images')));
+app.use(express.static(path.join(__dirname, 'public')));
+
 app.use('/', userRouter);
 app.use('/roads', roadsRouter);
 app.use('/like', likeRouter);
 
-app.use(express.static(path.join(__dirname, 'public')));
+
 
 app.listen(PORT, () => {
   console.log(`Server started ${PORT} port`);
