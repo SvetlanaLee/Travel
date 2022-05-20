@@ -8,6 +8,7 @@ module.exports = {
   extends: [
     'plugin:react/recommended',
     'airbnb',
+    'no console',
   ],
   parserOptions: {
     ecmaFeatures: {

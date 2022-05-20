@@ -6,5 +6,5 @@ export const initState = {
   errorLogin: {},
   roads: [],
   road: {},
-  inputs: {}
+  inputs: {},
 };

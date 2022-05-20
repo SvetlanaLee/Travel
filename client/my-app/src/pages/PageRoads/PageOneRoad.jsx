@@ -33,16 +33,16 @@ export default function PageOneRoad() {
       )}
     </div>
 
-    <form class={style.mapCards}>
+    {/* <form class={style.mapCards}>
      <h1>Яндекс карты</h1>
           <div class={style.map}>
         <YMaps>
-            <Map defaultState={{ center: [55.75, 37.57], zoom: 9 }} />
+            <Map defaultState={{ center: [55.75, 37.57], zoom: 9 }} /> */}
             {/* <Map referencePoints:[55.734876, 37.59308], /> */}
-        </YMaps>
+        {/* </YMaps>
           </div>
         <Button variant="outlined" type="submit">Добавить метку</Button>
-    </form>
+    </form> */}
     </>
   )
 }

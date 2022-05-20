@@ -1,6 +1,17 @@
-
-
 .form {
+  background: url(https://static.tildacdn.com/tild6334-3231-4562-a334-663435616261/shutterstock_1869846.jpg) no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  flex-direction: column;
+  height: 940px;
+  /* background-attachment: scroll; */
+  /* transform: initial; */
+}
+
+
+/* .form {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -8,24 +19,19 @@
   height: 610px;
   background-attachment: scroll;
   transform: initial;
-  background-image: url("https://static.tildacdn.com/tild6334-3231-4562-a334-663435616261/shutterstock_1869846.jpg");
-}
+  background-image: url("https://static.tildacdn.com/tild6334-3231-4562-a334-663435616261/shutterstock_1869846.jpg");  
+} */
 /* <div class="t-cover__carrier loaded" id="coverCarry348165575" data-content-cover-id="348165575" data-content-cover-bg="https://static.tildacdn.com/tild6334-3231-4562-a334-663435616261/shutterstock_1869846.jpg" data-content-cover-height="20vh" data-content-cover-parallax="" style="height: 610px; background-attachment: scroll; transform: initial; background-image: url(&quot;https://thumb.tildacdn.com/tild6334-3231-4562-a334-663435616261/-/format/webp/shutterstock_1869846.jpg&quot;);"></div> */
 .text {
   font-family: 'Noto Sans',Arial,sans-serif;
-  font-size: 25px;
+  font-size: 30px;
   font-weight: 600;
   color: #fff;
-  padding: 24px 0 24px 0;
+  padding: 269px 0 24px 0;
   letter-spacing: 1px;
 }
 
-.mapCards {
-  width: 400px; 
-  height: 600px;
-}
-
-.map {
-  width: 400px; 
-  height: 600px;
+.cont {
+  background: url(https://static.tildacdn.com/tild6334-3231-4562-a334-663435616261/shutterstock_1869846.jpg) no-repeat;
+  background-size: cover;
 }

@@ -11,12 +11,15 @@ export default function PageHome() {
   };
 
   return (
+    <div>
     <form className={style.form}>
       <div className={style.text}>
          Выбери свой маршрут вместе с Travel      
       </div>
         <Button variant="outlined" type="submit" onClick={onPageRoads}>Выбрать маршрут</Button>
     </form>
+
+    </div>
   )
 }
 
