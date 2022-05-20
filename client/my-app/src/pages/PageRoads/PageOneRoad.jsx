@@ -36,7 +36,7 @@ export default function PageOneRoad() {
     </div>
 
     <div>
-      <Map1 />
+      <Map1 road={road}/>
     </div>
     {/* <form class={style.mapCards}>
      <h1>Яндекс карты</h1>
