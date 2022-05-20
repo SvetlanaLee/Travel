@@ -70,16 +70,16 @@ export default function Navigation() {
             </Typography>
           </MenuItem>
           <MenuItem key={'pPerson'} onClick={handleClose}>
-            <Typography component={Link} to={`/users/id`} sx={{ color: 'rgb(88, 82, 82)', textDecoration: 'none' }}>
+            <Typography component={Link} to={`/profile`} sx={{ color: 'rgb(88, 82, 82)', textDecoration: 'none' }}>
               Личный кабинет
             </Typography>
           </MenuItem>
           <MenuItem key={'pLogout'} onClick={handleClose}>
-            <IconButton type='submit' onClick={logout}>
-              <LogoutIcon />
+            <IconButton type='submit' onClick={logout} component={Link} to={`/login`}>
+              <LogoutIcon  />
             </IconButton>
           </MenuItem>
-          </Menu>
+        </Menu>
         ) : (
         <Menu
           id="long-menu"

@@ -19,6 +19,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.TEXT,
       },
+      photo: {
+        allowNull: true,
+        type: Sequelize.TEXT,
+      },
     });
   },
   async down(queryInterface) {

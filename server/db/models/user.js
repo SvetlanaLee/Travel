@@ -35,6 +35,10 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       type: DataTypes.TEXT,
     },
+    photo: {
+      allowNull: true,
+      type: DataTypes.TEXT,
+    },
   }, {
     sequelize,
     modelName: 'User',

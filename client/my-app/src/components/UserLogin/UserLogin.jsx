@@ -53,12 +53,14 @@ export default function UserSignin() {
     if (userFromBack.userId) {
     dispatch({type: 'SET_USER', payload: userFromBack});
     dispatch({type: 'CLEAR_INPUTS', payload: {}})
+    dispatch({type: 'SET_ERROR_LOGIN', payload: {}})
+       
     navigate('/');
     } else {
       //alert('Неправильные данные для входа. Пожалуйста, попробуйте снова.')
      // navigate('/login');
      dispatch({type: 'SET_ERROR_LOGIN', payload: userFromBack});
-    
+     
     }
     
   }
