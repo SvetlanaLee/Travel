@@ -17,8 +17,11 @@ router.post('/', async(req, res) => {
   }
   const roads = await Road.findAll({
     include: {
-        model: Like,
-        },
+      model: Like,
+    },
+    order: [
+      ['id', 'DESC'],
+    ],
   });
   res.json({ roads })
 });
