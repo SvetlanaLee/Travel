@@ -35,7 +35,6 @@ module.exports = {
         type: Sequelize.TEXT,
       },
       distance: {
-        allowNull: false,
         type: Sequelize.TEXT,
       },
       createdAt: {

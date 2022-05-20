@@ -50,7 +50,6 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.TEXT,
     },
     distance: {
-      allowNull: false,
       type: DataTypes.TEXT,
     },
     createdAt: {

@@ -9,8 +9,10 @@ router.get('/', async (req, res) => {
     include: {
         model: Like,
         },
+    order: [
+      ['id', 'DESC'],
+    ],
   });
-  // console.log(roads);
   res.json({ roads });
 });
 
