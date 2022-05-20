@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { YMaps, Map, Placemark, GeolocationControl, ObjectManager, RouteButton, ymaps } from 'react-yandex-maps';
 
-export default function App() {
+export default function App({road}) {
   const map = useRef(null);
   const apikey = "29cee40b-728e-42bd-ba3e-cc89d4ae9a46";
   const mapState = {
@@ -10,8 +10,8 @@ export default function App() {
   };
 
   const addRoute = (ymaps) => {
-    const pointA = "Санкт-Петербург";
-    const pointB = "Москва, Красная площадь";
+    const pointA = road.from;
+    const pointB = road.destination;
 
     const multiRoute = new ymaps.multiRouter.MultiRoute(
       {

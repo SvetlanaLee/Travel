@@ -1,3 +1,5 @@
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Routes, Route } from "react-router-dom";
 import Navigation from './components/Navigation/Navigation';
 
@@ -5,17 +7,24 @@ import PageHome from "./pages/PageHome";
 // import PageOneRoad from "./pages/PageOneRoad";
 
 import './App.css';
-import React from 'react';
 import ReactDOM from 'react-dom';
 import UserSignup from './components/UserSignup/UserSignup';
 import UserSignin from './components/UserLogin/UserLogin'
 import PageRoads from "./pages/PageRoads/PageRoads";
 import PageOneRoad from './pages/PageRoads/PageOneRoad';
 
-import Map1 from './yandexMap/Map';
-
-
 function App() {
+
+  const dispatch = useDispatch();
+  const user = useSelector(store => store.user);
+
+  useEffect(() => {
+    fetch('http://localhost:3001/session', {
+      credentials: 'include'
+    }).then(data => data.json())
+      .then(user => dispatch({ type: 'SET_USER', payload: user}))
+  }, [dispatch]);
+  
   return (
   <>
     <div className="App">
@@ -27,9 +36,6 @@ function App() {
           <Route path='/login' element={<UserSignin/>}/>
           <Route path='/roads/:id' element={<PageOneRoad/>}/>
         </Routes>
-    </div>
-    <div>
-      {/* <Map1 /> */}
     </div>
   </>
   );
