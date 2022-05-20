@@ -1,3 +1,4 @@
+'use strict';
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('Places', {
@@ -5,43 +6,43 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER,
+        type: Sequelize.INTEGER
       },
       roadId: {
         type: Sequelize.INTEGER,
         references: {
           model: 'Roads',
-        },
+        }
       },
       title: {
-        type: Sequelize.TEXT,
+        type: Sequelize.TEXT
       },
       info: {
-        type: Sequelize.TEXT,
+        type: Sequelize.TEXT
       },
       img: {
-        type: Sequelize.TEXT,
+        type: Sequelize.TEXT
       },
-      positionOnMap: {
-        type: Sequelize.TEXT,
+      geometry: {
+        type: Sequelize.ARRAY(Sequelize.FLOAT)
       },
-      category: {
-        type: Sequelize.TEXT,
+      preset: {
+        type: Sequelize.TEXT
       },
       adress: {
-        type: Sequelize.TEXT,
+        type: Sequelize.TEXT
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE,
+        type: Sequelize.DATE
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE,
-      },
+        type: Sequelize.DATE
+      }
     });
   },
-  async down(queryInterface) {
+  async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('Places');
-  },
+  }
 };

@@ -1,4 +1,7 @@
-const { Model } = require('sequelize');
+'use strict';
+const {
+  Model
+} = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Place extends Model {
     /**
@@ -16,40 +19,40 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
-      type: DataTypes.INTEGER,
+      type: DataTypes.INTEGER
     },
     roadId: {
       type: DataTypes.INTEGER,
       references: {
         model: 'Roads',
-      },
+      }
     },
     title: {
-      type: DataTypes.TEXT,
+      type: DataTypes.TEXT
     },
     info: {
-      type: DataTypes.TEXT,
+      type: DataTypes.TEXT
     },
     img: {
-      type: DataTypes.TEXT,
+      type: DataTypes.TEXT
     },
-    positionOnMap: {
-      type: DataTypes.TEXT,
+    geometry: {
+      type: DataTypes.ARRAY(DataTypes.FLOAT)
     },
-    category: {
-      type: DataTypes.TEXT,
+    preset: {
+      type: DataTypes.TEXT
     },
     adress: {
-      type: DataTypes.TEXT,
+      type: DataTypes.TEXT
     },
     createdAt: {
       allowNull: false,
-      type: DataTypes.DATE,
+      type: DataTypes.DATE
     },
     updatedAt: {
       allowNull: false,
-      type: DataTypes.DATE,
-    },
+      type: DataTypes.DATE
+    }
   }, {
     sequelize,
     modelName: 'Place',
