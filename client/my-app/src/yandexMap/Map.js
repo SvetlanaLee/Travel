@@ -6,8 +6,32 @@ export default function App({road}) {
   const apikey = "29cee40b-728e-42bd-ba3e-cc89d4ae9a46";
   const mapState = {
     center: [55.739625, 37.5412],
-    zoom: 12
+    zoom: 12,
+    // controls: ['zoomControl', 'fullscreenControl'] 
   };
+
+  const placeMark = [
+    {
+      geometry: [55.840427, 49.244449],
+      balloonContentBody: 'Тут мой дом',
+      preset: 'islands#redIcon',
+    },
+    {
+      geometry: [55.802292, 49.104409],
+      balloonContentBody: 'Кремлевская набережная',
+      preset: 'islands#redIcon',
+    },
+    {
+      geometry: [55.861289, 49.217559],
+      balloonContentBody: 'Прикольная шавуха в свое время была',
+      preset: 'islands#redIcon',
+    },
+    {
+      geometry: [55.907161, 49.157366],
+      balloonContentBody: 'Голубые озера. Очень крутое место.',
+      preset: 'islands#redIcon',
+    },
+  ]
 
   const addRoute = (ymaps) => {
     const pointA = road.from;
@@ -29,15 +53,42 @@ export default function App({road}) {
   };
 
   return (
-    <div className="App">
+    <div className="mapCard">
       <YMaps query={{ apikey }}>
         {/* <RouteButton options={{ float: 'right' }} /> */}
         <Map
+          width='800px'
+          height='500px'
           modules={["multiRouter.MultiRoute"]}
           state={mapState}
           instanceRef={map}
           onLoad={addRoute}
-        ></Map>
+          // Placemark(geometry[, properties[, options]])
+
+          // <Placemark
+          // geometry={{
+          // type: 'Point',
+          // coordinates: coords,
+          // } }
+          // properties={{
+          // iconContent: addressName,
+          
+          // }}
+          // options={{
+          // // The placemark's icon will stretch to fit its contents.
+          // preset: 'islands#blackStretchyIcon',
+          // // The placemark can be moved.
+          // draggable: true,
+          // }}
+          // /> 
+
+
+        >
+      {placeMark.map((place) => <Placemark geometry={place.geometry}
+       properties={{ balloonContentBody: place.balloonContentBody }}
+       options={{ preset: place.preset }}
+      />)}
+        </Map>
       </YMaps>
     </div>
   );

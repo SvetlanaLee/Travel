@@ -31,7 +31,10 @@ export default function PageOneRoad() {
       ) : (
         <div>
           {road.from} - {road.destination}
+          {road.discription}
+          {road.createdAt}
         </div>
+        
       )}
     </div>
 
