@@ -66,8 +66,7 @@ router.post('/', async (req, res) => {
 
       res.json({ road });
     }
-  } catch (error) {
-    // eslint-disable-next-line no-console
+  } catch (error) {    
     console.log(error);
     res.send({ error });
   }

@@ -20,9 +20,16 @@ export default function PageOneRoad() {
     .then((road) => {
     dispatch({type: 'GET_ONE_ROAD', payload: road.data.road})
     setLoading(false);  
-  })
-    
+  })    
   }, [dispatch, id]);
+
+  useEffect(() => {
+    axios.get('http://localhost:3001/places')
+    .then((places) => {
+      console.log(places.data.places);
+     dispatch({type: 'GET_PLACES', payload: places.data.places})
+  })  
+}, [dispatch]);
 
   return (
       <>

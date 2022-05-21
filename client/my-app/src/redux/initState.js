@@ -7,4 +7,5 @@ export const initState = {
   roads: [],
   road: {},
   inputs: {},
+  places: [],
 };

@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 
 
-export default function PlaceDiscription({ placeMark }) {
+export default function PlaceDiscription() {
   return (
     <Card sx={{ maxWidth: 345, marginRight: '100px' }}>
       <CardActionArea>
