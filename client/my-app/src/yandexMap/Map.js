@@ -1,7 +1,11 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { YMaps, Map, Placemark, GeolocationControl, ObjectManager, RouteButton, ymaps } from 'react-yandex-maps';
+import PlaceDiscription from '../components/PlaceDiscription/PlaceDiscription';
 
 export default function App({road}) {
+
+  const [show, setShow] = useState(false)
+
   const map = useRef(null);
   const apikey = "29cee40b-728e-42bd-ba3e-cc89d4ae9a46";
   const mapState = {
@@ -52,6 +56,10 @@ export default function App({road}) {
     map.current.geoObjects.add(multiRoute);
   };
 
+  const showPlace = () => {
+    setShow(!show)
+  }
+
   return (
     <div className="mapCard">
       <YMaps query={{ apikey }}>
@@ -87,8 +95,10 @@ export default function App({road}) {
       {placeMark.map((place) => <Placemark geometry={place.geometry}
        properties={{ balloonContentBody: place.balloonContentBody }}
        options={{ preset: place.preset }}
-      />)}
+       onClick={(e) => showPlace()}
+       />)}
         </Map>
+       {show && <PlaceDiscription placeMark={ placeMark }/>}
       </YMaps>
     </div>
   );

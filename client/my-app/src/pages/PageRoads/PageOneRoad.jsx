@@ -7,6 +7,7 @@ import Button from '@mui/material/Button';
 import style from '../PageRoads/style.module.css';
 import { YMaps, Map } from 'react-yandex-maps';
 import Map1 from '../../yandexMap/Map';
+import PlaceDiscription from '../../components/PlaceDiscription/PlaceDiscription';
 
 export default function PageOneRoad() {
   const road = useSelector(store => store.road);
@@ -25,22 +26,33 @@ export default function PageOneRoad() {
 
   return (
       <>
+
+    <div className='mapPlace'>
+      <Map1 road={road}/>
+    </div>
+    <div>
+    </div>
+
     <div>
       {loading ? (
         'loading...'
       ) : (
-        <div>
-          {road.from} - {road.destination}
-          {road.discription}
-          {road.createdAt}
+        <div className='roadDiscription'>
+          <div className='discriptionTitle'>
+            <h3 className='citys'>
+              {road.from} - {road.destination}
+            </h3>
+              {road.createdAt}
+          </div>
+          <div className='discriptionText'> 
+            {road.discription}
+          </div>
         </div>
         
       )}
     </div>
 
-    <div>
-      <Map1 road={road}/>
-    </div>
+   
     {/* <form class={style.mapCards}>
      <h1>Яндекс карты</h1>
           <div class={style.map}>

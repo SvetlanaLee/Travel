@@ -9,7 +9,7 @@ module.exports = {
         discription: 'Путешествие в северную столицу',
         transportType: 'авто',
         distance: '712 км',
-        createdAt: new Date(),
+        createdAt: new Date().toLocaleDateString(),
         updatedAt: new Date(),
       },
       {
@@ -20,7 +20,7 @@ module.exports = {
         discription: 'Прекрасная Карелия',
         transportType: 'авто',
         distance: '438 км',
-        createdAt: new Date(),
+        createdAt: new Date().toLocaleDateString(),
         updatedAt: new Date(),
       },
       {
@@ -31,7 +31,7 @@ module.exports = {
         discription: 'Сбылась моя мечта - поездка на автомобиле на юга. Итак в наличии автомобиль ЛАДА ХРЕЙ выпуск декабрь 2017 г., три взбалмошные девушки  и огромный запас положительных эмоций.',
         transportType: 'авто',
         distance: '2 112 км',
-        createdAt: new Date(),
+        createdAt: new Date().toLocaleDateString(),
         updatedAt: new Date(),
       },
       {
@@ -42,7 +42,7 @@ module.exports = {
         discription: 'Трасса М10 "Скандинавия" Санкт-Петербург-Финляндия - Дорога в хорошем состоянии, а вот соседи по трассе попадаются разные.',
         transportType: 'авто',
         distance: '389 км',
-        createdAt: new Date(),
+        createdAt: new Date().toLocaleDateString(),
         updatedAt: new Date(),
       },
     ]);
