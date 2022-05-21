@@ -1,37 +1,44 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { YMaps, Map, Placemark, GeolocationControl, ObjectManager, RouteButton, ymaps } from 'react-yandex-maps';
+import PlaceDiscription from '../components/PlaceDiscription/PlaceDiscription';
 
 export default function App({road}) {
+
+  const [show, setShow] = useState(false)
+
+  const places = useSelector(store => store.places);
+  const dispatch = useDispatch();
+
   const map = useRef(null);
   const apikey = "29cee40b-728e-42bd-ba3e-cc89d4ae9a46";
   const mapState = {
     center: [55.739625, 37.5412],
     zoom: 12,
-    // controls: ['zoomControl', 'fullscreenControl'] 
   };
 
-  const placeMark = [
-    {
-      geometry: [55.840427, 49.244449],
-      balloonContentBody: 'Тут мой дом',
-      preset: 'islands#redIcon',
-    },
-    {
-      geometry: [55.802292, 49.104409],
-      balloonContentBody: 'Кремлевская набережная',
-      preset: 'islands#redIcon',
-    },
-    {
-      geometry: [55.861289, 49.217559],
-      balloonContentBody: 'Прикольная шавуха в свое время была',
-      preset: 'islands#redIcon',
-    },
-    {
-      geometry: [55.907161, 49.157366],
-      balloonContentBody: 'Голубые озера. Очень крутое место.',
-      preset: 'islands#redIcon',
-    },
-  ]
+  // const placeMark = [
+  //   {
+  //     geometry: [55.840427, 49.244449],
+  //     balloonContentBody: 'Тут мой дом',
+  //     preset: 'islands#redIcon',
+  //   },
+  //   {
+  //     geometry: [55.802292, 49.104409],
+  //     balloonContentBody: 'Кремлевская набережная',
+  //     preset: 'islands#redIcon',
+  //   },
+  //   {
+  //     geometry: [55.861289, 49.217559],
+  //     balloonContentBody: 'Прикольная шавуха в свое время была',
+  //     preset: 'islands#redIcon',
+  //   },
+  //   {
+  //     geometry: [55.907161, 49.157366],
+  //     balloonContentBody: 'Голубые озера. Очень крутое место.',
+  //     preset: 'islands#redIcon',
+  //   },
+  // ]
 
   const addRoute = (ymaps) => {
     const pointA = road.from;
@@ -52,6 +59,10 @@ export default function App({road}) {
     map.current.geoObjects.add(multiRoute);
   };
 
+  const showPlace = () => {
+    setShow(!show)
+  }
+
   return (
     <div className="mapCard">
       <YMaps query={{ apikey }}>
@@ -62,8 +73,22 @@ export default function App({road}) {
           modules={["multiRouter.MultiRoute"]}
           state={mapState}
           instanceRef={map}
-          onLoad={addRoute}
-          // Placemark(geometry[, properties[, options]])
+          onLoad={addRoute}     
+        >
+      {places.map((place) => <Placemark geometry={place.geometry}
+       properties={{ balloonContentBody: place.title }}
+       options={{ preset: place.preset }}
+       onClick={(e) => showPlace()}
+       />)}
+        </Map>
+       {show && <PlaceDiscription/>}
+      </YMaps>
+    </div>
+  );
+}
+
+
+ // Placemark(geometry[, properties[, options]])
 
           // <Placemark
           // geometry={{
@@ -81,21 +106,6 @@ export default function App({road}) {
           // draggable: true,
           // }}
           // /> 
-
-
-        >
-      {placeMark.map((place) => <Placemark geometry={place.geometry}
-       properties={{ balloonContentBody: place.balloonContentBody }}
-       options={{ preset: place.preset }}
-      />)}
-        </Map>
-      </YMaps>
-    </div>
-  );
-}
-
-
-
 // const Map1  = () => {
 
 

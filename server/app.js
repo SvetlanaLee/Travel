@@ -8,6 +8,7 @@ const path = require('path');
 const userRouter = require('./routes/userRouter');
 const roadsRouter = require('./routes/roadsRouter');
 const likeRouter = require('./routes/likeRouter');
+const placesRouter = require('./routes/placesRouter');
 const { cookieLogger } = require('./middleware/allMiddle');
 
 const app = express();
@@ -51,6 +52,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', userRouter);
 app.use('/roads', roadsRouter);
 app.use('/like', likeRouter);
+app.use('/places', placesRouter);
 
 
 

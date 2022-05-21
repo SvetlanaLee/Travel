@@ -47,4 +47,31 @@
 .mapCard {
   height: 500px;
   width: 350px;
+  display: contents;
+}
+
+.roadDiscription {
+  margin-top: 25px;
+  border: 2px solid;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: papayawhip;
+}
+
+.discriptionTitle {
+  display: flex;
+  justify-content: space-between;
+}
+
+.citys {
+  margin-top: 0px;
+}
+
+.discriptionText {
+  line-height: 1.3;
+}
+
+.mapPlace {
+  display: flex;
+  justify-content: space-between;
 }
