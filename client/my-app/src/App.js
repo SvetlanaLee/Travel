@@ -11,6 +11,7 @@ import UserSignin from './components/UserLogin/UserLogin'
 import PageRoads from "./pages/PageRoads/PageRoads";
 import PageOneRoad from './pages/PageRoads/PageOneRoad';
 import Person from './components/Person/Person';
+import PagePutMark from './pages/PagePutMark/PagePutMark';
 
 function App() {
 
@@ -36,9 +37,7 @@ function App() {
           <Route path='/roads/:id' element={<PageOneRoad/>}/>
           <Route path='/profile' element={<Person/>}/>
           <Route path='/upload' element={<Person/>}/>
-
-
-          
+          {/* <Route path='/mymark' element={ <PagePutMark/> }/>           */}
         </Routes>
     </div>
   </>

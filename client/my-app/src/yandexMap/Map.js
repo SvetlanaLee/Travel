@@ -1,7 +1,9 @@
 import React, { useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { YMaps, Map, Placemark, GeolocationControl, ObjectManager, RouteButton, ymaps } from 'react-yandex-maps';
-import PlaceDiscription from '../components/PlaceDiscription/PlaceDiscription';
+import FormAddMark from '../components/FormAddMark/FormAddMark';
+import Button from '@mui/material/Button';
+
 
 export default function App({road}) {
 
@@ -16,29 +18,6 @@ export default function App({road}) {
     center: [55.739625, 37.5412],
     zoom: 12,
   };
-
-  // const placeMark = [
-  //   {
-  //     geometry: [55.840427, 49.244449],
-  //     balloonContentBody: 'Тут мой дом',
-  //     preset: 'islands#redIcon',
-  //   },
-  //   {
-  //     geometry: [55.802292, 49.104409],
-  //     balloonContentBody: 'Кремлевская набережная',
-  //     preset: 'islands#redIcon',
-  //   },
-  //   {
-  //     geometry: [55.861289, 49.217559],
-  //     balloonContentBody: 'Прикольная шавуха в свое время была',
-  //     preset: 'islands#redIcon',
-  //   },
-  //   {
-  //     geometry: [55.907161, 49.157366],
-  //     balloonContentBody: 'Голубые озера. Очень крутое место.',
-  //     preset: 'islands#redIcon',
-  //   },
-  // ]
 
   const addRoute = (ymaps) => {
     const pointA = road.from;
@@ -65,6 +44,10 @@ export default function App({road}) {
 
   return (
     <div className="mapCard">
+          <div>
+            <Button onClick={(e) => showPlace()}>Создать метку</Button> 
+          {show && <FormAddMark/>}
+          </div>
       <YMaps query={{ apikey }}>
         {/* <RouteButton options={{ float: 'right' }} /> */}
         <Map
@@ -73,15 +56,14 @@ export default function App({road}) {
           modules={["multiRouter.MultiRoute"]}
           state={mapState}
           instanceRef={map}
-          onLoad={addRoute}     
+          onLoad={addRoute}              
         >
       {places.map((place) => <Placemark geometry={place.geometry}
        properties={{ balloonContentBody: place.title }}
        options={{ preset: place.preset }}
-       onClick={(e) => showPlace()}
        />)}
+       
         </Map>
-       {show && <PlaceDiscription/>}
       </YMaps>
     </div>
   );
@@ -147,3 +129,28 @@ export default function App({road}) {
     // }
 
 // export default App;
+
+
+
+  // const placeMark = [
+  //   {
+  //     geometry: [55.840427, 49.244449],
+  //     balloonContentBody: 'Тут мой дом',
+  //     preset: 'islands#redIcon',
+  //   },
+  //   {
+  //     geometry: [55.802292, 49.104409],
+  //     balloonContentBody: 'Кремлевская набережная',
+  //     preset: 'islands#redIcon',
+  //   },
+  //   {
+  //     geometry: [55.861289, 49.217559],
+  //     balloonContentBody: 'Прикольная шавуха в свое время была',
+  //     preset: 'islands#redIcon',
+  //   },
+  //   {
+  //     geometry: [55.907161, 49.157366],
+  //     balloonContentBody: 'Голубые озера. Очень крутое место.',
+  //     preset: 'islands#redIcon',
+  //   },
+  // ]
