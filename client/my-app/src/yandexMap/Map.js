@@ -1,7 +1,9 @@
 import React, { useRef, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { YMaps, Map, Placemark } from 'react-yandex-maps';
-import PlaceDiscription from '../components/PlaceDiscription/PlaceDiscription';
+import { useDispatch, useSelector } from 'react-redux';
+import { YMaps, Map, Placemark, GeolocationControl, ObjectManager, RouteButton, ymaps } from 'react-yandex-maps';
+import FormAddMark from '../components/FormAddMark/FormAddMark';
+import Button from '@mui/material/Button';
+
 
 export default function App({road}) {
 
@@ -41,6 +43,10 @@ export default function App({road}) {
 
   return (
     <div className="mapCard">
+          <div>
+            <Button onClick={(e) => showPlace()}>Создать метку</Button> 
+          {show && <FormAddMark/>}
+          </div>
       <YMaps query={{ apikey }}>
         <Map
           width='800px'
@@ -48,8 +54,9 @@ export default function App({road}) {
           modules={["multiRouter.MultiRoute"]}
           state={mapState}
           instanceRef={map}
-          onLoad={addRoute}     
+          onLoad={addRoute}              
         >
+
       {places.map((place) => 
         <Placemark geometry={place.geometry}
         properties={{ 
@@ -61,9 +68,10 @@ export default function App({road}) {
         key={place.id} 
         />
        )}
+
         </Map>
-       {show && <PlaceDiscription/>}
       </YMaps>
     </div>
   );
 }
+

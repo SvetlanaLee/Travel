@@ -73,5 +73,7 @@
 
 .mapPlace {
   display: flex;
-  justify-content: space-between;
+    justify-content: flex-end;
+    flex-direction: row-reverse;
+    align-content: space-around;
 }
