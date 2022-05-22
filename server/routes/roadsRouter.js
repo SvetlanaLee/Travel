@@ -62,6 +62,7 @@ router.post('/', async (req, res) => {
         transportType: 'авто',
         distance: distanceRes,
         userId,
+        createdAt: new Date().toLocaleDateString(),
       });
 
       res.json({ road });
