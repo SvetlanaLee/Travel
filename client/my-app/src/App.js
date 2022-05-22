@@ -1,11 +1,10 @@
 import React, { useEffect } from 'react';
 import { Routes, Route } from "react-router-dom";
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import './App.css';
 import Navigation from './components/Navigation/Navigation';
 import PageHome from "./pages/PageHome";
 import './App.css';
-import ReactDOM from 'react-dom';
 import UserSignup from './components/UserSignup/UserSignup';
 import UserSignin from './components/UserLogin/UserLogin'
 import PageRoads from "./pages/PageRoads/PageRoads";
@@ -15,7 +14,6 @@ import Person from './components/Person/Person';
 function App() {
 
   const dispatch = useDispatch();
-  const user = useSelector(store => store.user);
 
   useEffect(() => {
     fetch('http://localhost:3001/session', {

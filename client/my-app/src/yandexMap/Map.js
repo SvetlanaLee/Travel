@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { YMaps, Map, Placemark, GeolocationControl, ObjectManager, RouteButton, ymaps } from 'react-yandex-maps';
+import { useSelector } from 'react-redux';
+import { YMaps, Map, Placemark } from 'react-yandex-maps';
 import PlaceDiscription from '../components/PlaceDiscription/PlaceDiscription';
 
 export default function App({road}) {
@@ -8,7 +8,6 @@ export default function App({road}) {
   const [show, setShow] = useState(false)
 
   const places = useSelector(store => store.places);
-  const dispatch = useDispatch();
 
   const map = useRef(null);
   const apikey = "29cee40b-728e-42bd-ba3e-cc89d4ae9a46";
@@ -16,29 +15,6 @@ export default function App({road}) {
     center: [55.739625, 37.5412],
     zoom: 12,
   };
-
-  // const placeMark = [
-  //   {
-  //     geometry: [55.840427, 49.244449],
-  //     balloonContentBody: 'Тут мой дом',
-  //     preset: 'islands#redIcon',
-  //   },
-  //   {
-  //     geometry: [55.802292, 49.104409],
-  //     balloonContentBody: 'Кремлевская набережная',
-  //     preset: 'islands#redIcon',
-  //   },
-  //   {
-  //     geometry: [55.861289, 49.217559],
-  //     balloonContentBody: 'Прикольная шавуха в свое время была',
-  //     preset: 'islands#redIcon',
-  //   },
-  //   {
-  //     geometry: [55.907161, 49.157366],
-  //     balloonContentBody: 'Голубые озера. Очень крутое место.',
-  //     preset: 'islands#redIcon',
-  //   },
-  // ]
 
   const addRoute = (ymaps) => {
     const pointA = road.from;
@@ -66,7 +42,6 @@ export default function App({road}) {
   return (
     <div className="mapCard">
       <YMaps query={{ apikey }}>
-        {/* <RouteButton options={{ float: 'right' }} /> */}
         <Map
           width='800px'
           height='500px'
@@ -75,75 +50,20 @@ export default function App({road}) {
           instanceRef={map}
           onLoad={addRoute}     
         >
-      {places.map((place) => <Placemark geometry={place.geometry}
-       properties={{ balloonContentBody: place.title }}
-       options={{ preset: place.preset }}
-       onClick={(e) => showPlace()}
-       />)}
+      {places.map((place) => 
+        <Placemark geometry={place.geometry}
+        properties={{ 
+          balloonContentHeader: place.title,
+          balloonContentBody: place.info,
+          balloonContentFooter: place.adress
+        }}
+        options={{ preset: place.preset }}
+        key={place.id} 
+        />
+       )}
         </Map>
        {show && <PlaceDiscription/>}
       </YMaps>
     </div>
   );
 }
-
-
- // Placemark(geometry[, properties[, options]])
-
-          // <Placemark
-          // geometry={{
-          // type: 'Point',
-          // coordinates: coords,
-          // } }
-          // properties={{
-          // iconContent: addressName,
-          
-          // }}
-          // options={{
-          // // The placemark's icon will stretch to fit its contents.
-          // preset: 'islands#blackStretchyIcon',
-          // // The placemark can be moved.
-          // draggable: true,
-          // }}
-          // /> 
-// const Map1  = () => {
-
-
-  // return (
-  //   <YMaps>
-  //     <div>
-  //       <Map defaultState={{ center: [59.939402, 30.314264], zoom: 7, controls: [],}}>
-  //         <Placemark geometry={[59.939402, 30.314264]} />
-  //         <GeolocationControl options={{ float: 'left' }} />
-  //         <ObjectManager
-  //                 options={{
-  //                   clusterize: true,
-  //                   gridSize: 32,
-  //                 }}
-  //                 objects={{
-    //                   openBalloonOnClick: true,
-    //                   preset: 'islands#greenDotIcon',
-    //                 }}
-    //                 clusters={{
-      //                   preset: 'islands#redClusterIcons',
-      //                 }}
-      //                 filter={object => object.id % 2 === 0}
-      //                 // defaultFeatures={features}
-      //                 modules={[
-        //                   'objectManager.addon.objectsBalloon',
-        //                   'objectManager.addon.objectsHint',
-        //                 ]}
-        //               />
-        //         {/* <RoutePanel options={{ float: 'right' }} /> */}
-        //         {/* <ListBox data={{ content: 'Select city' }}>
-        //           <ListBoxItem data={{ content: 'Moscow' }} />
-        //           <ListBoxItem data={{ content: 'Saint Petersburg', }} />
-      //         </ListBox> */}
-      //       </Map>
-      //     </div>
-      //   </YMaps>
-      // );
-      
-    // }
-
-// export default App;
