@@ -1,13 +1,9 @@
-import React, { useRef, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { YMaps, Map, Placemark, GeolocationControl, ObjectManager, RouteButton, ymaps } from 'react-yandex-maps';
-import FormAddMark from '../components/FormAddMark/FormAddMark';
-import Button from '@mui/material/Button';
+import React, { useRef } from 'react';
+import { useSelector } from 'react-redux';
+import { YMaps, Map, Placemark } from 'react-yandex-maps';
 
 
 export default function App({road}) {
-
-  const [show, setShow] = useState(false)
 
   const places = useSelector(store => store.places);
 
@@ -37,16 +33,9 @@ export default function App({road}) {
     map.current.geoObjects.add(multiRoute);
   };
 
-  const showPlace = () => {
-    setShow(!show)
-  }
-
   return (
     <div className="mapCard">
-          <div>
-            <Button onClick={(e) => showPlace()}>Создать метку</Button> 
-          {show && <FormAddMark/>}
-          </div>
+
       <YMaps query={{ apikey }}>
         <Map
           width='800px'

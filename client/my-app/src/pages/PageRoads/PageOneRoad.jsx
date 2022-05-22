@@ -2,13 +2,20 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from "react-router-dom";
 import axios from 'axios';
-import Map1 from '../../yandexMap/Map';
+import Map1 from '../../components/yandexMap/Map';
+import Button from '@mui/material/Button';
+import FormAddMark from '../../components/FormAddMark/FormAddMark';
 
 export default function PageOneRoad() {
   const road = useSelector(store => store.road);
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
   const { id } = useParams();
+
+  const [show, setShow] = useState(false)
+  const showPlace = () => {
+    setShow(!show)
+  }
 
   useEffect(() => {
     axios.get(`http://localhost:3001/roads/${id}`)
@@ -24,7 +31,7 @@ export default function PageOneRoad() {
       // console.log(places.data.places);
      dispatch({type: 'GET_PLACES', payload: places.data.places})
   })  
-}, [dispatch]);
+}, [dispatch, id]);
 
   return (
       <>
@@ -33,6 +40,8 @@ export default function PageOneRoad() {
       <Map1 road={road}/>
     </div>
     <div>
+      <Button onClick={(e) => showPlace()}>Создать метку</Button> 
+      {show && <FormAddMark show={show}/>}
     </div>
 
     <div>
