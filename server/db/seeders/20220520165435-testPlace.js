@@ -3,6 +3,7 @@ module.exports = {
     await queryInterface.bulkInsert('Places', [
       // Москва-Питер
       {
+        roadId: 1,
         title: 'Пит Стоп кафе',
         info: 'Кафе расположено за Тверью перед Медное, от мкад 170 км. Широкий выбор меню: супы - солянка, борщ, лапша. второе - мясо по-французски/боярски, котлеты по-киевски, семга куском, котлеты... гарниры - картошка с грибами, жареные баклажаны, ну и простые.',
         categoria: 'еда',
@@ -14,6 +15,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        roadId: 1,
         title: 'Лукойл №53267 Окуловка-2',
         info: 'Так же есть небольшое кафе',
         categoria: 'заправки',
@@ -25,6 +27,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        roadId: 1,
         title: 'Мини-отель "Золотой ключик"',
         info: 'хорошее расположение - как раз посередине пути',
         categoria: 'гостиница',
@@ -36,6 +39,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        roadId: 1,
         title: 'Будь здоров',
         info: 'аптека',
         categoria: 'аптека',
@@ -47,6 +51,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        roadId: 1,
         title: 'Riversurf Zavidovo',
         info: 'Можно полюбоваться видами, а еще это лучшее места для катания на вэйксёрфинге!!!',
         categoria: 'отдых',
@@ -59,6 +64,7 @@ module.exports = {
       },
 // ============================================================================= Питер-Хельсинки
       {
+        roadId: 4,
         title: 'Гостиница "Скандинавия"',
         info: 'Спасибо за комфорт и уют! Отличные номера и вкусный завтрак! Персоналу отдельное спасибо за внимательность и доброжелательность к гостям. Обязательно приедем снова!',
         categoria: 'гостиница',
@@ -69,6 +75,7 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date(),
       },{
+        roadId: 4,
         title: 'Татнефть №11666 Скандинавия',
         info: 'Обычная круглосуточная заправка',
         categoria: 'заправки',
@@ -79,6 +86,7 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date(),
       },{
+        roadId: 4,
         title: 'Karhulan Omega apteekki',
         info: 'Финская аптека',
         categoria: 'аптека',
@@ -89,6 +97,7 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date(),
       },{
+        roadId: 4,
         title: 'Музей-усадьба художника И. Е. Репина',
         info: 'Обязательно к посещению',
         categoria: 'отдых',
@@ -99,6 +108,7 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date(),
       },{
+        roadId: 4,
         title: 'Zona Bike',
         info: 'Бар, паб. Атмосферное место',
         categoria: 'еда',
@@ -111,6 +121,7 @@ module.exports = {
       },
       // ========================================================================== Казань-Сочи
       {
+        roadId: 3,
         title: 'Кафе 73',
         info: 'Кафе, магазин кулинарии',
         categoria: 'еда',
@@ -122,6 +133,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        roadId: 3,
         title: 'Кафе Терса',
         info: 'Кафестоловая',
         categoria: 'еда',
@@ -133,6 +145,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        roadId: 3,
         title: 'ЕвроАзия',
         info: 'Кафе, суши-бар',
         categoria: 'еда',
@@ -144,6 +157,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        roadId: 3,
         title: 'Мкафе',
         info: 'Быстрое питание, кафе',
         categoria: 'еда',
@@ -155,6 +169,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        roadId: 3,
         title: 'Столовая',
         info: 'Столовая, кафе',
         categoria: 'еда',
@@ -165,6 +180,7 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date(),
       },{
+        roadId: 3,
         title: 'Hampton by Hilton Volgograd Profsoyuznaya',
         info: 'Гостиница',
         categoria: 'гостиница',
@@ -175,6 +191,7 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date(),
       },{
+        roadId: 3,
         title: 'Центротех',
         info: 'АЗС',
         categoria: 'заправки',
@@ -185,6 +202,7 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date(),
       },{
+        roadId: 3,
         title: 'Роснефть',
         info: 'АЗС',
         categoria: 'заправки',
@@ -195,6 +213,7 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date(),
       },{
+        roadId: 3,
         title: 'Аптека ВИТА Экспресс',
         info: 'Аптека',
         categoria: 'аптека',
@@ -206,6 +225,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        roadId: 3,
         title: 'озеро Большое Голубое',
         info: 'Вода в этом озере +4 круглый год',
         categoria: 'отдых',
@@ -217,6 +237,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        roadId: 3,
         title: 'Музей истории гражданской авиации',
         info: 'Музей',
         categoria: 'отдых',
@@ -228,6 +249,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        roadId: 3,
         title: 'Пляж Санторини',
         info: 'Пляж',
         categoria: 'отдых',
@@ -239,6 +261,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        roadId: 3,
         title: 'Родина-Мать зовёт!',
         info: 'Памятник, мемориал',
         categoria: 'отдых',
@@ -251,6 +274,7 @@ module.exports = {
       },
       //==================================================================Питер-Кижи
       {
+        roadId: 2,
         title: 'Роснефть',
         info: 'АЗС',
         categoria: 'заправки',
@@ -262,6 +286,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        roadId: 2,
         title: 'Лукойл',
         info: 'АЗС',
         categoria: 'заправки',
@@ -273,6 +298,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        roadId: 2,
         title: 'Соломенский залив',
         info: 'Так же есть небольшое кафе',
         categoria: 'отдых',
@@ -284,6 +310,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        roadId: 2,
         title: 'Юбилейная',
         info: 'Банкет на дом! Предлагаем заказать блюда из нашей столовой.',
         categoria: 'еда',
@@ -295,6 +322,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        roadId: 2,
         title: 'Кижская Благодать',
         info: 'Хорошее расположение, красивый вид из окна',
         categoria: 'гостиница',
@@ -306,6 +334,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        roadId: 2,
         title: 'Аптека Невис',
         info: 'аптека',
         categoria: 'аптека',
@@ -317,6 +346,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        roadId: 2,
         title: 'Великогубское сельское поселение',
         info: 'Православный храмдостопримечательность',
         categoria: 'отдых',
@@ -328,6 +358,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
+        roadId: 2,
         title: 'парк Заозерский заказник',
         info: 'Очень красивые места',
         categoria: 'отдых',
