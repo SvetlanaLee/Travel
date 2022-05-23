@@ -3,9 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { IconButton, Typography } from '@mui/material';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
+// import MoreVertIcon from '@mui/icons-material/MoreVert';
 import LogoutIcon from '@mui/icons-material/Logout'
 import { Link } from 'react-router-dom';
+import style from '../../pages/PageRoads/style.module.css';
+import HomeIcon from '@mui/icons-material/Home';
+
 
 const ITEM_HEIGHT = 48;
 
@@ -32,8 +35,8 @@ export default function Navigation() {
   }
 
   return (
-    <div>
-      <IconButton
+    <div className={style.navBar} >
+      <IconButton 
         aria-label="more"
         id="long-button"
         aria-controls={open ? 'long-menu' : undefined}
@@ -41,7 +44,7 @@ export default function Navigation() {
         aria-haspopup="true"
         onClick={handleClick}
       >
-        <MoreVertIcon />
+        <HomeIcon />
       </IconButton>
       {user.userId ? (
         <Menu 
@@ -56,12 +59,12 @@ export default function Navigation() {
             style: {
               maxHeight: ITEM_HEIGHT * 4.5,
               width: '20ch',
-              backgroundColor: '#ffffff45',
+              backgroundColor: '#ffffff45', 
               
             },
           }}
         >
-          <MenuItem key={'pHome'} onClick={handleClose}>
+          <MenuItem>
             <Typography component={Link} to={'/'} sx={{ color: 'rgb(88, 82, 82)', textDecoration: 'none' }}>
               Главная
             </Typography>

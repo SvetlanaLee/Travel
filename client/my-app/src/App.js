@@ -11,6 +11,7 @@ import UserSignin from './components/UserLogin/UserLogin'
 import PageRoads from "./pages/PageRoads/PageRoads";
 import PageOneRoad from './pages/PageRoads/PageOneRoad';
 import Person from './components/Person/Person';
+// import BCarousel from './components/BCarousel';
 
 function App() {
 
@@ -26,8 +27,10 @@ function App() {
   
   return (
   <>
+          
     <div className="App">
         <Navigation/>
+          {/* <BCarousel /> */}
         <Routes>
           <Route path="/" element={<PageHome/>} />
           <Route path="/roads" element={<PageRoads />} />
@@ -37,8 +40,6 @@ function App() {
           <Route path='/profile' element={<Person/>}/>
           <Route path='/upload' element={<Person/>}/>
 
-
-          
         </Routes>
     </div>
   </>

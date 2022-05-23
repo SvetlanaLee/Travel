@@ -1,37 +1,121 @@
 .form {
-  background: url(https://static.tildacdn.com/tild6334-3231-4562-a334-663435616261/shutterstock_1869846.jpg) no-repeat;
+  background: url(https://images.pexels.com/photos/2325446/pexels-photo-2325446.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940) no-repeat;
   background-size: cover;
   display: flex;
   align-items: center;
-  /* justify-content: center; */
+  top: 0px;
   flex-direction: column;
   height: 940px;
-  /* background-attachment: scroll; */
-  /* transform: initial; */
 }
 
-
-/* .form {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  height: 610px;
-  background-attachment: scroll;
-  transform: initial;
-  background-image: url("https://static.tildacdn.com/tild6334-3231-4562-a334-663435616261/shutterstock_1869846.jpg");  
-} */
-/* <div class="t-cover__carrier loaded" id="coverCarry348165575" data-content-cover-id="348165575" data-content-cover-bg="https://static.tildacdn.com/tild6334-3231-4562-a334-663435616261/shutterstock_1869846.jpg" data-content-cover-height="20vh" data-content-cover-parallax="" style="height: 610px; background-attachment: scroll; transform: initial; background-image: url(&quot;https://thumb.tildacdn.com/tild6334-3231-4562-a334-663435616261/-/format/webp/shutterstock_1869846.jpg&quot;);"></div> */
 .text {
-  font-family: 'Noto Sans',Arial,sans-serif;
-  font-size: 30px;
+  font-family: 'Anonymous Pro';
+  font-size: 40px;
   font-weight: 600;
   color: #fff;
   padding: 269px 0 24px 0;
   letter-spacing: 1px;
 }
 
+.colorText {
+  color: #2EE59D;
+}
+
 .cont {
   background: url(https://static.tildacdn.com/tild6334-3231-4562-a334-663435616261/shutterstock_1869846.jpg) no-repeat;
   background-size: cover;
 }
+
+.navBar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+
+.buthome {
+  text-decoration: none;
+  display: inline-block;
+  width: 200px;
+  height: 46px;
+  line-height: 45px;
+  border-radius: 45px;
+  margin: 10px 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 3px;
+  font-weight: 600;
+  color: #524f4e;
+  background: white;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, .1);
+  transition: .3s;
+}
+.buthome:hover {
+  background: #2EE59D;
+  box-shadow: 0 15px 20px rgba(46, 229, 157, .4);
+  color: white;
+  transform: translateY(-7px);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* .home {
+  position: relative; 
+  height: 0px; 
+  width: 100%; 
+  border: none;
+} */
+
+
+
+
+
+
+/* .buthome {
+  text-decoration: none;
+  display: inline-block;
+  padding: 10px 30px;
+  margin: 10px 20px;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid #fe6637;
+  border-radius: 8px;
+  font-family: 'Montserrat', sans-serif;
+  color: #fe6637;
+  transition: .2s ease-in-out;
+}
+.buthome:before {
+  content: "";
+  background: linear-gradient(90deg, rgba(255, 255, 255, .1), rgba(255, 255, 255, .5));
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  top: -8px;
+  left: -75px;
+  transform: skewX(-45deg);
+}
+.buthome:hover {
+  background: #fe6637;
+  color: #fff;
+}
+.buthome:hover:before {
+  left: 150px;
+  transition: .5s ease-in-out;
+} */
+
+
+
+
