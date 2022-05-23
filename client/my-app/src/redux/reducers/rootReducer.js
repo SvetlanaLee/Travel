@@ -10,6 +10,7 @@ import { inputsReducer } from './inputsReducer';
 import { placesReducer } from './placesReducer';
 import { commentReducer } from './commentReducer';
 import { listOfCommentsReducer } from './listOfCommentsReducer';
+import { alienUserReducer } from './alienUserReducer';
 
 
 export const rootReducer = combineReducers({
@@ -24,4 +25,5 @@ export const rootReducer = combineReducers({
   places: placesReducer,
   comment: commentReducer,
   allComments: listOfCommentsReducer,
+  alienUser: alienUserReducer
 });

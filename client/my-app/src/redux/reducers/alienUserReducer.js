@@ -1,14 +1,13 @@
 import { initState } from '../initState';
 
-export const userReducer = (state = initState, action)=>{
+export const alienUserReducer = (state = initState, action)=>{
   const { type, payload } = action;
 
   switch (type) {
-    case 'SET_USER':
+  
+    case 'GET_USER':
       return payload;
-    case 'USER_LOGOUT':
-      return payload;
-    
+  
     default:
       return state;
   }

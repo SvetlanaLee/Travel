@@ -9,5 +9,6 @@ export const initState = {
   inputs: {},
   places: [],
   comment: {},
-  allComments: []
+  allComments: [],
+  alienUser: {}
 };

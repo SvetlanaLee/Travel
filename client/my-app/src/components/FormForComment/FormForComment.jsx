@@ -52,7 +52,7 @@ export default function FormForComment() {
     });
     //console.log(newComment)
     const commentFromBack = await addComment.json();
-    console.log('commentFromBack', commentFromBack);
+    //console.log('commentFromBack', commentFromBack);
     if (commentFromBack) {
       dispatch({type: 'GET_COMMENTS', payload: commentFromBack.allComments});
       // dispatch({type: 'ADD_COMMENTS', payload: commentFromBack});

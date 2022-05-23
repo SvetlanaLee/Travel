@@ -12,7 +12,7 @@ export default function Roads() {
   useEffect(() => {
     axios.get('http://localhost:3001/roads')
     .then((roadsFromServer) => {
-      console.log(roadsFromServer);
+      // console.log(roadsFromServer);
     dispatch({type: 'GET_ROADS', payload: roadsFromServer.data.roads})
     setLoading(false);  
   })
