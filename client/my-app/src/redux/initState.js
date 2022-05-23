@@ -10,5 +10,8 @@ export const initState = {
   places: [],
   comment: {},
   allComments: [],
-  alienUser: {}
+  alienUser: {},
+  showNewPlace: false,
+  companion: []
+
 };

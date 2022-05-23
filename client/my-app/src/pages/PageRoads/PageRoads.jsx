@@ -25,7 +25,6 @@ export default function PageRoads() {
 
   const createNewRoad = async (event) => {
       const data = {
-        distance: inputs.distance,
         from: inputs.from,
         destination: inputs.destination,
         discription: inputs.discription,
@@ -97,15 +96,6 @@ export default function PageRoads() {
           name='discription' 
           onChange={handleInputs} 
           value={inputs.discription?? ''}
-          required
-          />
-          <TextField 
-          id="outlined-basic" 
-          label="Расстояние (км)" 
-          variant="outlined" 
-          name='distance' 
-          onChange={handleInputs} 
-          value={inputs.distance?? ''}
           required
           />
           <Button variant="outlined" sx={{height: '40px'}} onClick={createNewRoad}>Создать</Button>

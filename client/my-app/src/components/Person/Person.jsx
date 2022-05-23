@@ -2,10 +2,12 @@ import axios from 'axios';
 import React, { useState, useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import logo from './logo.svg';
+import FormCompanion from '../FormCompanion/FormCompanion' ;
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import dayjs from 'dayjs';
+
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -24,10 +26,20 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+
 export default function Person() {
   const classes = useStyles();
   const user = useSelector(store => store.user);
+
   const inputs = useSelector(store => store.inputs);
+
+  const error = useSelector(store => store.error);
+  const [ show, setShow ] = useState(false);
+
+  const showForm = () => {
+    setShow(!show)
+  };
+  
   const dispatch = useDispatch();
   const [img, setImg] = useState(null)
   // const [avatar, setAvatar] = useState(null)
@@ -107,6 +119,7 @@ export default function Person() {
  
      <TextField 
 
+
     margin="normal"
     required
     fullWidth
@@ -182,7 +195,13 @@ value={dayjs(inputs.birth ?? user.userDateOfBirth).format("YYYY-MM-DD") ?? ''}
 onChange={(e) => dispatch
 ({ type: 'INPUTS_TYPING', payload: { [e.target.name]: e.target.value } })}/>
 
-
+        <div>
+          <button onClick={showForm}>Искать попутчиков</button>
+          <div>
+            <div>{error.error}</div>
+            {show && <FormCompanion/>}
+          </div>
+        </div>
 
 
    <Button
@@ -197,8 +216,5 @@ onChange={(e) => dispatch
   )
 }
 
-  
-       
-       
     
 
