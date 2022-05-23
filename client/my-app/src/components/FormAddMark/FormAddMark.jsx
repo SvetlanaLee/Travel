@@ -68,39 +68,16 @@ export default function FormAddMark() {
       body: JSON.stringify(data)
     });
 
+    const res = await response.json();
     if(response.status === 200) {
+      dispatch({type: 'INPUTS_CLEAR', payload: {}});
+      dispatch({type: 'GET_PLACES', payload: res.places})
+    } else {
       dispatch({type: 'INPUTS_CLEAR', payload: {}});
     }
 
-    console.log(response)
   }
 
-//   const createNewMark = async (event) => {
-//     const data = {
-//       title: inputs.title,
-//       info: inputs.info,
-//       categoria: inputs.categoria,
-//       discription: inputs.discription,
-//       roadId: road.placeId
-//     };
-
-//     const response = await fetch('http://localhost:3001/roads', {
-//       method: 'POST',
-//       headers:{
-//         'Content-type': 'application/json'
-//       },
-//       body: JSON.stringify(data)
-//     });
-
-//     const place = await response.json();
-//   if(place.error) {
-//     dispatch({type: 'SET_ERROR', payload: road});
-//   } else {
-//     console.log(place.road.id);
-//     dispatch({type: 'INPUTS_CLEAR', payload: {}});
-//     dispatch({type: 'SET_ERROR', payload: {}});
-//   }
-//  }
   return (
     <Box
       component="form"
