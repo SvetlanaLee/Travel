@@ -10,6 +10,8 @@ import PageRoads from "./pages/PageRoads/PageRoads";
 import PageOneRoad from './pages/PageRoads/PageOneRoad';
 import Person from './components/Person/Person';
 import PageCompanion from './pages/PageCompanion/PageCompanion';
+import AlienPerson from './components/Person/AlienPerson';
+import PagePutMark from './pages/PagePutMark/PagePutMark';
 
 function App() {
 
@@ -35,9 +37,11 @@ function App() {
           <Route path='/profile' element={<Person/>}/>
           <Route path='/upload' element={<Person/>}/>
           <Route path='/companions' element={<PageCompanion/>}/>
+          <Route path="/users/:id" element={<AlienPerson/>} />
+          {/* <Route path='/mymark' element={ <PagePutMark/> }/>           */}
+
         </Routes>
-        
-    </div>
+     </div>
   </>
   );
 }

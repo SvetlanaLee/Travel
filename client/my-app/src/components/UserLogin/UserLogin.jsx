@@ -48,7 +48,7 @@ export default function UserSignin() {
     });
 
     const userFromBack = await userRequest.json();
-    console.log(userFromBack.userId);
+    console.log('login================', userFromBack);
     if (userFromBack.userId) {
     dispatch({type: 'SET_USER', payload: userFromBack});
     dispatch({type: 'CLEAR_INPUTS', payload: {}})
