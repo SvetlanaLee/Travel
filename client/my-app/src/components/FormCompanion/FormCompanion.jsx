@@ -19,7 +19,7 @@ export default function FormCompanion() {
       end: inputs.end,
       userId: user.userId
     };
-    const response = await fetch('url', {
+    const response = await fetch('http://localhost:3001/companions', {
       method: 'POST',
       headers:{
         'Content-type': 'application/json'
@@ -34,7 +34,7 @@ export default function FormCompanion() {
     } else {
       dispatch({ type: 'INPUTS_CLEAR', payload: {}});
       dispatch({type: 'SET_ERROR', payload: {}});
-      dispatch({ type: 'GET_COMPANIONS', payload: res.companions});
+      dispatch({ type: 'GET_COMPANIONS', payload: res.allComps});
     }
   }
 
