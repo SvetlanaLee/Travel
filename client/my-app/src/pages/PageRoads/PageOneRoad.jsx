@@ -8,6 +8,9 @@ import style from '../PageRoads/style.module.css';
 import { YMaps, Map } from 'react-yandex-maps';
 import Map1 from '../../yandexMap/Map';
 import PlaceDiscription from '../../components/PlaceDiscription/PlaceDiscription';
+import FormForComment from '../../components/FormForComment/FormForComment';
+import ListOfComments from '../../components/ListOfComments/ListOfComments';
+
 
 export default function PageOneRoad() {
   const road = useSelector(store => store.road);
@@ -26,7 +29,7 @@ export default function PageOneRoad() {
   useEffect(() => {
     axios.get('http://localhost:3001/places')
     .then((places) => {
-      console.log(places.data.places);
+     // console.log(places.data.places);
      dispatch({type: 'GET_PLACES', payload: places.data.places})
   })  
 }, [dispatch]);
@@ -59,7 +62,8 @@ export default function PageOneRoad() {
       )}
     </div>
 
-   
+    <FormForComment />
+    <ListOfComments />
     {/* <form class={style.mapCards}>
      <h1>Яндекс карты</h1>
           <div class={style.map}>

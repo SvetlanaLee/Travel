@@ -2,7 +2,7 @@ const express = require('express');
 
 const router = express.Router();
 const { Road, Like } = require('../db/models');
-
+const { Comment, User } = require('../db/models');
 // роут для получения всех маршрутов из базы
 router.get('/', async (req, res) => {
   const roads = await Road.findAll({
@@ -79,5 +79,52 @@ router.get('/:id', async (req, res) => {
 });
 
 
+router.post('/:id/comment', async(req, res) => {
+ // console.log(req.body);
+  const { roadId, userId, text } = req.body;
+  await Comment.create({
+      roadId,
+      userId,
+      text
+    });
+  
+    const allComments = await Comment.findAll(
+      {
+        include: {
+          model: User,
+        },
+        where: {
+          roadId,
+        },
+      }
+    )
+    console.log('allComments======', allComments)
+  res.json({ allComments })
+});
+
+
+router.get('/:id/comment', async (req, res) => {
+const road = await Road.findByPk(req.params.id);
+const allComments = await Comment.findAll(
+  {
+    include: {
+      model: User,
+    },
+    where: {
+      roadId: road.id,
+    },
+  }
+)
+
+res.json({ allComments })
+});
 
 module.exports = router;
+
+
+
+
+
+
+
+
