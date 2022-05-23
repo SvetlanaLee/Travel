@@ -11,7 +11,7 @@ export default function CompanionCard({comp}) {
   const title = `${comp.cityFrom} - ${comp.cityWhere}`;
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345 }} className='cardComp'>
 
       <CardHeader
         avatar={

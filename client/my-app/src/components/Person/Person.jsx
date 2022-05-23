@@ -195,13 +195,6 @@ value={dayjs(inputs.birth ?? user.userDateOfBirth).format("YYYY-MM-DD") ?? ''}
 onChange={(e) => dispatch
 ({ type: 'INPUTS_TYPING', payload: { [e.target.name]: e.target.value } })}/>
 
-        <div>
-          <button onClick={showForm}>Искать попутчиков</button>
-          <div>
-            <div>{error.error}</div>
-            {show && <FormCompanion/>}
-          </div>
-        </div>
 
 
    <Button
@@ -212,6 +205,15 @@ onChange={(e) => dispatch
   </form>
   
 </>
+
+  <div>
+    <button onClick={showForm}>Искать попутчиков</button>
+    <div>
+      <div>{error.error}</div>
+      {show && <FormCompanion/>}
+    </div>
+  </div>
+
 </div>
   )
 }
