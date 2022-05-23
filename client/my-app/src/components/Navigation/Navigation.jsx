@@ -71,6 +71,11 @@ export default function Navigation() {
               Маршруты
             </Typography>
           </MenuItem>
+          <MenuItem key={'pCompanions'} onClick={handleClose}>
+            <Typography component={Link} to={`/companions`} sx={{ color: 'rgb(88, 82, 82)', textDecoration: 'none' }}>
+              Поиск попутчиков
+            </Typography>
+          </MenuItem>
           <MenuItem key={'pPerson'} onClick={handleClose}>
             <Typography component={Link} to={`/profile`} sx={{ color: 'rgb(88, 82, 82)', textDecoration: 'none' }}>
               Личный кабинет
@@ -107,6 +112,11 @@ export default function Navigation() {
           <MenuItem key={'pRoads'} onClick={handleClose}>
             <Typography component={Link} to={`/roads`} sx={{ color: 'rgb(88, 82, 82)', textDecoration: 'none' }}>
               Маршруты
+            </Typography>
+          </MenuItem>
+          <MenuItem key={'pCompanions'} onClick={handleClose}>
+            <Typography component={Link} to={`/companions`} sx={{ color: 'rgb(88, 82, 82)', textDecoration: 'none' }}>
+              Поиск попутчиков
             </Typography>
           </MenuItem>
           <MenuItem key={'pRegistration'} onClick={handleClose}>
