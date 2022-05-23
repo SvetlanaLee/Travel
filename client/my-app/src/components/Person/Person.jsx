@@ -2,9 +2,16 @@ import axios from 'axios';
 import React, { useState, useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import logo from './logo.svg';
+import FormCompanion from '../FormCompanion/FormCompanion' ;
 
 export default function Person() {
   const user = useSelector(store => store.user);
+  const error = useSelector(store => store.error);
+  const [ show, setShow ] = useState(false);
+
+  const showForm = () => {
+    setShow(!show)
+  };
   
   const dispatch = useDispatch();
   const [img, setImg] = useState(null)
@@ -74,12 +81,16 @@ export default function Person() {
         <input type="file" onChange={e => setImg(e.target.files[0])} />
         <button className='btn' onClick={sendFile}>Изменить аватар</button>
 
+        <div>
+          <button onClick={showForm}>Искать попутчиков</button>
+          <div>
+            <div>{error.error}</div>
+            {show && <FormCompanion/>}
+          </div>
+        </div>
 
         </div>
 
-  
-       
-       
     
   )
 }
