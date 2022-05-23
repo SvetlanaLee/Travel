@@ -40,10 +40,10 @@ module.exports = {
         type: Sequelize.DATEONLY
       },
       createdAt: {
-        type: Sequelize.DATE
+        type: Sequelize.DATEONLY
       },
       updatedAt: {
-        type: Sequelize.DATE
+        type: Sequelize.DATEONLY
       }
     });
   },

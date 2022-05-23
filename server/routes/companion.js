@@ -1,11 +1,15 @@
 const express = require('express');
 const router = express.Router();
-const { Companion } = require('../db/models');
+const { Op } = require("sequelize");
+const { Companion, User } = require('../db/models');
+const dayjs = require('dayjs');
 
+// добавляем новое объявление
 router.post('/', async (req, res) => {
   try {
     // console.log('tut');
     const { cityFrom, cityWhere, info, start, end, userId} = req.body;
+    const today = dayjs(new Date()).format("YYYY-MM-DD");
     // console.log(req.body);
     const cityRes = (city) => {
       const lowerCase = city.toLowerCase();
@@ -19,7 +23,7 @@ router.post('/', async (req, res) => {
       res.send({ error: 'Пожалуйста, заполните все данные' });
     } else if(!userId) {
       res.send({ error: 'Необходимо авторизоваться' });
-    } else if(end < start) {
+    } else if(end < start || start < today) {
       res.send({ error: 'Проверьте введенные даты' });
     } else {
       await Companion.create({
@@ -29,9 +33,12 @@ router.post('/', async (req, res) => {
         start,
         end,
         userId,
-        open: true
+        open: true,
       });
       const allComps = await Companion.findAll({
+        include: {
+          model: User,
+        },
         where: {
           open: true
         },
@@ -43,5 +50,30 @@ router.post('/', async (req, res) => {
     console.log(error);
     res.send({ error: 'Упс, что-то пошло не по плану. Проверьте введенные данные' });
   }
-})
+});
+
+// получаем все объявления
+router.get('/', async (req, res) => {
+  console.log('get comps');
+  try {
+    const today = dayjs(new Date()).format("YYYY-MM-DD");
+    console.log(today);
+    await Companion.update(
+      { open: false },
+      { where: { start: {[Op.lte]: today}}}
+    )
+    const allComps = await Companion.findAll({
+      include: {
+        model: User,
+      },
+      where: {
+        open: true
+      },
+    });
+    res.json({allComps});
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 module.exports = router;

@@ -3,14 +3,16 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { useDispatch, useSelector } from 'react-redux';
 import Button from '@mui/material/Button';
+import { useNavigate } from 'react-router-dom';
 
 export default function FormCompanion() {
   const inputs = useSelector(store => store.inputs);
   const user = useSelector(store => store.user);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const createAdvt = async () => {
-    console.log('ftyf')
+  
     const data = {
       cityFrom: inputs.cityFrom,
       cityWhere: inputs.cityWhere,
@@ -35,6 +37,7 @@ export default function FormCompanion() {
       dispatch({ type: 'INPUTS_CLEAR', payload: {}});
       dispatch({type: 'SET_ERROR', payload: {}});
       dispatch({ type: 'GET_COMPANIONS', payload: res.allComps});
+      navigate('/companions');
     }
   }
 
