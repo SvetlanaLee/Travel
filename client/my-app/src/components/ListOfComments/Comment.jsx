@@ -1,10 +1,7 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux';
 import logo from './logo.svg';
 
 export default function Item({ comment }) {
-const user = useSelector(store => store.user);
-
 
 return (
   <>
