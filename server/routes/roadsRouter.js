@@ -94,7 +94,7 @@ router.post('/:id/comment', async(req, res) => {
         },
       }
     )
-    console.log('allComments======', allComments)
+  // console.log('allComments======', allComments)
   res.json({ allComments })
 });
 

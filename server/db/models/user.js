@@ -40,6 +40,26 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: true,
       type: DataTypes.TEXT,
     },
+    aboutMe: {
+      allowNull: true,
+      type: DataTypes.TEXT,
+    },
+    city: {
+      allowNull: true,
+      type: DataTypes.TEXT,
+    },
+    dateOfBirth: {
+      allowNull: true,
+      type: DataTypes.DATE,
+    },
+    vk: {
+      allowNull: true,
+      type: DataTypes.TEXT,
+    },
+    telegram: {
+      allowNull: true,
+      type: DataTypes.TEXT,
+    },
   }, {
     sequelize,
     modelName: 'User',

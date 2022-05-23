@@ -23,6 +23,26 @@ module.exports = {
         allowNull: true,
         type: Sequelize.TEXT,
       },
+      aboutMe: {
+        allowNull: true,
+        type: Sequelize.TEXT,
+      },
+      city: {
+        allowNull: true,
+        type: Sequelize.TEXT,
+      },
+      dateOfBirth: {
+        allowNull: true,
+        type: Sequelize.DATE,
+      },
+      vk: {
+        allowNull: true,
+        type: Sequelize.TEXT,
+      },
+      telegram: {
+        allowNull: true,
+        type: Sequelize.TEXT,
+      },
     });
   },
   async down(queryInterface) {
