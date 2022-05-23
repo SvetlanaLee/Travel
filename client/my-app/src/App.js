@@ -10,11 +10,11 @@ import PageLogin from "./pages/PageLogin"
 import PageRoads from "./pages/PageRoads/PageRoads";
 import PageOneRoad from './pages/PageRoads/PageOneRoad';
 import Person from './components/Person/Person';
+import PagePutMark from './pages/PagePutMark/PagePutMark';
 
 function App() {
 
   const dispatch = useDispatch();
-  const user = useSelector(store => store.user);
 
   useEffect(() => {
     fetch('http://localhost:3001/session', {
@@ -35,9 +35,7 @@ function App() {
           <Route path='/roads/:id' element={<PageOneRoad/>}/>
           <Route path='/profile' element={<Person/>}/>
           <Route path='/upload' element={<Person/>}/>
-
-
-          
+          {/* <Route path='/mymark' element={ <PagePutMark/> }/>           */}
         </Routes>
         
     </div>

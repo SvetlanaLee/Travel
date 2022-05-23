@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from "react-router-dom";
 import axios from 'axios';
-import App from '../../yandexMap/Map';
+import Map1 from '../../components/yandexMap/Map';
 import Button from '@mui/material/Button';
 import style from '../PageRoads/style.module.css';
 import { YMaps, Map } from 'react-yandex-maps';
-import Map1 from '../../yandexMap/Map';
-import PlaceDiscription from '../../components/PlaceDiscription/PlaceDiscription';
+// import Map1 from '../../yandexMap/Map';
 import FormForComment from '../../components/FormForComment/FormForComment';
 import ListOfComments from '../../components/ListOfComments/ListOfComments';
+import FormAddMark from '../../components/FormAddMark/FormAddMark';
 
 
 export default function PageOneRoad() {
@@ -17,6 +17,11 @@ export default function PageOneRoad() {
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
   const { id } = useParams();
+
+  const [show, setShow] = useState(false)
+  const showPlace = () => {
+    setShow(!show)
+  }
 
   useEffect(() => {
     axios.get(`http://localhost:3001/roads/${id}`)
@@ -27,12 +32,12 @@ export default function PageOneRoad() {
   }, [dispatch, id]);
 
   useEffect(() => {
-    axios.get('http://localhost:3001/places')
+    axios.get(`http://localhost:3001/places/${id}`)
     .then((places) => {
-     // console.log(places.data.places);
+      // console.log(places.data.places);
      dispatch({type: 'GET_PLACES', payload: places.data.places})
   })  
-}, [dispatch]);
+}, [dispatch, id]);
 
   return (
       <>
@@ -41,6 +46,8 @@ export default function PageOneRoad() {
       <Map1 road={road}/>
     </div>
     <div>
+      <Button onClick={(e) => showPlace()}>Создать метку</Button> 
+      {show && <FormAddMark show={show}/>}
     </div>
 
     <div>
@@ -60,20 +67,14 @@ export default function PageOneRoad() {
         </div>
         
       )}
+        <FormForComment />
+        <ListOfComments />
     </div>
-
-    <FormForComment />
-    <ListOfComments />
-    {/* <form class={style.mapCards}>
-     <h1>Яндекс карты</h1>
-          <div class={style.map}>
-        <YMaps>
-            <Map defaultState={{ center: [55.75, 37.57], zoom: 9 }} />
-            
-        </YMaps>
-          </div>
-        <Button variant="outlined" type="submit">Добавить метку</Button>
-    </form> */}
     </>
   )
 }
+
+  
+
+
+

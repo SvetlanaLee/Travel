@@ -9,7 +9,7 @@ const user = useSelector(store => store.user);
 return (
   <>
   <div>{comment.text}
-   {/* {comment.User.name} */}
+   {comment.User.name}
    </div>
 
 
