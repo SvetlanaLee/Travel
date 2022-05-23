@@ -18,11 +18,11 @@ module.exports = {
           model: 'Users',
         },
       },
-      placeId: {
+      roadId: {
         allowNull: false,
         type: Sequelize.INTEGER,
         references: {
-          model: 'Places',
+          model: 'Roads',
         },
       },
       createdAt: {

@@ -9,6 +9,7 @@ const userRouter = require('./routes/userRouter');
 const roadsRouter = require('./routes/roadsRouter');
 const likeRouter = require('./routes/likeRouter');
 const placesRouter = require('./routes/placesRouter');
+//const commentRouter = require('./routes/commentRouter');
 const { cookieLogger } = require('./middleware/allMiddle');
 
 const app = express();
@@ -53,7 +54,7 @@ app.use('/', userRouter);
 app.use('/roads', roadsRouter);
 app.use('/like', likeRouter);
 app.use('/places', placesRouter);
-
+//app.use('/comment', commentRouter);
 
 
 app.listen(PORT, () => {

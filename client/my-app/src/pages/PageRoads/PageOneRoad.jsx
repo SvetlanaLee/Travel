@@ -4,7 +4,13 @@ import { useParams } from "react-router-dom";
 import axios from 'axios';
 import Map1 from '../../components/yandexMap/Map';
 import Button from '@mui/material/Button';
+import style from '../PageRoads/style.module.css';
+import { YMaps, Map } from 'react-yandex-maps';
+// import Map1 from '../../yandexMap/Map';
+import FormForComment from '../../components/FormForComment/FormForComment';
+import ListOfComments from '../../components/ListOfComments/ListOfComments';
 import FormAddMark from '../../components/FormAddMark/FormAddMark';
+
 
 export default function PageOneRoad() {
   const road = useSelector(store => store.road);
@@ -61,7 +67,14 @@ export default function PageOneRoad() {
         </div>
         
       )}
+        <FormForComment />
+        <ListOfComments />
     </div>
     </>
   )
 }
+
+  
+
+
+

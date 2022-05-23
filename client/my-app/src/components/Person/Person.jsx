@@ -62,7 +62,7 @@ export default function Person() {
           {
             user.userPhoto
             ? 
-            <p><img src={`http://localhost:3001/${ user.userPhoto }`} width="450" height="450" alt=""/></p>
+            <p><img src={`http://localhost:3001${ user.userPhoto }`} width="100" height="100" alt=""/></p>
             // :  <div>privet</div>
             : <p><img src={`${logo}`} width="450" height="450" alt='avatar'/></p> 
         
