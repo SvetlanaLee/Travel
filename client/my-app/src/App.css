@@ -42,6 +42,7 @@
   display: flex;
   justify-content: center;
   margin: 15px auto;
+  padding: 25px;
 }
 
 .mapCard {
@@ -73,7 +74,86 @@
 
 .mapPlace {
   display: flex;
-  justify-content: space-between;
+    justify-content: flex-end;
+    flex-direction: row-reverse;
+    align-content: space-around;
+}
+
+/* 
+https://thumbs.gfycat.com/FlickeringLoneFallowdeer-max-1mb.gif */
+.prImg {
+  background-image: url(https://tvil.ru/blog/sites/blog/files/image/articles/2020_05/Marshrut-puteshestviya-po-Evrope%20%281%29.jpg);
+  height: 600px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: -71px auto 0px;
+  background-position-y: bottom;
+}
+
+/* https://kartinkin.net/uploads/posts/2021-07/1626777960_5-kartinkin-com-p-krasivii-legkii-fon-krasivo-5.jpg */
+
+.sdfsd {
+  background-image: url(https://oir.mobi/uploads/posts/2021-03/1616578380_8-p-svetlii-fon-dlya-saita-8.jpg);
+  margin: -16px auto -26px;
+}
+
+.logoTitle {
+  display: flex;
+  padding-top: 5%;
+  padding-left: 3%;
+}
+
+.travelStyle {
+  font-size: 85px;
+    color: floralwhite;
+}
+
+.iStyle {
+  font-size: 65px;
+    color: yellow;
+    padding-top: 31px;
+}
+
+.logoText {
+  font-size: 27px;
+  color: floralwhite;
+  margin-top: -86px;
+  margin-left: 7%;
+}
+
+.headerComPage {
+  background-image: url(http://localhost:3001/img/123.jpg);
+  height: 400px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: -71px auto 0px;
+}
+
+.cardCompBox {
+  background-image: url(https://oir.mobi/uploads/posts/2021-03/1616578380_8-p-svetlii-fon-dlya-saita-8.jpg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.cardComp {
+  margin: 50px;
+}
+
+.textCompP {
+  text-align: center;
+  padding-top: 150px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: large;
+  color: rgb(9, 9, 9);
+}
+
+.navBar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 10px;
 }
 
 .main {

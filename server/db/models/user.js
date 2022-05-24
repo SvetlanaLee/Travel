@@ -8,12 +8,13 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate({
-      Road, Like, Star, Comment,
+      Road, Like, Star, Comment, Companion,
     }) {
       User.hasMany(Road, { foreignKey: 'userId' });
       User.hasMany(Like, { foreignKey: 'userId' });
       User.hasMany(Star, { foreignKey: 'userId' });
       User.hasMany(Comment, { foreignKey: 'userId' });
+      User.hasMany(Companion, { foreignKey: 'userId' });
     }
   }
   User.init({
@@ -36,6 +37,26 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.TEXT,
     },
     photo: {
+      allowNull: true,
+      type: DataTypes.TEXT,
+    },
+    aboutMe: {
+      allowNull: true,
+      type: DataTypes.TEXT,
+    },
+    city: {
+      allowNull: true,
+      type: DataTypes.TEXT,
+    },
+    dateOfBirth: {
+      allowNull: true,
+      type: DataTypes.DATE,
+    },
+    vk: {
+      allowNull: true,
+      type: DataTypes.TEXT,
+    },
+    telegram: {
       allowNull: true,
       type: DataTypes.TEXT,
     },

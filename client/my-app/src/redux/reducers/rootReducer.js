@@ -8,7 +8,11 @@ import { errorReducerLogin } from './errorReducerLogin';
 import { roadReducer } from './roadReducer';
 import { inputsReducer } from './inputsReducer';
 import { placesReducer } from './placesReducer';
-
+import { commentReducer } from './commentReducer';
+import { listOfCommentsReducer } from './listOfCommentsReducer';
+import { alienUserReducer } from './alienUserReducer';
+import { ShowNewPlaceReducer } from './ShowNewPlaceReducer';
+import { companionReducer } from './companionReducer';
 
 
 export const rootReducer = combineReducers({
@@ -21,4 +25,9 @@ export const rootReducer = combineReducers({
   roads: roadsReducer,
   road: roadReducer,
   places: placesReducer,
+  comment: commentReducer,
+  allComments: listOfCommentsReducer,
+  alienUser: alienUserReducer,
+  showNewPlace: ShowNewPlaceReducer,
+  companion: companionReducer
 });

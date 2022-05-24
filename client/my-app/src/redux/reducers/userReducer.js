@@ -8,7 +8,7 @@ export const userReducer = (state = initState, action)=>{
       return payload;
     case 'USER_LOGOUT':
       return payload;
-  
+    
     default:
       return state;
   }

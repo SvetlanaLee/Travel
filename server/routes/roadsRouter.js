@@ -2,7 +2,7 @@ const express = require('express');
 
 const router = express.Router();
 const { Road, Like } = require('../db/models');
-
+const { Comment, User } = require('../db/models');
 // роут для получения всех маршрутов из базы
 router.get('/', async (req, res) => {
   const roads = await Road.findAll({
@@ -23,7 +23,7 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
   try {
     const {
-      from, destination, discription, distance, userId,
+      from, destination, discription, userId,
     } = req.body;
 
     const cityRes = (city) => {
@@ -41,17 +41,13 @@ router.post('/', async (req, res) => {
       },
     });
 
-    if (!from || !destination || !discription || !distance) {
+    if (!from || !destination || !discription ) {
       res.send({ error: 'Пожалуйста, заполните все поля' });
     } else if (!userId) {
       res.send({ error: 'Необходимо зарегистрироваться/авторизоваться' });
-    } else if (!/[0-9]/.test(distance)) {
-      res.send({ error: 'Расстояние необходимо указывать в цифровом формате' });
     } else if (repeatRoad) {
       res.send({ error: 'Данный маршрут уже существует' });
     } else {
-      const distanceRes = `${distance.match(/\d/g).join('')} км`;
-
       const img = `/imgRoads/${Math.floor((Math.random() * 23) + 1)}.jpeg`;
 
       const road = await Road.create({
@@ -60,8 +56,8 @@ router.post('/', async (req, res) => {
         mapImg: img,
         discription,
         transportType: 'авто',
-        distance: distanceRes,
         userId,
+        createdAt: new Date().toLocaleDateString(),
       });
 
       res.json({ road });
@@ -79,5 +75,58 @@ router.get('/:id', async (req, res) => {
 });
 
 
+router.post('/:id/comment', async(req, res) => {
+ // console.log(req.body);
+  const { roadId, userId, text } = req.body;
+  await Comment.create({
+      roadId,
+      userId,
+      text
+    });
+  
+    const allComments = await Comment.findAll(
+      {
+        include: {
+          model: User,
+        },
+        where: {
+          roadId,
+        },
+        order: [
+          ['id', 'DESC'],
+        ],
+      }
+    )
+  // console.log('allComments======', allComments)
+  res.json({ allComments })
+});
+
+
+router.get('/:id/comment', async (req, res) => {
+const road = await Road.findByPk(req.params.id);
+const allComments = await Comment.findAll(
+  {
+    include: {
+      model: User,
+    },
+    where: {
+      roadId: road.id,
+    },
+    order: [
+      ['id', 'DESC'],
+    ],
+  }
+)
+// console.log('allComments======', allComments)
+res.json({ allComments })
+});
 
 module.exports = router;
+
+
+
+
+
+
+
+

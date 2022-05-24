@@ -8,12 +8,13 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate({
-      User, Like, Place, Star,
+      User, Like, Place, Star, Comment
     }) {
       Road.belongsTo(User, { foreignKey: 'userId' });
       Road.hasMany(Like, { foreignKey: 'roadId' });
       Road.hasMany(Place, { foreignKey: 'roadId' });
       Road.hasMany(Star, { foreignKey: 'roadId' });
+      Road.hasMany(Comment, { foreignKey: 'roadId' });
     }
   }
   Road.init({

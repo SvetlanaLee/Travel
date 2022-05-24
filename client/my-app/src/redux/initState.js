@@ -8,4 +8,10 @@ export const initState = {
   road: {},
   inputs: {},
   places: [],
+  comment: {},
+  allComments: [],
+  alienUser: {},
+  showNewPlace: false,
+  companion: []
+
 };
