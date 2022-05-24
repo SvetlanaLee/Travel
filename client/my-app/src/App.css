@@ -153,14 +153,14 @@ https://thumbs.gfycat.com/FlickeringLoneFallowdeer-max-1mb.gif */
 }
 
 .cardComp {
-  margin: 50px;
+  margin: 25px;
 }
 
 .textCompP {
   text-align: center;
-  padding-top: 150px;
+  padding-top: 180px;
   font-family: Georgia, 'Times New Roman', Times, serif;
-  font-size: large;
+  font-size: larger;
   color: rgb(9, 9, 9);
 }
 
@@ -190,6 +190,7 @@ https://thumbs.gfycat.com/FlickeringLoneFallowdeer-max-1mb.gif */
   overflow: visible;
 }
 
+
 .mapRoadDiscription {
   display: flex;
   justify-content: space-around;
@@ -211,3 +212,23 @@ https://thumbs.gfycat.com/FlickeringLoneFallowdeer-max-1mb.gif */
 .pageOneRoadStyle {
   background-image: url(https://oir.mobi/uploads/posts/2021-03/1616578380_8-p-svetlii-fon-dlya-saita-8.jpg);
 }
+
+/* .logoTitleReg {
+  display: flex;
+  justify-content: center;
+  padding-top: 5%;
+  padding-left: 3%;
+  margin-top: -25px;
+}
+
+.travelStyleReg {
+  font-size: 85px;
+    color: gray;
+}
+
+.iStyleReg {
+  font-size: 65px;
+    color: rgb(37, 127, 184);
+    padding-top: 21px;
+} */
+

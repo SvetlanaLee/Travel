@@ -1,8 +1,17 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+// import Box from '@mui/material/Box';
+// import Input from '@mui/material/Input';
+// import InputLabel from '@mui/material/InputLabel';
+// import InputAdornment from '@mui/material/InputAdornment';
+// import FormControl from '@mui/material/FormControl';
+// import AlternateEmail from '@mui/icons-material/AlternateEmail';
+// import AccountCircle from '@mui/icons-material/AccountCircle';
+// import PasswordIcon from '@mui/icons-material/Password';
+
 
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -64,8 +73,11 @@ export default function UserSignup() {
    
   return (
     <>
-   
-        
+    {/* <div className='logoTitleReg'>
+      <h1 className='iStyleReg'>i</h1>
+      <h1 className='travelStyleReg'>Travel</h1>
+    </div> */}
+
      <form className={classes.form} onSubmit={submitHandler}>
    
    
@@ -96,7 +108,7 @@ export default function UserSignup() {
       autoFocus
       
       id="outlined-basic2"
-      label="Password"
+      label="Пароль"
       variant="outlined"
       type="password"
       name="password"
@@ -109,7 +121,7 @@ export default function UserSignup() {
       fullWidth
       autoFocus
       id="outlined-basic3" 
-      label="Name" 
+      label="Имя" 
       variant="outlined" 
       type="text" 
       name="name" 
