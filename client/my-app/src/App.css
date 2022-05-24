@@ -52,11 +52,15 @@
 }
 
 .roadDiscription {
-  margin-top: 25px;
+  /* margin-top: 25px;
   border: 2px solid;
   padding: 20px;
   border-radius: 20px;
-  background-color: papayawhip;
+  background-color: papayawhip; */
+
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
 }
 
 .discriptionTitle {
@@ -66,17 +70,28 @@
 
 .citys {
   margin-top: 0px;
+  margin-bottom: 27px;
 }
 
 .discriptionText {
-  line-height: 1.3;
+  line-height: 2.3;
+  /* border: 1px solid; */
+  width: 550px;
+  height: 150px;
+  /* margin: 0px 350px 0px 0px; */
 }
 
 .mapPlace {
-  display: flex;
-    justify-content: flex-end;
+  /* display: flex;
+  align-items: flex-start;
+    /* justify-content: flex-end;
     flex-direction: row-reverse;
-    align-content: space-around;
+    width: 60%; 
+    align-content: space-around; */
+    /* align-items: flex-start; */
+    display: flex;
+    width: 100%;
+    flex-direction: column;
 }
 
 /* 
@@ -175,6 +190,29 @@ https://thumbs.gfycat.com/FlickeringLoneFallowdeer-max-1mb.gif */
   overflow: visible;
 }
 
+
+.mapRoadDiscription {
+  display: flex;
+  justify-content: space-around;
+}
+
+.comments {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.myMarkBtn {
+  margin-top: 8px;
+}
+
+.mapPlaceBtn {
+  margin-left: 39px;
+}
+.pageOneRoadStyle {
+  background-image: url(https://oir.mobi/uploads/posts/2021-03/1616578380_8-p-svetlii-fon-dlya-saita-8.jpg);
+}
+
 /* .logoTitleReg {
   display: flex;
   justify-content: center;
@@ -193,3 +231,4 @@ https://thumbs.gfycat.com/FlickeringLoneFallowdeer-max-1mb.gif */
     color: rgb(37, 127, 184);
     padding-top: 21px;
 } */
+
