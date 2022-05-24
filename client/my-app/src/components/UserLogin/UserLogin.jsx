@@ -51,8 +51,9 @@ export default function UserSignin() {
     console.log('login================', userFromBack);
     if (userFromBack.userId) {
     dispatch({type: 'SET_USER', payload: userFromBack});
-    dispatch({type: 'CLEAR_INPUTS', payload: {}})
-    dispatch({type: 'SET_ERROR_LOGIN', payload: {}})
+    dispatch({type: 'CLEAR_INPUTS', payload: {}});
+    dispatch({type: 'SET_ERROR', payload: {}});
+    dispatch({type: 'SET_ERROR_LOGIN', payload: {}});
        
     navigate('/');
     } else {
