@@ -15,7 +15,7 @@ export default function BCarousel() {
 
   return (
 //
-<Carousel fade>
+<Carousel >
   <Carousel.Item>
     <img
       className="d-block w-100"
@@ -43,15 +43,13 @@ export default function BCarousel() {
     />
 
     <Carousel.Caption>
-    <div  >
-    <form className='main'>
+    <div className='main'>
       <div className={style.text}>
          Выбери свой маршрут вместе с <span className={style.colorText}>i</span>Travel      
       </div>
       <div className={style.buthome}>
         <Button onClick={onPageRoads}>Выбрать маршрут</Button>
       </div>
-    </form>
     </div>
     </Carousel.Caption>
   </Carousel.Item>

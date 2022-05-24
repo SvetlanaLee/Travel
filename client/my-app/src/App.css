@@ -82,3 +82,15 @@
   align-items: center;
   flex-direction: column;
 }
+
+.carousel-inner {
+  overflow: visible;
+}
+
+.carousel-caption {
+ top: 0;
+}
+
+.carousel-control-next-icon {
+  overflow: visible;
+}
