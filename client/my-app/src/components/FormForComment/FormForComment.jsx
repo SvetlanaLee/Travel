@@ -10,8 +10,9 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles(theme => ({
   root: {
     height: '100vh',
+    width: '100%',
+    maxWidth: '100ch',
   },
-  
   form: {
     width: '50%', 
     marginTop: theme.spacing(1),
@@ -50,7 +51,7 @@ export default function FormForComment() {
     });
     //console.log(newComment)
     const commentFromBack = await addComment.json();
-    //console.log('commentFromBack', commentFromBack);
+    // console.log('commentFromBack', commentFromBack);
     if (commentFromBack) {
       dispatch({type: 'GET_COMMENTS', payload: commentFromBack.allComments});
       // dispatch({type: 'ADD_COMMENTS', payload: commentFromBack});
@@ -77,17 +78,17 @@ export default function FormForComment() {
       autoFocus
        
      id="outlined-basic1"
-     label="Comment"
+     label="Enter your comment"
      variant="outlined"
      type="text" 
      name="comment"
      value={inputs.comment ?? ''}
      onChange={(e) => dispatch({ type: 'USER_TYPING_COM', payload: { [e.target.name]: e.target.value } })}/>
-     <Button
+     {/* <Button
      fullWidth
      variant="contained"
      color="primary"
-     type="submit">Send comment</Button>  
+     type="submit">Send comment</Button>   */}
     </form>
   </>
 )}       

@@ -92,6 +92,9 @@ router.post('/:id/comment', async(req, res) => {
         where: {
           roadId,
         },
+        order: [
+          ['id', 'DESC'],
+        ],
       }
     )
   // console.log('allComments======', allComments)
@@ -109,9 +112,12 @@ const allComments = await Comment.findAll(
     where: {
       roadId: road.id,
     },
+    order: [
+      ['id', 'DESC'],
+    ],
   }
 )
-
+// console.log('allComments======', allComments)
 res.json({ allComments })
 });
 

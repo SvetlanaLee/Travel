@@ -13,7 +13,7 @@ export default function ListOfComments() {
   useEffect(() => {
     axios.get(`http://localhost:3001/roads/${id}/comment`)
     .then((commentsFromServer) => {
-    //  console.log('commentsFromServer', commentsFromServer.data.allComments);
+    // console.log('commentsFromServer', commentsFromServer.data.allComments);
     dispatch({type: 'GET_COMMENTS', payload: commentsFromServer.data.allComments})
   
   })
