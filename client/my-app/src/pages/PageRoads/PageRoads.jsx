@@ -57,8 +57,8 @@ export default function PageRoads() {
           <h1 className='iStyle'>i</h1>
           <h1 className='travelStyle'>Travel</h1>      
         </div>
-        <div className='logoText'>
-          <h1>Путешествовать — значит жить</h1>
+        <div >
+          <h1 className='logoText'>Путешествовать — значит жить</h1>
         </div>
     </div>
     <div className='sdfsd'>        
