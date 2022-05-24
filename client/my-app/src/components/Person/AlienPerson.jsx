@@ -62,19 +62,19 @@ export default function AlienPerson() {
         </div>
 
     
-     <p>About me: { alienUser.aboutMe }</p>
-     <p>City: { alienUser.city }</p>
-     <p>VK: { alienUser.vk }</p>
-     <p>Telegram: { alienUser.telegram }</p>
+     <p>About me: { alienUser.aboutMe ?? <i>not specified</i> }</p>
+     <p>City: { alienUser.city ?? <i>not specified</i>}</p>
+     <p>VK: { alienUser.vk ?? <i>not specified</i>}</p>
+     <p>Telegram: { alienUser.telegram ?? <i>not specified</i>}</p>
 
 
-     <div> Date of Birth: 
+     <div> Date of Birth:  
           {
            alienUser.dateOfBirth
             ? 
             <p>{ dayjs(alienUser.dateOfBirth).format("DD-MM-YYYY") }</p>
             : 
-            <p></p> 
+            <i> not specified</i>
           }
            
         </div>
