@@ -94,7 +94,7 @@ export default function FormAddMark() {
       }}
       noValidate
       autoComplete="off"
-      style={{ display: 'flex', flexDirection: 'column' }}
+      style={{ display: 'flex', flexDirection: 'row' }}
     >
     <TextField 
       id="outlined-basic" 
@@ -117,11 +117,11 @@ export default function FormAddMark() {
     <TextField
           id="outlined-select-currency"
           select
-          label="Select"
+          label="Kатегория"
           name='categoria' 
           value={inputs.categoria?? ''}
           onChange={handleInputs}
-          helperText="Выберите категорию"
+          // helperText="Выберите категорию"
         >
           {categorias.map((option) => (
             <MenuItem key={option.value} value={option.value}>
@@ -157,7 +157,7 @@ export default function FormAddMark() {
       required
     />
     {/* onClick={createNewMark} */}
-    <Button variant="outlined" sx={{height: '40px'}} onClick={createNewMark}>Создать</Button>
+    <Button className='myMarkBtn' variant="outlined" sx={{height: '40px' }} onClick={createNewMark}>Создать</Button>
   </Box>
   </>
   );

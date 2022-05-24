@@ -38,37 +38,57 @@ export default function PageOneRoad() {
 }, [dispatch, id]);
 
   return (
-      <>
+    <div className='pageOneRoadStyle'>
 
-    <div className='mapPlace'>
-      <Map1 road={road}/>
-    </div>
-    <div>
-      <Button onClick={(e) => showPlace()}>Создать метку</Button> 
-      {show && <FormAddMark show={show}/>}
-    </div>
-
-    <div>
-      {loading ? (
-        'loading...'
-      ) : (
-        <div className='roadDiscription'>
-          <div className='discriptionTitle'>
-            <h3 className='citys'>
-              {road.from} - {road.destination}
-            </h3>
-              {road.createdAt}
-          </div>
-          <div className='discriptionText'> 
-            {road.discription}
-          </div>
+      <div className='mapPlace'>
+        <div>
+          {loading ? (
+            'loading...'
+          ) : (
+            <div className='roadDiscription'>
+              <div className='discriptionTitle'>
+                <h3 className='citys'>
+                  {road.from} - {road.destination}
+                </h3>
+                  {/* {road.createdAt} */}
+              </div>              
+            </div>          
+          )}
         </div>
-        
-      )}
-        <FormForComment />
-        <ListOfComments />
+        <div className='mapRoadDiscription'>
+        <Map1 road={road}/>
+        <div className='discriptionText'> 
+          {road.discription}
+        </div>
+
+        </div>
+        <div className='mapPlaceBtn'>
+          <Button onClick={(e) => showPlace()}>Своя метка</Button> 
+          {show && <FormAddMark show={show}/>}
+        </div>
+      </div>
+      <div>
+        {/* {loading ? (
+          'loading...'
+        ) : (
+          <div className='roadDiscription'>
+            <div className='discriptionTitle'>
+              <h3 className='citys'>
+                {road.from} - {road.destination}
+              </h3>
+                {road.createdAt}
+            </div>
+            <div className='discriptionText'> 
+              {road.discription}
+            </div>
+          </div>          
+        )} */}
+        <div className='comments'>
+          <FormForComment />
+          <ListOfComments />
+        </div>
+      </div>
     </div>
-    </>
   )
 }
 
