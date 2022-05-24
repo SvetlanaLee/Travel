@@ -155,3 +155,22 @@ https://thumbs.gfycat.com/FlickeringLoneFallowdeer-max-1mb.gif */
   align-items: flex-start;
   margin-left: 10px;
 }
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.carousel-inner {
+  overflow: visible;
+}
+
+.carousel-caption {
+ top: 0;
+}
+
+.carousel-control-next-icon {
+  overflow: visible;
+}
