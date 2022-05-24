@@ -15,7 +15,11 @@ export default function CompanionCard({comp}) {
 
       <CardHeader
         avatar={
-          <Avatar alt={comp.User.name} src={`http://localhost:3001/${ comp.User.photo }`} />
+          <Avatar 
+            alt={comp.User.name}  
+            src={`http://localhost:3001/${ comp.User.photo }`} 
+            sx={{ width: 56, height: 56 }}
+          />
         }
         title={title}
         subheader={comp.createdAt}

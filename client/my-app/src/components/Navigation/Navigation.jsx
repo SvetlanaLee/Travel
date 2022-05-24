@@ -45,6 +45,7 @@ export default function Navigation() {
       </IconButton>
       {user.userId ? (
         <Menu 
+          className='navBar'
           id="long-menu"
           MenuListProps={{
             'aria-labelledby': 'long-button',
@@ -57,27 +58,26 @@ export default function Navigation() {
               maxHeight: ITEM_HEIGHT * 4.5,
               width: '20ch',
               backgroundColor: '#ffffff45',
-              
             },
           }}
         >
           <MenuItem key={'pHome'} onClick={handleClose}>
-            <Typography component={Link} to={'/'} sx={{ color: 'rgb(88, 82, 82)', textDecoration: 'none' }}>
+            <Typography component={Link} to={'/'} sx={{ color: 'rgb(9, 9, 9)', textDecoration: 'none' }}>
               Главная
             </Typography>
           </MenuItem>
           <MenuItem key={'pRoads'} onClick={handleClose}>
-            <Typography component={Link} to={`/roads`} sx={{ color: 'rgb(88, 82, 82)', textDecoration: 'none' }}>
+            <Typography component={Link} to={`/roads`} sx={{ color: 'rgb(9, 9, 9)', textDecoration: 'none' }}>
               Маршруты
             </Typography>
           </MenuItem>
           <MenuItem key={'pCompanions'} onClick={handleClose}>
-            <Typography component={Link} to={`/companions`} sx={{ color: 'rgb(88, 82, 82)', textDecoration: 'none' }}>
+            <Typography component={Link} to={`/companions`} sx={{ color: 'rgb(9, 9, 9)', textDecoration: 'none' }}>
               Поиск попутчиков
             </Typography>
           </MenuItem>
           <MenuItem key={'pPerson'} onClick={handleClose}>
-            <Typography component={Link} to={`/profile`} sx={{ color: 'rgb(88, 82, 82)', textDecoration: 'none' }}>
+            <Typography component={Link} to={`/profile`} sx={{ color: 'rgb(9, 9, 9)', textDecoration: 'none' }}>
               Личный кабинет
             </Typography>
           </MenuItem>
@@ -105,27 +105,27 @@ export default function Navigation() {
           }}
         >
           <MenuItem key={'pHome'} onClick={handleClose}>
-            <Typography component={Link} to={'/'} sx={{ color: 'rgb(88, 82, 82)', textDecoration: 'none' }}>
+            <Typography component={Link} to={'/'} sx={{ color: 'rgb(9, 9, 9)', textDecoration: 'none' }}>
               Главная
             </Typography>
           </MenuItem>
           <MenuItem key={'pRoads'} onClick={handleClose}>
-            <Typography component={Link} to={`/roads`} sx={{ color: 'rgb(88, 82, 82)', textDecoration: 'none' }}>
+            <Typography component={Link} to={`/roads`} sx={{ color: 'rgb(9, 9, 9)', textDecoration: 'none' }}>
               Маршруты
             </Typography>
           </MenuItem>
           <MenuItem key={'pCompanions'} onClick={handleClose}>
-            <Typography component={Link} to={`/companions`} sx={{ color: 'rgb(88, 82, 82)', textDecoration: 'none' }}>
+            <Typography component={Link} to={`/companions`} sx={{ color: 'rgb(9, 9, 9)', textDecoration: 'none' }}>
               Поиск попутчиков
             </Typography>
           </MenuItem>
           <MenuItem key={'pRegistration'} onClick={handleClose}>
-            <Typography component={Link} to={`/reg`} sx={{ color: 'rgb(88, 82, 82)', textDecoration: 'none' }}>
+            <Typography component={Link} to={`/reg`} sx={{ color: 'rgb(9, 9, 9)', textDecoration: 'none' }}>
               Регистрация
             </Typography>
             </MenuItem>
           <MenuItem key={'pLogin'} onClick={handleClose}>
-            <Typography component={Link} to={`/login`} sx={{ color: 'rgb(88, 82, 82)', textDecoration: 'none' }}>
+            <Typography component={Link} to={`/login`} sx={{ color: 'rgb(9, 9, 9)', textDecoration: 'none' }}>
               Авторизация
             </Typography>
           </MenuItem>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import CompanionCard from '../../components/CompanionCard/CompanionCard';
-import Typography from '@mui/material/Typography';
+
 
 export default function PageCompanion() {
 
@@ -20,17 +20,21 @@ export default function PageCompanion() {
 
   return (
     <>
-    <header className='headerComPage'>
-      <Typography variant="h5">
-       Как только я увидел тебя, я понял, что должно произойти грандиозное приключение.
-      </Typography>
-    </header>
+    <>
+    <div className='headerComPage'>
+      <h2 className='textCompP'>
+      <i>Как только я увидел тебя, я понял, что должно произойти грандиозное приключение...</i>
+      </h2>
+    </div>
+    </>
+    <>
     <div className='cardCompBox'>
       {loading ? (
         'Loading...') :
         ( allComps.map((comp) => <CompanionCard comp={ comp } key={comp.id}/> ) )
       }
     </div>
+    </>
     </>
   )
 }

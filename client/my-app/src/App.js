@@ -18,6 +18,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    console.log('tuk');
     fetch('http://localhost:3001/session', {
       credentials: 'include'
     }).then(data => data.json())

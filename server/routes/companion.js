@@ -42,6 +42,9 @@ router.post('/', async (req, res) => {
         where: {
           open: true
         },
+        order: [
+          ['id', 'DESC'],
+        ],
       });
       res.json({allComps});
     }
@@ -69,6 +72,9 @@ router.get('/', async (req, res) => {
       where: {
         open: true
       },
+      order: [
+        ['id', 'DESC'],
+      ],
     });
     res.json({allComps});
   } catch (error) {
