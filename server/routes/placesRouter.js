@@ -17,54 +17,58 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
   try {
     const { roadId, title, info, categoria, city, street, dom } = req.body;
-    const apiAdress = `https://geocode-maps.yandex.ru/1.x/?apikey=29cee40b-728e-42bd-ba3e-cc89d4ae9a46&format=json&geocode=${encodeURIComponent(city)}+${encodeURIComponent(street)}+${encodeURIComponent(dom)}`;
-    const resp = await axios.get(apiAdress);
-    const pos = resp.data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos.split(' ').map(pos => parseFloat(pos));
-    const geometry = pos.reverse();
-    let preset = 'islands#blueIcon';
-    // console.log(geometry)
-    switch (categoria) {
-      case 'еда':
-        preset = 'islands#blueFoodIcon';
-        break;
-      case 'заправки':
-        preset = 'islands#blueFuelStationIcon';
-        break;
-      case 'гостиница':
-        preset = 'islands#blueHotelIcon';
-        break;
-      case 'отдых':
-        preset = 'islands#blueStarIcon';
-        break;
-      case 'аптека':
-          preset = 'islands#blueMedicalIcon';
+    if (!/[0-9]/.test(dom)) {
+      res.send({ error: 'Пожалуйста, укажите номер дома в цифровом формате' });
+    } else {
+      const apiAdress = `https://geocode-maps.yandex.ru/1.x/?apikey=29cee40b-728e-42bd-ba3e-cc89d4ae9a46&format=json&geocode=${encodeURIComponent(city)}+${encodeURIComponent(street)}+${encodeURIComponent(dom)}`;
+      const resp = await axios.get(apiAdress);
+      const pos = resp.data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos.split(' ').map(pos => parseFloat(pos));
+      const geometry = pos.reverse();
+      let preset = 'islands#blueIcon';
+      
+      switch (categoria) {
+        case 'еда':
+          preset = 'islands#blueFoodIcon';
           break;
-      case 'магазин':
-          preset = 'islands#blueShoppingIcon';
+        case 'заправки':
+          preset = 'islands#blueFuelStationIcon';
           break;
-      default:
-        break;
-    }
+        case 'гостиница':
+          preset = 'islands#blueHotelIcon';
+          break;
+        case 'отдых':
+          preset = 'islands#blueStarIcon';
+          break;
+        case 'аптека':
+            preset = 'islands#blueMedicalIcon';
+            break;
+        case 'магазин':
+            preset = 'islands#blueShoppingIcon';
+            break;
+        default:
+          break;
+      }
+    
+      await Place.create({
+        roadId,
+        title,
+        info,
+        geometry,
+        categoria,
+        adress: `${city}, ${street}, ${dom}`,
+        preset
+      })
   
-    await Place.create({
-      roadId,
-      title,
-      info,
-      geometry,
-      categoria,
-      adress: `${city}, ${street}, ${dom}`,
-      preset
-    })
-
-    const places = await Place.findAll({
-      where: { roadId },
-      raw: true,
-    });
-    // console.log(places)
-    res.json({ places })
+      const places = await Place.findAll({
+        where: { roadId },
+        raw: true,
+      });
+      // console.log(places)
+      res.json({ places })
+    }
   } catch (error) {
     console.log(error);
-    res.send({error: error.message})
+    res.send({ error: 'Упс, что-то пошло не по плану. Проверьте введенные данные' });
   }
 })
 module.exports = router;

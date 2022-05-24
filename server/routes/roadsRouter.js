@@ -23,7 +23,7 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
   try {
     const {
-      from, destination, discription, distance, userId,
+      from, destination, discription, userId,
     } = req.body;
 
     const cityRes = (city) => {
@@ -41,17 +41,13 @@ router.post('/', async (req, res) => {
       },
     });
 
-    if (!from || !destination || !discription || !distance) {
+    if (!from || !destination || !discription ) {
       res.send({ error: 'Пожалуйста, заполните все поля' });
     } else if (!userId) {
       res.send({ error: 'Необходимо зарегистрироваться/авторизоваться' });
-    } else if (!/[0-9]/.test(distance)) {
-      res.send({ error: 'Расстояние необходимо указывать в цифровом формате' });
     } else if (repeatRoad) {
       res.send({ error: 'Данный маршрут уже существует' });
     } else {
-      const distanceRes = `${distance.match(/\d/g).join('')} км`;
-
       const img = `/imgRoads/${Math.floor((Math.random() * 23) + 1)}.jpeg`;
 
       const road = await Road.create({
@@ -60,7 +56,6 @@ router.post('/', async (req, res) => {
         mapImg: img,
         discription,
         transportType: 'авто',
-        distance: distanceRes,
         userId,
         createdAt: new Date().toLocaleDateString(),
       });
@@ -97,9 +92,12 @@ router.post('/:id/comment', async(req, res) => {
         where: {
           roadId,
         },
+        order: [
+          ['id', 'DESC'],
+        ],
       }
     )
-    console.log('allComments======', allComments)
+  // console.log('allComments======', allComments)
   res.json({ allComments })
 });
 
@@ -114,9 +112,12 @@ const allComments = await Comment.findAll(
     where: {
       roadId: road.id,
     },
+    order: [
+      ['id', 'DESC'],
+    ],
   }
 )
-
+// console.log('allComments======', allComments)
 res.json({ allComments })
 });
 

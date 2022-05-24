@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Comment from '../ListOfComments/Comment'
 import { useParams } from "react-router-dom";
@@ -13,7 +13,7 @@ export default function ListOfComments() {
   useEffect(() => {
     axios.get(`http://localhost:3001/roads/${id}/comment`)
     .then((commentsFromServer) => {
-    //  console.log('commentsFromServer', commentsFromServer.data.allComments);
+    // console.log('commentsFromServer', commentsFromServer.data.allComments);
     dispatch({type: 'GET_COMMENTS', payload: commentsFromServer.data.allComments})
   
   })

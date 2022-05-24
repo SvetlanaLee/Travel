@@ -1,21 +1,15 @@
 const express = require('express');
 const sha256 = require('sha256');
-
 const router = express.Router();
-
 const { User } = require('../db/models');
 const fileMiddleware = require('../middleware/file');
 
 router.post('/reg', async (req, res) => {
-// console.log('req.body=====================', req.body);
-
   const { email } = req.body;
   const userSearch = await User.findOne({ where: { email } });
   if (userSearch) {
-  // console.log('===========================email double');
     res.send({ error: 'Пользователь с таким e-mail уже существует' });
   } else {
-  // console.log('===========================email OK');
     const { name } = req.body;
     const newUser = await User.create({ name, email, password: sha256(req.body.password) });
     req.session.user = {
@@ -23,8 +17,13 @@ router.post('/reg', async (req, res) => {
       userEmail: newUser.email,
       userName: newUser.name,
       userPhoto: newUser.photo,
+      userAboutMe: newUser.aboutMe,
+      userCity: newUser.city,
+      userDateOfBirth: newUser.dateOfBirth, 
+      userVK: newUser.vk, 
+      userTelegram: newUser.telegram, 
     };
-    console.log('req.session.user================registr', req.session.user);
+    // console.log('req.session.user================registr', req.session.user);
     res.json(req.session.user);
   }
 });
@@ -39,8 +38,13 @@ router.post('/login', async (req, res) => {
         userEmail: user.email,
         userName: user.name,
         userPhoto: user.photo,
+        userAboutMe: user.aboutMe,
+        userCity: user.city,
+        userDateOfBirth: user.dateOfBirth,
+        userVK: user.vk, 
+        userTelegram: user.telegram, 
       };
-      console.log('req.session.user================login', req.session.user);
+      // console.log('req.session.user================login', req.session.user);
       res.json(req.session.user);
     } else {
       res.send({ error: 'Неверный пароль' });
@@ -57,7 +61,7 @@ router.post('/login', async (req, res) => {
 
 router.post('/profile', fileMiddleware.single('avatar'), async (req, res) => {
   const { path } = req.file;
-  // console.log('req.session.user================profile', req.session.user)
+
   await User.update({
     photo: path.slice(6),
   }, {
@@ -66,28 +70,57 @@ router.post('/profile', fileMiddleware.single('avatar'), async (req, res) => {
     },
   });
   const user = await User.findByPk(req.session.user.userId);
-  // console.log("проверка юзера", user)
+
+
   req.session.user = {
     userId: user.id,
     userEmail: user.email,
     userName: user.name,
     userPhoto: user.photo,
+    userAboutMe: user.aboutMe,
+    userCity: user.city,
+    userDateOfBirth: user.dateOfBirth,
+    userVK: user.vk, 
+    userTelegram: user.telegram, 
   };
-  // console.log('after update================', req.session.user)
+
   res.json(req.session.user);
 });
-// console.log('=================');
-//   try {
-//     if (req.file) {
-//       res.json(req.file);
-//     }
-//   } catch (error) {
-//     console.log(error);
-//   }
-// });
+
+router.post('/person', async (req, res) => {
+  const { aboutMe, city, dateOfBirth, vk, telegram } = req.body;
+  // console.log('dateOfBirth==========', dateOfBirth)
+  await User.update({
+    aboutMe,
+    city,
+    dateOfBirth,
+    vk, 
+    telegram, 
+  }, {
+    where: {
+      id: req.session.user.userId,
+    },
+  });
+  const user = await User.findByPk(req.session.user.userId);
+  // console.log('user========', user)
+
+  req.session.user = {
+    userId: user.id,
+    userEmail: user.email,
+    userName: user.name,
+    userPhoto: user.photo,
+    userAboutMe: user.aboutMe,
+    userCity: user.city,
+    userDateOfBirth: user.dateOfBirth,
+    userVK: user.vk, 
+    userTelegram: user.telegram, 
+  };
+  // console.log('req.session.user========', req.session.user)
+  res.json(req.session.user);
+});
+
 
 router.get('/logout', (req, res) => {
-// console.log('req.session.user================logout', req.session.user)
   req.session.destroy();
   res.clearCookie('authorisation');
   res.status(200).end();
@@ -99,5 +132,18 @@ router.get('/session', (req, res) => {
   }
   res.json(req.session.user);
 });
+
+
+router.get('/users/:id', async (req, res) => {
+  const user = await User.findByPk(req.params.id);
+  // console.log('user===================', user)
+  res.json({ user });
+});
+
+
+///${user.id}
+
+
+
 
 module.exports = router;

@@ -27,7 +27,6 @@ export default function PageRoads() {
 
   const createNewRoad = async (event) => {
       const data = {
-        distance: inputs.distance,
         from: inputs.from,
         destination: inputs.destination,
         discription: inputs.discription,
@@ -95,6 +94,7 @@ export default function PageRoads() {
         <div className='logoText'>
           <h1>Путешествовать — значит жить</h1>
         </div>
+
       {/* </div> */}
     </div>
     <div className='sdfsd'>        
@@ -157,6 +157,48 @@ export default function PageRoads() {
           </div>}
           <Roads />
     </div>
+
+        <Box
+          component="form"
+          sx={{
+          '& > :not(style)': { m: 1, width: '25ch' },
+          }}
+          noValidate
+          autoComplete="off"
+          style={{ display: 'flex', justifyContent: 'center' }}
+          >
+          <TextField 
+          id="outlined-basic" 
+          label="Город отправления" 
+          variant="outlined" 
+          name='from' 
+          onChange={handleInputs} 
+          value={inputs.from?? ''}
+          required
+          />
+          <TextField 
+          id="outlined-basic" 
+          label="Город прибытия" 
+          variant="outlined" 
+          name='destination' 
+          onChange={handleInputs} 
+          value={inputs.destination?? ''}
+          required
+          />
+          <TextField 
+          id="outlined-basic" 
+          label="Описание" 
+          variant="outlined" 
+          name='discription' 
+          onChange={handleInputs} 
+          value={inputs.discription?? ''}
+          required
+          />
+          <Button variant="outlined" sx={{height: '40px'}} onClick={createNewRoad}>Создать</Button>
+        </Box> 
+      </div>}
+      <Roads />
+
     </>
   )
 }
