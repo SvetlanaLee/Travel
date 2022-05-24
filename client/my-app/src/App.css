@@ -79,17 +79,36 @@
 }
 
 .headerComPage {
-  text-align: center;
-  margin-bottom: 25px;
-  font-style: oblique;
+  background-image: url(http://localhost:3001/img/123.jpg);
+  height: 400px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: -71px auto 0px;
 }
 
 .cardCompBox {
+  background-image: url(https://oir.mobi/uploads/posts/2021-03/1616578380_8-p-svetlii-fon-dlya-saita-8.jpg);
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 }
 
-.cardComp{
-  margin: 15px;
+.cardComp {
+  margin: 50px;
+}
+
+.textCompP {
+  text-align: center;
+  padding-top: 150px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: large;
+  color: rgb(9, 9, 9);
+}
+
+.navBar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 10px;
 }
