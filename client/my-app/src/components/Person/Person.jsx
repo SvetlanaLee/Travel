@@ -2,7 +2,8 @@ import axios from 'axios';
 import { useState, useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import './Person.css';
-import FormCompanion from '../FormCompanion/FormCompanion' ;
+import FormCompanion from '../FormCompanion/FormCompanion';
+import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { styled } from '@mui/material/styles';
 import dayjs from 'dayjs';
@@ -12,19 +13,20 @@ import IconButton from '@mui/material/IconButton';
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
 import Stack from '@mui/material/Stack';
 import Avatar from '@mui/material/Avatar';
+import { makeStyles } from '@material-ui/core/styles';
 
 
 const Input = styled('input')({
   display: 'none',
 });
 
-const useStyles = styled(theme => ({
+const useStyles = makeStyles(theme => ({
   root: {
-    // height: '100vh',
+    height: '100vh',
   },
   form: {
-    width: '45%', 
-    // marginTop: theme.spacing(1),
+    width: '50%',
+    marginTop: theme.spacing(1),
     // height: '10vh',
     // position: 'absolute', 
     // left: '10%', 
@@ -32,7 +34,7 @@ const useStyles = styled(theme => ({
     // transform: 'translate(-10%, -10%)'
   },
   submit: {
-    // margin: theme.spacing(3, 0, 2),
+    margin: theme.spacing(3, 0, 2),
   },
 }));
 
@@ -42,16 +44,16 @@ export default function Person() {
   const user = useSelector(store => store.user);
   const inputs = useSelector(store => store.inputs);
   const error = useSelector(store => store.error);
-  const [ show, setShow ] = useState(false);
+  const [show, setShow] = useState(false);
 
   const showForm = () => {
     setShow(!show)
   };
-  
+
   const dispatch = useDispatch();
   const [img, setImg] = useState(null)
   // const [avatar, setAvatar] = useState(null)
-  const sendFile = useCallback( async () => {
+  const sendFile = useCallback(async () => {
     try {
       const data = new FormData()
       data.append('avatar', img)
@@ -61,31 +63,32 @@ export default function Person() {
         },
         withCredentials: true,
       })
-      .then(res => {
-        console.log(res)
-      dispatch({type: 'SET_USER', payload: res.data})})
-     } catch (error) {
-      }
-   }, [img, dispatch ])
-     
+        .then(res => {
+          console.log(res)
+          dispatch({ type: 'SET_USER', payload: res.data })
+        })
+    } catch (error) {
+    }
+  }, [img, dispatch])
+
 
   const submitHandler = async (e) => {
     e.preventDefault();
     // console.log('user=================', user)
-    const data = { 
+    const data = {
       name: inputs.name,
       aboutMe: inputs.about,
       city: inputs.city,
       dateOfBirth: inputs.birth,
       vk: inputs.vk,
       telegram: inputs.telegram
-       
+
     }
-   // console.log('newComment====', newComment)
+    // console.log('newComment====', newComment)
     const addData = await fetch(`http://localhost:3001/person`, {
       method: 'POST',
       credentials: 'include',
-      headers:{
+      headers: {
         'Content-type': 'application/json'
       },
       body: JSON.stringify(data)
@@ -94,32 +97,32 @@ export default function Person() {
     const dataFromBack = await addData.json();
     //console.log('commentFromBack', commentFromBack);
     if (dataFromBack) {
-      dispatch({type: 'SET_USER', payload: dataFromBack});
+      dispatch({ type: 'SET_USER', payload: dataFromBack });
       // dispatch({type: 'ADD_COMMENTS', payload: commentFromBack});
-      dispatch({type: 'INPUTS_CLEAR', payload: {}})
+      dispatch({ type: 'INPUTS_CLEAR', payload: {} })
     } else {
-      dispatch({type: 'SET_ERROR', payload: dataFromBack});
-      }
+      dispatch({ type: 'SET_ERROR', payload: dataFromBack });
     }
+  }
 
   return (
-   
-  <div className='person'>
-  <div className='left'>
-  {/* <div  style={{ color: 'black' }}>
+
+    <div className='person'>
+      <div className='left'>
+        {/* <div  style={{ color: 'black' }}>
   <i>Hello, cool traveler {user.userName}!</i>
   </div> */}
-        
-  <div className='avatar'>
-    <Stack direction="row" spacing={2}>
-    <Avatar 
-          alt="Remy Sharp" src={`http://localhost:3001${ user.userPhoto }`}
-          sx={{ width: 250, height: 250 }} />
-              
-    </Stack>
-  </div> 
-      
-      {/* <div className='avatar'>
+
+        <div className='avatar'>
+          <Stack direction="row" spacing={2}>
+            <Avatar
+              alt="Remy Sharp" src={`http://localhost:3001${user.userPhoto}`}
+              sx={{ width: 250, height: 250 }} />
+
+          </Stack>
+        </div>
+
+        {/* <div className='avatar'>
   {
     user.userPhoto
     ? 
@@ -128,160 +131,177 @@ export default function Person() {
     <p><img src={`${logo}`} width="450" height="450" alt='avatar'/></p> 
   }
     
-  </div> */} 
+  </div> */}
 
-  <div className='upload'>
-    <Stack direction="row" alignItems="center" spacing={2}>
-    <label htmlFor="contained-button-file">
-    <Input accept="image/*" id="contained-button-file" multiple type="file" />
-    </label>
-    <label htmlFor="icon-button-file">
-    <Input accept="image/*" id="icon-button-file" type="file" onChange={e => setImg(e.target.files[0])} />
-    <IconButton color="primary" aria-label="upload picture" component="span">
-    <PhotoCamera />
-    </IconButton>
-    </label>
-    <Button variant="contained" component="span" onClick={sendFile}>Change avatar</Button>
-    </Stack>
-    </div> 
-    <>
-   
-    <div className='form'>
-    <form className={classes.form} onSubmit={submitHandler}>
-
-
-  <TextField 
-    margin="normal"
-    required
-    fullWidth
-    autoFocus
-    id="outlined-basic1"
-    label="Name"
-    variant="outlined"
-    type="text" 
-    name="name"
-    value={inputs.name ?? user.userName ?? ''}
-    onChange={(e) => dispatch
-    ({ type: 'INPUTS_TYPING', payload: { [e.target.name]: e.target.value } })}/>
-
-  <TextField 
-    margin="normal"
-    required
-    fullWidth
-    autoFocus
-    id="outlined-basic1"
-    label="About me"
-    variant="outlined"
-    type="text" 
-    name="about"
-    value={inputs.about ?? user.userAboutMe ?? ''}
-    onChange={(e) => dispatch
-    ({ type: 'INPUTS_TYPING', payload: { [e.target.name]: e.target.value } })}/>
-  <TextField 
-    margin="normal"
-    required
-    fullWidth
-    autoFocus
-    id="outlined-basic1"
-    label="City"
-    variant="outlined"
-    type="text" 
-    name="city"
-    value={inputs.city ?? user.userCity ?? ''}
-    onChange={(e) => dispatch
-    ({ type: 'INPUTS_TYPING', payload: { [e.target.name]: e.target.value } })}/>
-
-  <TextField 
-
-    margin="normal"
-    required
-    fullWidth
-    autoFocus
-    id="outlined-basic1"
-    label="VK"
-    variant="outlined"
-    type="text" 
-    name="vk"
-    value={inputs.vk ?? user.userVK ?? ''}
-    onChange={(e) => dispatch
-    ({ type: 'INPUTS_TYPING', payload: { [e.target.name]: e.target.value } })}/>
-
-  <TextField 
-
-    margin="normal"
-    required
-    fullWidth
-    autoFocus
-    id="outlined-basic1"
-    label="Telegram"
-    variant="outlined"
-    type="text" 
-    name="telegram"
-    value={inputs.telegram ?? user.userTelegram ?? ''}
-    onChange={(e) => dispatch
-    ({ type: 'INPUTS_TYPING', payload: { [e.target.name]: e.target.value } })}/>
-
-  <TextField 
-
-    margin="normal"
-    required
-    fullWidth
-    autoFocus
-    id="outlined-basic1"
-    label="Date of Birth"
-    variant="outlined"
-    type="date" 
-    name="birth"
-    // value={inputs.birth ?? user.userDateOfBirth}
-    value={dayjs(inputs.birth ?? user.userDateOfBirth).format("YYYY-MM-DD") ?? ''}
-    onChange={(e) => dispatch
-    ({ type: 'INPUTS_TYPING', payload: { [e.target.name]: e.target.value } })}/>
-     
-  <Button
-   fullWidth
-   variant="contained"
-   color="primary"
-   type="submit">Submit</Button>  
-  </form>
-
-  </div> 
-</>
-
-</div>
-
-
-<div className='comp'>
-  <div>
-
-<Button  onClick={showForm}
-    fullWidth
-    variant="contained"
-    color="primary"
-    type="submit">Искать попутчиков</Button>  
-
-            <div>
-          <div>{error.error}</div>
-          {show && <FormCompanion/>}
+        <div className='upload'>
+          <Stack direction="row" alignItems="center" spacing={2}>
+            <label htmlFor="contained-button-file">
+              <Input accept="image/*" id="contained-button-file" multiple type="file" />
+            </label>
+            <label htmlFor="icon-button-file">
+              <Input accept="image/*" id="icon-button-file" type="file" onChange={e => setImg(e.target.files[0])} />
+              <IconButton color="primary" aria-label="upload picture" component="span">
+                <PhotoCamera />
+              </IconButton>
+            </label>
+            <Button variant="contained" component="span" onClick={sendFile}>Change avatar</Button>
+          </Stack>
         </div>
+
+        <Box
+      component="form"
+      sx={{
+        '& .MuiTextField-root': { m: 1, width: '25ch' },
+      }}
+      noValidate
+      autoComplete="off"
+      style={{ display: 'flex', flexDirection: 'column' }}
+    >
+        <div className='form'>
+          <form className={classes.form} onSubmit={submitHandler}>
+
+            <TextField
+                margin="normal"
+                id="outlined-basic" 
+                label="Name"
+                variant="outlined" 
+                name="name"
+                value={inputs.name ?? user.userName ?? ''}
+                required
+                onChange={(e) => dispatch
+                  ({ type: 'INPUTS_TYPING', payload: { [e.target.name]: e.target.value } })}
+                  />
+              
+              <TextField
+               margin="normal"
+               id="outlined-basic" 
+               label="About me"
+              variant="outlined"
+               name="about"
+              value={inputs.about ?? user.userAboutMe ?? ''}
+              required
+              onChange={(e) => dispatch
+                ({ type: 'INPUTS_TYPING', payload: { [e.target.name]: e.target.value } })} 
+                />
+
+            <TextField
+              margin="normal"
+              id="outlined-basic" 
+              label="City"
+              variant="outlined"
+              name="city"
+              value={inputs.city ?? user.userCity ?? ''}
+              required
+              onChange={(e) => dispatch
+                ({ type: 'INPUTS_TYPING', payload: { [e.target.name]: e.target.value } })} />
+
+            <TextField
+
+              margin="normal"
+              id="outlined-basic" 
+              label="VK"
+              variant="outlined"
+              name="vk"
+              value={inputs.vk ?? user.userVK ?? ''}
+              required
+              onChange={(e) => dispatch
+                ({ type: 'INPUTS_TYPING', payload: { [e.target.name]: e.target.value } })} />
+
+            <TextField
+          
+              margin="normal"
+              id="outlined-basic" 
+              label="Telegram"
+              variant="outlined"
+              autoFocus
+              name="telegram"
+              value={inputs.telegram ?? user.userTelegram ?? ''}
+              required
+              onChange={(e) => dispatch
+                ({ type: 'INPUTS_TYPING', payload: { [e.target.name]: e.target.value } })} />
+
+            <TextField
+
+              margin="normal"
+              required
+              fullWidth
+              autoFocus
+              id="outlined-basic1"
+              label="Date of Birth"
+              variant="outlined"
+              type="date"
+              name="birth"
+              // value={inputs.birth ?? user.userDateOfBirth}
+              value={dayjs(inputs.birth ?? user.userDateOfBirth).format("YYYY-MM-DD") ?? ''}
+              onChange={(e) => dispatch
+                ({ type: 'INPUTS_TYPING', payload: { [e.target.name]: e.target.value } })} />
+                
+              <div className='but'>
+               <Button
+              fullWidth
+              variant="contained"
+              color="primary"
+              type="submit">Submit</Button>
+                </div>
+          </form>
+         
+        </div>
+
+        </Box>
       </div>
+
+
+      <div className='comp'>
+        <div>
+
+          <Button onClick={showForm}
+            fullWidth
+            variant="contained"
+            color="primary"
+            type="submit">Искать попутчиков</Button>
+
+          <div>
+            <div>{error.error}</div>
+            {show && <FormCompanion />}
+          </div>
+        </div>
+     </div>
     </div>
-  </div>
 
   )
 }
 
-    
 
-
+     
       
-
-
-
-
-
-
+     
+     
+      
+        
+  
+             
               
-      
+                       
+             
+             
 
-                    
-       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
