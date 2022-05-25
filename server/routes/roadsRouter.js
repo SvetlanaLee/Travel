@@ -1,4 +1,5 @@
 const express = require('express');
+const axios = require('axios');
 
 const router = express.Router();
 const { Road, Like } = require('../db/models');
@@ -71,7 +72,16 @@ router.post('/', async (req, res) => {
 // получение маршрута по id
 router.get('/:id', async (req, res) => {
   const road = await Road.findByPk(req.params.id);
-  res.json({ road });
+  // console.log('road', road.dataValues.from);
+
+  const apiAdress = `https://geocode-maps.yandex.ru/1.x/?apikey=29cee40b-728e-42bd-ba3e-cc89d4ae9a46&format=json&geocode=${encodeURIComponent(road.dataValues.from)}`;
+  const resp = await axios.get(apiAdress);
+  const pos = resp.data.response.GeoObjectCollection.featureMember[0].GeoObject.Point.pos.split(' ').map(pos => parseFloat(pos));
+  const geometry = pos.reverse();
+
+  // console.log('geo coord', geometry)
+
+  res.json({ road, geometry });
 });
 
 

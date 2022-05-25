@@ -12,6 +12,6 @@ export const initState = {
   allComments: [],
   alienUser: {},
   showNewPlace: false,
-  companion: []
-
+  companion: [],
+  coordCentr: []
 };

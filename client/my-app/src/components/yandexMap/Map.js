@@ -2,15 +2,19 @@ import React, { useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { YMaps, Map, Placemark } from 'react-yandex-maps';
 
-
-export default function App({road}) {
+export default function App({road, coordCentr}) {
 
   const places = useSelector(store => store.places);
+  
+  // const coordCentr = useSelector(store => store.coordCentr);
+
+  // console.log(coordCentr)
 
   const map = useRef(null);
   const apikey = "29cee40b-728e-42bd-ba3e-cc89d4ae9a46";
+
   const mapState = {
-    center: [55.739625, 37.5412],
+    center: coordCentr,
     zoom: 12,
   };
 
@@ -40,7 +44,6 @@ export default function App({road}) {
         <Map
           width='1100px'
           height='500px'
-          boxShadow='rgb(108 117 125 / 88%) 19px -16px 10px'
           // margin-left='5%'
           // margin-top='10%'
           border
