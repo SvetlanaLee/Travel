@@ -11,14 +11,14 @@ export default function CompanionCard({comp}) {
   const title = `${comp.cityFrom} - ${comp.cityWhere}`;
 
   return (
-    <Card sx={{ maxWidth: 345 }} className='cardComp'>
+    <Card sx={{ width: 345, height: 300 }} className='cardComp'>
 
       <CardHeader
         avatar={
           <Avatar 
             alt={comp.User.name}  
             src={`http://localhost:3001/${ comp.User.photo }`} 
-            sx={{ width: 56, height: 56 }}
+            sx={{ width: 90, height: 90 }}
           />
         }
         title={title}

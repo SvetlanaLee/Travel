@@ -38,8 +38,12 @@ export default function App({road}) {
 
       <YMaps query={{ apikey }}>
         <Map
-          width='800px'
+          width='1100px'
           height='500px'
+          box-shadow='rgb(108 117 125 / 88%) 19px -16px 10px'
+          // margin-left='5%'
+          // margin-top='10%'
+          border
           modules={["multiRouter.MultiRoute"]}
           state={mapState}
           instanceRef={map}
