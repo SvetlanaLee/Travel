@@ -227,6 +227,17 @@
   justify-content: space-between;
 }
 
+.alienBox {
+  display: flex;
+  flex-direction: column;
+  background-image: url(https://images.pexels.com/photos/1037995/pexels-photo-1037995.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500);
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: -15px;
+  height: 800px;
+  font-size: larger;
+}
+
 .commentContain {
   width: 700px;
   height: 300px;
@@ -240,6 +251,7 @@
   padding-right: 45px;
   background: rgb(241, 237, 240);
 }
+
 
 .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input {
   padding: 8.5px 14px;
@@ -260,3 +272,4 @@
   background: linear-gradient(45deg, #697c75, #76b0b0);
   border-radius: 15px;
 }
+

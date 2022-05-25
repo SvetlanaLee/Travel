@@ -25,8 +25,9 @@ const useStyles = makeStyles(theme => ({
     height: '100vh',
   },
   form: {
-    width: '50%',
+    // width: '50%',
     marginTop: theme.spacing(1),
+    width: '25ch'
     // height: '10vh',
     // position: 'absolute', 
     // left: '10%', 
@@ -144,7 +145,7 @@ export default function Person() {
                 <PhotoCamera />
               </IconButton>
             </label>
-            <Button variant="contained" component="span" onClick={sendFile}>Change avatar</Button>
+            <Button variant="contained" component="span" onClick={sendFile}>Изменить аватар</Button>
           </Stack>
         </div>
 
@@ -157,13 +158,13 @@ export default function Person() {
       autoComplete="off"
       style={{ display: 'flex', flexDirection: 'column' }}
     >
-        <div className='form'>
-          <form className={classes.form} onSubmit={submitHandler}>
+        {/* <div className='form'> */}
+          {/* <form className={classes.form} onSubmit={submitHandler}> */}
 
             <TextField
                 margin="normal"
                 id="outlined-basic" 
-                label="Name"
+                label="Имя"
                 variant="outlined" 
                 name="name"
                 value={inputs.name ?? user.userName ?? ''}
@@ -175,7 +176,7 @@ export default function Person() {
               <TextField
                margin="normal"
                id="outlined-basic" 
-               label="About me"
+               label="Обо мне"
               variant="outlined"
                name="about"
               value={inputs.about ?? user.userAboutMe ?? ''}
@@ -187,7 +188,7 @@ export default function Person() {
             <TextField
               margin="normal"
               id="outlined-basic" 
-              label="City"
+              label="Город проживания"
               variant="outlined"
               name="city"
               value={inputs.city ?? user.userCity ?? ''}
@@ -227,7 +228,7 @@ export default function Person() {
               fullWidth
               autoFocus
               id="outlined-basic1"
-              label="Date of Birth"
+              label="Дата рождения"
               variant="outlined"
               type="date"
               name="birth"
@@ -235,17 +236,13 @@ export default function Person() {
               value={dayjs(inputs.birth ?? user.userDateOfBirth).format("YYYY-MM-DD") ?? ''}
               onChange={(e) => dispatch
                 ({ type: 'INPUTS_TYPING', payload: { [e.target.name]: e.target.value } })} />
-                
-              <div className='but'>
-               <Button
-              fullWidth
-              variant="contained"
-              color="primary"
-              type="submit">Submit</Button>
-                </div>
-          </form>
-         
-        </div>
+
+           
+              
+<Button variant="contained" sx={{height: '40px', width: '50ch'}} onClick={submitHandler}>ПОДТВЕРДИТЬ</Button>
+             
+              
+        {/* </div> */}
 
         </Box>
       </div>
@@ -258,7 +255,7 @@ export default function Person() {
             fullWidth
             variant="contained"
             color="primary"
-            type="submit">Искать попутчиков</Button>
+            type="submit">ИСКАТЬ ПОПУТЧИКОВ</Button>
 
           <div>
             <div>{error.error}</div>
