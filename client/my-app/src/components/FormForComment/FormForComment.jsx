@@ -77,7 +77,7 @@ export default function FormForComment() {
       autoFocus
        
      id="outlined-basic1"
-     label="Enter your comment"
+     label="Введите свой комментарий"
      variant="outlined"
      type="text" 
      name="comment"
