@@ -5,6 +5,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import dayjs from 'dayjs';
 import { useParams } from "react-router-dom";
 import Avatar from '@mui/material/Avatar';
+import { Icon28LogoVkColor } from '@vkontakte/icons';
+import './AlienPerson.css';
 
 
 export default function AlienPerson() {
@@ -48,7 +50,15 @@ export default function AlienPerson() {
      <p>Город: { alienUser.city ?? <i>not specified</i>}</p>
      <p>Обо мне: { alienUser.aboutMe ?? <i>not specified</i> }</p>
      <h5>Мои социальные сети</h5>
-     <p>VK: { alienUser.vk ?? <i>not specified</i>}</p>
+
+     <div className='alienVk'>
+     
+     <Icon28LogoVkColor width={25} height={25}/>: { alienUser.vk ?? <i>not specified</i>}
+     </div>
+     
+    
+ 
+
      <p>Telegram: { alienUser.telegram ?? <i>not specified</i>}</p>
      </div>
    </div>  
