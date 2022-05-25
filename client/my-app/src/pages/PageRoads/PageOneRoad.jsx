@@ -63,7 +63,7 @@ export default function PageOneRoad() {
           </div>
         </div>
           <div className='mapPlaceBtn'>
-            <Button onClick={(e) => showPlace()}>Своя метка</Button> 
+            <Button variant="outlined" style={{ marginBottom: '10px' }} onClick={(e) => showPlace()}>Своя метка</Button> 
             {show && <FormAddMark show={show}/>}
           </div>
           <div className='discriptionText'> 

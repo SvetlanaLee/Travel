@@ -95,8 +95,11 @@ export default function FormAddMark() {
       noValidate
       autoComplete="off"
       style={{ display: 'flex', flexDirection: 'row', marginBottom: '-60px' }}
+      // , alignItems: 'center'
+      // , marginRight: '170px'
     >
     <TextField 
+    
       id="outlined-basic" 
       label="title" 
       variant="outlined" 
@@ -115,6 +118,8 @@ export default function FormAddMark() {
       required
     />
     <TextField
+          // style={{ padding: '8,5px 14px' }}
+          sx={{  padding: '8,5px 14px' }}
           id="outlined-select-currency"
           select
           label="Kатегория"
@@ -157,7 +162,7 @@ export default function FormAddMark() {
       required
     />
     {/* onClick={createNewMark} */}
-    <Button className='myMarkBtn' variant="outlined" sx={{height: '40px' }} onClick={createNewMark}>Создать</Button>
+    <Button className='myMarkBtn' variant="outlined" sx={{height: '56px', marginTop: '8px', width: '135px' }} onClick={createNewMark}>Создать</Button>
   </Box>
   </>
   );

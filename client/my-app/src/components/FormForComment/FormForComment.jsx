@@ -77,10 +77,11 @@ export default function FormForComment() {
       autoFocus
        
      id="outlined-basic1"
-     label="Enter your comment"
+     label="Добавить коментарий"
      variant="outlined"
      type="text" 
      name="comment"
+     style={{ width: '550px' }}
      value={inputs.comment ?? ''}
      onChange={(e) => dispatch({ type: 'USER_TYPING_COM', payload: { [e.target.name]: e.target.value } })}/>
      {/* <Button
