@@ -4,7 +4,7 @@
   /* flex-direction: row;
   align-items: center; */
   margin: 25px;
-  margin-left: 250px;
+  margin-left: 180px;
   font-size: 20pt;
   background-clip: border-box;
   background: url('https://static.wixstatic.com/media/614f12_0a0847da56d142b0aa11fd4f0383edb9~mv2.gif') no-repeat; 
@@ -16,7 +16,7 @@
 }
 
 .avatar, .upload {
-  margin-left: 70px;
+  margin-left: 60px;
 }
 
 /* i {
@@ -28,7 +28,7 @@
 } */
 
 .comp {
-  margin: 313px 3px 30px 5px;
+  margin: 251px 3px 30px 5px;
 
 }
 
@@ -41,6 +41,3 @@
 
 }
 
-.but {
-
-}
