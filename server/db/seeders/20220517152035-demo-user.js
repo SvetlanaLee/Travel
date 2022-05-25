@@ -17,7 +17,7 @@ module.exports = {
         email: 'sk@m.com',
         password: '1234',
         photo: '/avatar/1.jpg',
-        aboutMe: 'Программист',
+        aboutMe: 'Меч Самурая либо тупой,либо знает свое дело',
         city: 'Санкт-Петербург',
         dateOfBirth: new Date(2000, 6, 1),
         vk: 'https://vk.com/SK',
