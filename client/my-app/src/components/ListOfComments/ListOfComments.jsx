@@ -21,10 +21,12 @@ export default function ListOfComments() {
   }, [dispatch, id]);
 
   return (
-    <div>
-      {
-       (comments.map((comment) => <Comment comment={ comment } key={comment.id}/> ) )
-      }
+    <div className='commentContain'>
+      <div className='listComment'>
+        {
+        (comments.map((comment) => <Comment comment={ comment } key={comment.id}/> ) )
+        }
+      </div>
     </div>
   )
 }
