@@ -10,7 +10,7 @@ module.exports = {
         city: 'Сан-Франциско',
         dateOfBirth: new Date(2000, 6, 1),
         vk: 'https://vk.com/JohnWick',
-        telegram: 'https://web.telegram.org/JohnWick',
+        telegram: 'John Wick',
       },
       {
         name: 'Сергей Клычников',
@@ -21,7 +21,7 @@ module.exports = {
         city: 'Санкт-Петербург',
         dateOfBirth: new Date(2000, 6, 1),
         vk: 'https://vk.com/SK',
-        telegram: 'https://web.telegram.org/SK',
+        telegram: 'Сергей Клычников',
       },
       {
         name: 'Олег Доденко',
@@ -32,7 +32,7 @@ module.exports = {
         city: 'Батуми',
         dateOfBirth: new Date(2000, 6, 1),
         vk: 'https://vk.com/OD',
-        telegram: 'https://web.telegram.org/OD',
+        telegram: 'Олег Доденко',
       },
       {
         name: 'Britney',
@@ -43,7 +43,7 @@ module.exports = {
         city: 'Лос-Анджелес',
         dateOfBirth: new Date(2000, 6, 1),
         vk: 'https://vk.com/Britney',
-        telegram: 'https://web.telegram.org/Britney',
+        telegram: 'Britney',
       },
       {
         name: 'Ryan',
@@ -54,7 +54,7 @@ module.exports = {
         city: 'Москва',
         dateOfBirth: new Date(2000, 6, 1),
         vk: 'https://vk.com/rg',
-        telegram: 'https://web.telegram.org/rg',
+        telegram: 'Ryan',
       },
       {
         name: 'Анжелика',
@@ -65,7 +65,7 @@ module.exports = {
         city: 'Казань',
         dateOfBirth: new Date(2000, 6, 1),
         vk: 'https://vk.com/AJ',
-        telegram: 'https://web.telegram.org/AJ',
+        telegram: 'Анжелика',
       },
       {
         name: 'Дени',
@@ -76,7 +76,7 @@ module.exports = {
         city: 'Столица',
         dateOfBirth: new Date(2000, 6, 1),
         vk: 'https://vk.com/dt',
-        telegram: 'https://web.telegram.org/dt',
+        telegram: 'Дени',
       },
     ]);
   },
