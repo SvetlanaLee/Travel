@@ -1,0 +1,41 @@
+.person {
+  display: flex;
+  /* justify-content: flex-end; */
+  flex-direction: row;
+  align-items: center;
+  margin: 25px;
+  margin-left: 100px;
+  font-size: 20pt;
+  background-clip: border-box;
+  background: url('https://static.wixstatic.com/media/614f12_0a0847da56d142b0aa11fd4f0383edb9~mv2.gif') no-repeat; 
+  -moz-background-size: 100%; /* Firefox 3.6+ */
+  -webkit-background-size: 100%; /* Safari 3.1+ и Chrome 4.0+ */
+  -o-background-size: 100%; /* Opera 9.6+ */
+  background-size: 100%; /* Современные браузеры */
+  flex-wrap: wrap;
+}
+
+.avatar, .upload {
+  margin-left: 180px;
+}
+
+/* i {
+  font-size: 50px;
+  font-weight: normal;
+  text-shadow: 1px 1px white,
+               2px 2px #777;
+  color: #333;
+} */
+
+.comp {
+  /* margin-right: 100px; */
+  /* position:sticky */
+}
+
+.form {
+
+}
+
+
+
+
