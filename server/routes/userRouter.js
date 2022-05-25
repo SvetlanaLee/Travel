@@ -88,9 +88,10 @@ router.post('/profile', fileMiddleware.single('avatar'), async (req, res) => {
 });
 
 router.post('/person', async (req, res) => {
-  const { aboutMe, city, dateOfBirth, vk, telegram } = req.body;
+  const { aboutMe, city, dateOfBirth, vk, telegram, name } = req.body;
   // console.log('dateOfBirth==========', dateOfBirth)
   await User.update({
+    name,
     aboutMe,
     city,
     dateOfBirth,

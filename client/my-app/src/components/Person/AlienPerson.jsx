@@ -2,14 +2,12 @@ import axios from 'axios';
 import React, { useState, useCallback, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import logo from './logo.svg';
-import TextField from '@material-ui/core/TextField';
-import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
+import { styled } from '@mui/material/styles';
 import dayjs from 'dayjs';
 import { useParams } from "react-router-dom";
 
 
-const useStyles = makeStyles(theme => ({
+const useStyles = styled(theme => ({
   root: {
     height: '100vh',
   },
