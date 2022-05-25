@@ -2,7 +2,7 @@ const express = require('express');
 const axios = require('axios');
 
 const router = express.Router();
-const { Place } = require('../db/models');
+const { Place} = require('../db/models');
 
 router.get('/:id', async (req, res) => {
   const places = await Place.findAll({
@@ -10,6 +10,7 @@ router.get('/:id', async (req, res) => {
       roadId: req.params.id
     }
   });
+
   // console.log(placeMark)
   res.json({ places })
 });

@@ -13,6 +13,7 @@ import { listOfCommentsReducer } from './listOfCommentsReducer';
 import { alienUserReducer } from './alienUserReducer';
 import { ShowNewPlaceReducer } from './ShowNewPlaceReducer';
 import { companionReducer } from './companionReducer';
+import { coordCentrReducer } from './coordCentrReducer';
 
 
 export const rootReducer = combineReducers({
@@ -29,5 +30,6 @@ export const rootReducer = combineReducers({
   allComments: listOfCommentsReducer,
   alienUser: alienUserReducer,
   showNewPlace: ShowNewPlaceReducer,
-  companion: companionReducer
+  companion: companionReducer,
+  coordCentr: coordCentrReducer
 });

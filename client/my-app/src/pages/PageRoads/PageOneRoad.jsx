@@ -11,6 +11,7 @@ import FormAddMark from '../../components/FormAddMark/FormAddMark';
 
 export default function PageOneRoad() {
   const road = useSelector(store => store.road);
+  const coordCentr = useSelector(store => store.coordCentr);
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
   const { id } = useParams();
@@ -24,6 +25,8 @@ export default function PageOneRoad() {
   useEffect(() => {
     axios.get(`http://localhost:3001/roads/${id}`)
     .then((road) => {
+      console.log(road.data.geometry)
+    dispatch({type: 'GET_COORD', payload: road.data.geometry})
     dispatch({type: 'GET_ONE_ROAD', payload: road.data.road})
     setLoading(false);  
   })    
@@ -56,7 +59,7 @@ export default function PageOneRoad() {
           )}
         </div>
         <div className='mapRoadDiscription'>
-            <Map1 road={road}/>
+            <Map1 road={road} coordCentr={coordCentr}/>
           <div className='comments'>
             <FormForComment />
             <ListOfComments />
