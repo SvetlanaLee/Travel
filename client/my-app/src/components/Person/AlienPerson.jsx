@@ -5,6 +5,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import dayjs from 'dayjs';
 import { useParams } from "react-router-dom";
 import Avatar from '@mui/material/Avatar';
+import TelegramIcon from '@mui/icons-material/Telegram';
+import TwitterIcon from '@mui/icons-material/Twitter';
 
 
 export default function AlienPerson() {
@@ -36,7 +38,7 @@ export default function AlienPerson() {
      </div>
 
      <h3> { alienUser.name } </h3>
-     <div className='alienBirth'>  Дата рождения:  
+     <div >  <h5>Дата рождения: </h5>
           {
            alienUser.dateOfBirth
             ? 
@@ -45,11 +47,11 @@ export default function AlienPerson() {
             <i> not specified</i>
           }
      </div>
-     <p>Город: { alienUser.city ?? <i>not specified</i>}</p>
-     <p>Обо мне: { alienUser.aboutMe ?? <i>not specified</i> }</p>
+     <p> <h5>Город:</h5> { alienUser.city ?? <i>не указан</i>}</p>
+     <p> <h5>Обо мне:</h5> { alienUser.aboutMe ?? <i>скоро здесь будет информация обо мне</i> }</p>
      <h5>Мои социальные сети</h5>
-     <p>VK: { alienUser.vk ?? <i>not specified</i>}</p>
-     <p>Telegram: { alienUser.telegram ?? <i>not specified</i>}</p>
+     <p> <TwitterIcon/> <a href="https://vk.com/" target="_blank" rel="noreferrer"> <i>Вконтакте</i></a></p>
+     <p> <TelegramIcon/> <a href="https://web.telegram.org/z/" target="_blank" rel="noreferrer"> <i>Telegram</i></a></p>
      </div>
    </div>  
 
