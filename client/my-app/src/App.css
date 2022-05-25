@@ -232,3 +232,26 @@ https://thumbs.gfycat.com/FlickeringLoneFallowdeer-max-1mb.gif */
     padding-top: 21px;
 } */
 
+.alienBox {
+  display: flex;
+  flex-direction: column;
+  background-image: url(https://images.pexels.com/photos/1037995/pexels-photo-1037995.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500);
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: -15px;
+  height: 785px;
+  font-size: larger;
+}
+
+.alienAvatar {
+  margin-top: 100px;
+}
+
+.alienInfo {
+  margin-left: 100px;
+}
+
+.alienBirth {
+  display: flex;
+  flex-direction: row;
+}

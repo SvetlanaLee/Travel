@@ -1,31 +1,13 @@
 import axios from 'axios';
-import React, { useState, useCallback, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import logo from './logo.svg';
-import { styled } from '@mui/material/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import dayjs from 'dayjs';
 import { useParams } from "react-router-dom";
+import Avatar from '@mui/material/Avatar';
 
-
-const useStyles = styled(theme => ({
-  root: {
-    height: '100vh',
-  },
-  form: {
-    width: '20%', 
-    marginTop: theme.spacing(1),
-    // position: 'absolute', 
-    // left: '10%', 
-    // top: '10%',
-    // transform: 'translate(-10%, -10%)'
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-  },
-}));
 
 export default function AlienPerson() {
-  const classes = useStyles();
   const alienUser = useSelector(store => store.alienUser);
   const dispatch = useDispatch();
   const { id } = useParams();
@@ -42,31 +24,19 @@ export default function AlienPerson() {
   }, [id, dispatch]);
    
   return (
-   
-        
-   <div>
-     
-     <p>Name: { alienUser.name } </p>
 
-     <div className='avatar'>
-          {
-           alienUser.photo
-            ? 
-            <p><img src={`http://localhost:3001${ alienUser.photo }`} width="300" height="300" alt=""/></p>
-            : 
-            <p><img src={`${logo}`} width="300" height="300" alt='avatar'/></p> 
-          }
-           
-        </div>
+   <div className='alienBox'>
+     <div className='alienInfo'>
+     <div className='alienAvatar'>
+     <Avatar
+        alt={alienUser.name}
+        src={`http://localhost:3001/${alienUser.photo}`}
+        sx={{ width: 250, height: 250 }}
+      />
+     </div>
 
-    
-     <p>About me: { alienUser.aboutMe ?? <i>not specified</i> }</p>
-     <p>City: { alienUser.city ?? <i>not specified</i>}</p>
-     <p>VK: { alienUser.vk ?? <i>not specified</i>}</p>
-     <p>Telegram: { alienUser.telegram ?? <i>not specified</i>}</p>
-
-
-     <div> Date of Birth:  
+     <h3> { alienUser.name } </h3>
+     <div className='alienBirth'>  Дата рождения:  
           {
            alienUser.dateOfBirth
             ? 
@@ -74,10 +44,14 @@ export default function AlienPerson() {
             : 
             <i> not specified</i>
           }
-           
-        </div>
-      
-   </div>
+     </div>
+     <p>Город: { alienUser.city ?? <i>not specified</i>}</p>
+     <p>Обо мне: { alienUser.aboutMe ?? <i>not specified</i> }</p>
+     <h5>Мои социальные сети</h5>
+     <p>VK: { alienUser.vk ?? <i>not specified</i>}</p>
+     <p>Telegram: { alienUser.telegram ?? <i>not specified</i>}</p>
+     </div>
+   </div>  
 
   )
 }

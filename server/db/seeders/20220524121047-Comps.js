@@ -60,7 +60,7 @@ module.exports = {
       {
         userId: 2,
         open: true,
-        info: 'Меч Самурая либо тупой,либо знает свое дело',
+        info: 'Ищу маршрут уже четвёртый месяц',
         cityFrom: 'Питер',
         cityWhere: 'Сердечко Олега',
         start: new Date(2022, 6, 30),
