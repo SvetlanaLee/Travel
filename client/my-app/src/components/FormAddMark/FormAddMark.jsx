@@ -94,7 +94,7 @@ export default function FormAddMark() {
       }}
       noValidate
       autoComplete="off"
-      style={{ display: 'flex', flexDirection: 'row' }}
+      style={{ display: 'flex', flexDirection: 'row', marginBottom: '-60px' }}
     >
     <TextField 
       id="outlined-basic" 

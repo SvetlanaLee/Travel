@@ -74,11 +74,18 @@
 }
 
 .discriptionText {
-  line-height: 2.3;
+  /* line-height: 2.3; */
   /* border: 1px solid; */
-  width: 550px;
-  height: 150px;
+  /* width: 550px;
+  height: 150px; */
   /* margin: 0px 350px 0px 0px; */
+  line-height: 2.3;
+    /* border: 1px solid; */
+    width: 550px;
+    height: 150px;
+    /* margin: 13px 350px 0px 0px; */
+    margin-top: 15px;
+    margin-left: 15px;
 }
 
 .mapPlace {
@@ -192,8 +199,13 @@ https://thumbs.gfycat.com/FlickeringLoneFallowdeer-max-1mb.gif */
 
 
 .mapRoadDiscription {
+  /* display: flex;
+  justify-content: space-around; */
   display: flex;
-  justify-content: space-around;
+    /* justify-content: space-around; */
+    /* flex-direction: column; */
+    /* align-items: center; */
+    margin-left: 25px;
 }
 
 .comments {
@@ -207,7 +219,11 @@ https://thumbs.gfycat.com/FlickeringLoneFallowdeer-max-1mb.gif */
 }
 
 .mapPlaceBtn {
-  margin-left: 39px;
+  /* margin-left: 39px; */
+  display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 300px;
 }
 .pageOneRoadStyle {
   background-image: url(https://oir.mobi/uploads/posts/2021-03/1616578380_8-p-svetlii-fon-dlya-saita-8.jpg);
@@ -232,3 +248,27 @@ https://thumbs.gfycat.com/FlickeringLoneFallowdeer-max-1mb.gif */
     padding-top: 21px;
 } */
 
+.footerCard{
+  display: flex;
+  justify-content: space-between;
+  /* align-items: flex-end; */
+  /* margin-top: 38px; */
+  /* margin-top: auto; */
+  width: 100%;
+}
+
+.MuiInputBase-root {
+  height: 100%;
+}
+
+.css-1dkup1v-MuiButtonBase-root-MuiButton-root {
+  margin-top: 8px;
+  padding: 27px 20px;
+}
+
+.css-bhp9pd-MuiPaper-root-MuiCard-root {
+  flex-direction: column;
+  margin: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+}

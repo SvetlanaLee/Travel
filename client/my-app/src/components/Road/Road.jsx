@@ -52,7 +52,7 @@ export default function Road({ road }) {
   
 
   return (
-    <Card className={classes.root} style={{margin: '15px'}}>
+    <Card className={classes.root} style={{margin: '15px 30px'}}>
       <CardActionArea>
         <CardMedia
           className={classes.media}
@@ -67,21 +67,23 @@ export default function Road({ road }) {
           </Typography>
         </CardContent>
       </CardActionArea>
-      <div>        
-      <IconButton type='submit' onClick={ addLike }> 
-        <FavoriteIcon />
-      </IconButton> 
-         {road.Likes.length}
-      </div>
-      <div className='ourBtn'>
-        <CardActions>
-            <Typography variant="body2" color="textSecondary" component="p">
-            Расстояние : { road.distance }
-            </Typography>
-          <Button size="small" color="primary" component={Link} to={`/roads/${road.id}`}>
-            Подробнее
-          </Button>
-        </CardActions>
+      <div className='footerCard'>
+          <div>        
+          <IconButton type='submit' onClick={ addLike }> 
+            <FavoriteIcon />
+          </IconButton> 
+            {road.Likes.length}
+          </div>
+          <div className='ourBtn'>
+            <CardActions>
+                {/* <Typography variant="body2" color="textSecondary" component="p">
+                Расстояние : { road.distance }
+                </Typography> */}
+              <Button size="small" color="primary" component={Link} to={`/roads/${road.id}`}>
+                Подробнее
+              </Button>
+            </CardActions>
+          </div>
       </div>
     </Card>
   );

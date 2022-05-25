@@ -56,38 +56,41 @@ export default function PageOneRoad() {
           )}
         </div>
         <div className='mapRoadDiscription'>
-        <Map1 road={road}/>
-        <div className='discriptionText'> 
-          {road.discription}
+            <Map1 road={road}/>
+          <div className='comments'>
+            <FormForComment />
+            <ListOfComments />
+          </div>
         </div>
-
-        </div>
-        <div className='mapPlaceBtn'>
-          <Button onClick={(e) => showPlace()}>Своя метка</Button> 
-          {show && <FormAddMark show={show}/>}
-        </div>
+          <div className='mapPlaceBtn'>
+            <Button onClick={(e) => showPlace()}>Своя метка</Button> 
+            {show && <FormAddMark show={show}/>}
+          </div>
+          <div className='discriptionText'> 
+            {road.discription}
+          </div>
       </div>
-      <div>
-        {/* {loading ? (
-          'loading...'
-        ) : (
-          <div className='roadDiscription'>
-            <div className='discriptionTitle'>
-              <h3 className='citys'>
-                {road.from} - {road.destination}
-              </h3>
-                {road.createdAt}
-            </div>
-            <div className='discriptionText'> 
-              {road.discription}
-            </div>
-          </div>          
-        )} */}
-        <div className='comments'>
-          <FormForComment />
-          <ListOfComments />
+        <div>
+          {/* {loading ? (
+            'loading...'
+          ) : (
+            <div className='roadDiscription'>
+              <div className='discriptionTitle'>
+                <h3 className='citys'>
+                  {road.from} - {road.destination}
+                </h3>
+                  {road.createdAt}
+              </div>
+              <div className='discriptionText'> 
+                {road.discription}
+              </div>
+            </div>          
+          )} */}
+          {/* <div className='comments'>
+            <FormForComment />
+            <ListOfComments />
+          </div> */}
         </div>
-      </div>
     </div>
   )
 }
