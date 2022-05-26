@@ -206,8 +206,9 @@
     padding: 25px; */
 }
 .pageOneRoadStyle {
-  background-image: url(https://oir.mobi/uploads/posts/2021-03/1616578380_8-p-svetlii-fon-dlya-saita-8.jpg);
+  /* background-image: url(https://oir.mobi/uploads/posts/2021-03/1616578380_8-p-svetlii-fon-dlya-saita-8.jpg); */
   height: 980px;
+  background-image: url(https://images.pexels.com/photos/19670/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
 }
 
 .footerCard{
@@ -254,7 +255,7 @@
   max-height: 100%;
   width: 100%;
   padding-right: 45px;
-  background: #f8f9fa87;
+  background: rgb(241 237 240 / 0%);
 }
 
 
@@ -290,7 +291,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   margin-top: -15px;
-  min-height: 800px;
+  min-height: 836px;
   font-size: larger;
 }
 
@@ -307,3 +308,20 @@
   margin-left: 92px;
   color:#0a58ca;
 }
+
+.loginPS {
+  background-image: url(http://localhost:3001/img/login.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: -15px;
+  min-height: 836px;
+}
+
+/* .headerPOR {
+  background-image: url(https://tvil.ru/blog/sites/blog/files/image/articles/2020_05/Marshrut-puteshestviya-po-Evrope%20%281%29.jpg);
+  height: 600px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: -71px auto 0px;
+  background-position-y: bottom;
+} */

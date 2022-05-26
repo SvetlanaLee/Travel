@@ -13,11 +13,11 @@ const useStyles = makeStyles(theme => ({
   },
   
   form: {
-    width: '50%', 
+    width: '35%', 
     marginTop: theme.spacing(1),
     position: 'absolute', 
     left: '50%', 
-    top: '50%',
+    top: '40%',
     transform: 'translate(-50%, -50%)'
   },
   submit: {

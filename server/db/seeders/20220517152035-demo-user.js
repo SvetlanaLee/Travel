@@ -78,6 +78,17 @@ module.exports = {
         vk: 'https://vk.com/dt',
         telegram: 'Дени',
       },
+      {
+        name: 'Гарри Поттер',
+        email: 'gp@m.com',
+        password: '1234',
+        photo: '/avatar/potter.jpeg',
+        aboutMe: 'Я не волшебник, я только учусь',
+        city: 'Лондон',
+        dateOfBirth: new Date(2000, 6, 1),
+        vk: 'https://vk.com/GP',
+        telegram: 'Potter',
+      },
     ]);
   },
 

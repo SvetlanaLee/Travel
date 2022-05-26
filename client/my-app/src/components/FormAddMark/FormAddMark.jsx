@@ -99,7 +99,7 @@ export default function FormAddMark() {
       // , marginRight: '170px'
     >
     <TextField 
-    
+      style={{width: '160px'}}
       id="outlined-basic" 
       label="title" 
       variant="outlined" 
@@ -109,6 +109,7 @@ export default function FormAddMark() {
       required
     />
     <TextField 
+      style={{width: '160px'}}
       id="outlined-basic" 
       label="info" 
       variant="outlined" 
@@ -119,7 +120,7 @@ export default function FormAddMark() {
     />
     <TextField
           // style={{ padding: '8,5px 14px' }}
-          sx={{  padding: '8,5px 14px' }}
+          sx={{  padding: '8,5px 14px'}}
           id="outlined-select-currency"
           select
           label="Kатегория"
@@ -129,12 +130,13 @@ export default function FormAddMark() {
           // helperText="Выберите категорию"
         >
           {categorias.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
+            <MenuItem key={option.value} value={option.value} style={{width: '150px'}}>
               {option.label}
             </MenuItem>
           ))}
         </TextField>
     <TextField 
+    style={{width: '160px'}}
       id="outlined-basic" 
       label="city" 
       variant="outlined" 
@@ -144,6 +146,7 @@ export default function FormAddMark() {
       required
     />
     <TextField 
+    style={{width: '160px'}}
       id="outlined-basic" 
       label="street" 
       variant="outlined" 
@@ -153,6 +156,7 @@ export default function FormAddMark() {
       required
     />
     <TextField 
+    style={{width: '160px'}}
       id="outlined-basic" 
       label="dom" 
       variant="outlined" 

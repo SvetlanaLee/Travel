@@ -42,7 +42,8 @@ export default function PageOneRoad() {
 
   return (
     <div className='pageOneRoadStyle'>
-
+     {/* <div className='headerPOR'>
+     </div> */}
       <div className='mapPlace'>
         <div>
           {loading ? (
@@ -51,7 +52,7 @@ export default function PageOneRoad() {
             <div className='roadDiscription'>
               <div className='discriptionTitle'>
                 <h3 className='citys'>
-                  {road.from} - {road.destination}
+                  <i>{road.from} - {road.destination}</i>
                 </h3>
                   {/* {road.createdAt} */}
               </div>              
@@ -70,7 +71,7 @@ export default function PageOneRoad() {
             {show && <FormAddMark show={show}/>}
           </div>
           <div className='discriptionText'> 
-            {road.discription}
+            <i>{road.discription}</i>
           </div>
       </div>
         <div>
