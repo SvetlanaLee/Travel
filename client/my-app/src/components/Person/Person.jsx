@@ -178,11 +178,12 @@ export default function Person() {
               
               <TextField
               focused
-               margin="normal"
-               id="outlined-basic" 
-               label="Обо мне"
+              margin="normal"
+              id="outlined-basic" 
+              label="Обо мне"
               variant="outlined"
-               name="about"
+              multiline='true'
+              name="about"
               value={inputs.about ?? user.userAboutMe ?? ''}
               required
               onChange={(e) => dispatch
