@@ -263,7 +263,7 @@
 }
 
 ::-webkit-scrollbar {
-  width: 10px; 
+  width: 5px; 
   background: #cfcfd91d;
   border-radius: 15px;
 }
