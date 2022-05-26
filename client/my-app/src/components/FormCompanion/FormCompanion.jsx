@@ -53,6 +53,8 @@ export default function FormCompanion() {
       style={{ display: 'flex', flexDirection: 'column' }}
     >
     <TextField 
+      focused
+      style={{marginTop: '20px'}}
       id="outlined-basic" 
       label="Откуда" 
       variant="outlined" 
@@ -63,6 +65,7 @@ export default function FormCompanion() {
         ({ type: 'INPUTS_TYPING', payload: { [e.target.name]: e.target.value } })}
     />
     <TextField 
+      focused
       id="outlined-basic" 
       label="Куда" 
       variant="outlined" 
@@ -73,6 +76,7 @@ export default function FormCompanion() {
         ({ type: 'INPUTS_TYPING', payload: { [e.target.name]: e.target.value } })}
     />
     <TextField 
+      focused
       id="outlined-basic" 
       label="Описание" 
       variant="outlined" 
@@ -83,11 +87,14 @@ export default function FormCompanion() {
         ({ type: 'INPUTS_TYPING', payload: { [e.target.name]: e.target.value } })}
     />
     <TextField
-      margin="normal"
+      label="Дата отправления"
+      focused
+      id="outlined-basic1"
+      // margin="normal"
       required
       fullWidth
-      label="Дата отправления"
-      variant="outlined"
+      // label="Дата отправления"
+      // variant="outlined"
       type="date"
       name="start"
       value={inputs.start ?? ''}
@@ -95,13 +102,14 @@ export default function FormCompanion() {
         ({ type: 'INPUTS_TYPING', payload: { [e.target.name]: e.target.value } })}
     />
     <TextField
-      margin="normal"
+      focused
+      // margin="normal"
       required
-      fullWidth
-      autoFocus
+      // fullWidth
+      // autoFocus
       id="outlined-basic1"
       label="Дата возвращения"
-      variant="outlined"
+      // variant="outlined"
       type="date"
       name="end"
       value={ inputs.end ?? '' }
@@ -109,7 +117,7 @@ export default function FormCompanion() {
         ({ type: 'INPUTS_TYPING', payload: { [e.target.name]: e.target.value } })}
     />
 
-    <Button variant="outlined" sx={{height: '40px'}} onClick={createAdvt}>Добавить</Button>
+    <Button variant="contained" sx={{height: '40px'}} onClick={createAdvt}>Добавить</Button>
   </Box>
     </div>
   )
