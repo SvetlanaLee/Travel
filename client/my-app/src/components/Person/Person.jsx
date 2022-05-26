@@ -14,6 +14,7 @@ import PhotoCamera from '@mui/icons-material/PhotoCamera';
 import Stack from '@mui/material/Stack';
 import Avatar from '@mui/material/Avatar';
 import { makeStyles } from '@material-ui/core/styles';
+import { Typography } from '@material-ui/core';
 
 
 const Input = styled('input')({
@@ -45,11 +46,11 @@ export default function Person() {
   const user = useSelector(store => store.user);
   const inputs = useSelector(store => store.inputs);
   const error = useSelector(store => store.error);
-  const [show, setShow] = useState(false);
+  // const [show, setShow] = useState(false);
 
-  const showForm = () => {
-    setShow(!show)
-  };
+  // const showForm = () => {
+  //   setShow(!show)
+  // };
 
   const dispatch = useDispatch();
   const [img, setImg] = useState(null)
@@ -162,6 +163,8 @@ export default function Person() {
           {/* <form className={classes.form} onSubmit={submitHandler}> */}
 
             <TextField
+                focused
+                style={{marginTop: '20px'}}
                 margin="normal"
                 id="outlined-basic" 
                 label="Имя"
@@ -174,6 +177,7 @@ export default function Person() {
                   />
               
               <TextField
+              focused
                margin="normal"
                id="outlined-basic" 
                label="Обо мне"
@@ -186,6 +190,7 @@ export default function Person() {
                 />
 
             <TextField
+            focused
               margin="normal"
               id="outlined-basic" 
               label="Город проживания"
@@ -197,7 +202,7 @@ export default function Person() {
                 ({ type: 'INPUTS_TYPING', payload: { [e.target.name]: e.target.value } })} />
 
             <TextField
-
+              focused
               margin="normal"
               id="outlined-basic" 
               label="VK"
@@ -209,7 +214,7 @@ export default function Person() {
                 ({ type: 'INPUTS_TYPING', payload: { [e.target.name]: e.target.value } })} />
 
             <TextField
-          
+              focused     
               margin="normal"
               id="outlined-basic" 
               label="Telegram"
@@ -222,7 +227,7 @@ export default function Person() {
                 ({ type: 'INPUTS_TYPING', payload: { [e.target.name]: e.target.value } })} />
 
             <TextField
-
+              focused
               margin="normal"
               required
               fullWidth
@@ -249,19 +254,20 @@ export default function Person() {
 
 
       <div className='comp'>
-        <div>
-
-          <Button onClick={showForm}
+        <div className='searchComp'>
+          Искать попутчиков
+          {/* <Button 
+          // onClick={showForm}
             fullWidth
             variant="contained"
             color="primary"
-            type="submit">ИСКАТЬ ПОПУТЧИКОВ</Button>
+            type="submit">ИСКАТЬ ПОПУТЧИКОВ</Button> */}
+        </div>
 
           <div>
             <div>{error.error}</div>
-            {show && <FormCompanion />}
+             <FormCompanion />
           </div>
-        </div>
      </div>
     </div>
 
