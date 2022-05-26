@@ -104,7 +104,7 @@ export default function FormCompanion() {
       variant="outlined"
       type="date"
       name="end"
-      value={inputs.end ?? ''}
+      value={ inputs.end ?? '' }
       onChange={(e) => dispatch
         ({ type: 'INPUTS_TYPING', payload: { [e.target.name]: e.target.value } })}
     />
