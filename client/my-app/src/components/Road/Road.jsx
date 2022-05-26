@@ -49,7 +49,15 @@ export default function Road({ road }) {
   }
 
 
-
+  const cutText = (text) => {
+    let result = '';
+    if (text.length > 200) {
+      result = text.slice(0,196) + '...';
+      return result
+    } else {
+      return text
+    }    
+  }
   
 
   return (
@@ -64,7 +72,7 @@ export default function Road({ road }) {
            { road.from } - { road.destination }
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p" style={{overflow: 'hidden', textOverflow: 'ellipsis'}}>
-           { road.discription }
+           { cutText(road.discription) }
           </Typography>
         </CardContent>
       </CardActionArea>

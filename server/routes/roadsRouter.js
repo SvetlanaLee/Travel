@@ -87,6 +87,7 @@ router.get('/:id', async (req, res) => {
 
 router.post('/:id/comment', async(req, res) => {
  // console.log(req.body);
+ try {
   const { roadId, userId, text } = req.body;
   await Comment.create({
       roadId,
@@ -109,6 +110,11 @@ router.post('/:id/comment', async(req, res) => {
     )
   // console.log('allComments======', allComments)
   res.json({ allComments })
+}
+ catch (e) {
+     res.json({ e })
+    //  console.log('ошибка==============', e);
+ }
 });
 
 

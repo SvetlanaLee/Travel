@@ -199,6 +199,11 @@
     margin-top: 15px;
     margin-bottom: 15px;
     align-items: center;
+    /* display: flex;
+    justify-content: center;
+    flex-direction: column; 
+    margin: 15px auto;
+    padding: 25px; */
 }
 .pageOneRoadStyle {
   /* background-image: url(https://oir.mobi/uploads/posts/2021-03/1616578380_8-p-svetlii-fon-dlya-saita-8.jpg); */
@@ -259,7 +264,7 @@
 }
 
 ::-webkit-scrollbar {
-  width: 10px; 
+  width: 5px; 
   background: #cfcfd91d;
   border-radius: 15px;
 }
