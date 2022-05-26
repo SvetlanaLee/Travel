@@ -48,15 +48,17 @@ export default function FormForComment() {
       },
       body: JSON.stringify(newComment)
     });
-    //console.log(newComment)
+    // console.log(newComment)
     const commentFromBack = await addComment.json();
-    // console.log('commentFromBack', commentFromBack);
-    if (commentFromBack) {
+    // console.log('commentFromBack', commentFromBack.e);
+    if (!commentFromBack.e) {
       dispatch({type: 'GET_COMMENTS', payload: commentFromBack.allComments});
       // dispatch({type: 'ADD_COMMENTS', payload: commentFromBack});
       dispatch({type: 'CLEAR_INPUTS', payload: {}})
     } else {
-      dispatch({type: 'SET_ERROR', payload: commentFromBack});
+      // dispatch({type: 'SET_ERROR', payload: commentFromBack});
+      //  console.log('commentFromBack', commentFromBack);
+      dispatch({type: 'CLEAR_INPUTS', payload: {}})
       
       }
       
