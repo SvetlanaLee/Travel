@@ -2,7 +2,7 @@
 
 module.exports = {
   async up (queryInterface) {
-    await queryInterface.bulkInsert('Places', [
+    await queryInterface.bulkInsert('Comments', [
       {
         text: '1 день долгая дорога (выезд в 1 час ночи, приезд в Элисту в 15,30).Идеальным как и запланировано вышел только 1 день . Мы просто доехали до Элисты, по дороге тормознув в полях тюльпанов',
         userId: 4,
@@ -35,6 +35,6 @@ module.exports = {
   },
 
   async down (queryInterface) {
-    await queryInterface.bulkDelete('Places')
+    await queryInterface.bulkDelete('Comments')
   }
 };
